@@ -4,7 +4,7 @@
     "main": "dist/tailwindvue.umd.min.js",
     "module": "dist/tailwindvue.umd.js",
     "unpkg": "dist/tailwindvue.common.js",
-    "license" : "MIT",
+    "license": "MIT",
     "scripts": {
         "lint": "vue-cli-service lint",
         "serve": "vue-cli-service serve",
@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "core-js": "^3.6.4",
+        "tailwindcss": "^1.2.0",
         "vue": "^2.6.11"
     },
     "devDependencies": {
