@@ -1,8 +1,8 @@
 import '@/assets/css/tailwind.css'
 
-import HelloWorld from './components/HelloWorld';
+import Input from './components/Input';
 
 export {
-    HelloWorld
+    Input
 };
 
