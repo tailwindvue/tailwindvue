@@ -1,6 +1,12 @@
 <template>
     <div :class="theme.nav">
-
+        <ul v-for="item in items">
+            <li :class="theme.item">
+                <router-link :to="item.url">
+                    {{ item.label }}
+                </router-link>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -10,7 +16,7 @@
 
         props: {
             items: {
-                type: Object,
+                type: Array,
                 required: true
             },
 

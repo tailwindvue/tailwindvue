@@ -1,18 +1,18 @@
 <template>
-    <div :class="theme.panel">
-        <header :class="theme.header">
-            <slot name="header"/>
-        </header>
-
+    <div :class="theme[type]">
         <slot/>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'Panel',
+        name: 'Heading',
 
         props: {
+            type: {
+                default: 'h1'
+            },
+
             theme: {}
         },
     };

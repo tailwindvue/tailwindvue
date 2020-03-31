@@ -6,8 +6,10 @@ import defaultTheme from './stubs/defaultTheme';
 import Input from './components/Input';
 import Panel from './components/Panel';
 import Nav from './components/Nav';
+import Heading from './components/Heading';
 
 const components = [
+    Heading,
     Nav,
     Panel,
     Input
@@ -34,6 +36,7 @@ components.forEach(component => {
 
 
 export {
+    Heading,
     Input,
     Panel,
     Nav
