@@ -7,12 +7,14 @@ import Input from './components/Input';
 import Panel from './components/Panel';
 import Nav from './components/Nav';
 import Heading from './components/Heading';
+import App from './components/App';
 
 const components = [
+    App,
     Heading,
     Nav,
     Panel,
-    Input
+    Input,
 ];
 
 components.forEach(component => {
@@ -34,8 +36,8 @@ components.forEach(component => {
     };
 });
 
-
 export {
+    App,
     Heading,
     Input,
     Panel,
