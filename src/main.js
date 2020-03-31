@@ -1,29 +1,43 @@
 import '@/assets/css/tailwind.css';
-
+import deepmerge from 'deepmerge';
+import { toKebabCase } from './helpers';
+import defaultOptions from './stubs/defaultOptions';
+import defaultTheme from './stubs/defaultTheme';
 import Input from './components/Input';
-
-export {
-    Input
-};
+import Panel from './components/Panel';
 
 const components = [
+    Panel,
     Input
 ];
 
-const defaultOptions = {
-    prefix: 'tw-'
+components.forEach(component => {
+    component.install = (Vue, options = {}) => {
+        options = deepmerge(defaultOptions, options);
+
+        const { props } = component;
+
+        props['theme'] = {
+            default: () => defaultTheme[toKebabCase(component.name)]
+        };
+
+        Vue.component(options.prefix + toKebabCase(component.name), {
+            ...component,
+            ...{
+                props
+            }
+        });
+    };
+});
+
+
+export {
+    Input,
+    Panel
 };
 
-const TailwindVue = {
-    install(Vue, options = defaultOptions) {
-        components.forEach(component => Vue.component(options.prefix + toKebabCase(component.name), component));
+export default {
+    install(Vue, options) {
+        components.forEach(component => Vue.use(component, options));
     }
-};
-
-export default TailwindVue;
-
-const toKebabCase = string => {
-    return string && string.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-        .map(x => x.toLowerCase())
-        .join('-');
 };

@@ -1,7 +1,11 @@
 <template>
     <div>
-        <label :for="name" v-text="label"/>
-        <input class="border w-full p-2 rounded-md" type="text" :name="name" :value="value" @input="$emit('input', $event.target.value)">
+        <label :class="theme.label" :for="name" v-text="label"/>
+        <input :class="theme.input"
+               type="text"
+               :name="name"
+               :value="value"
+               @input="$emit('input', $event.target.value)">
     </div>
 </template>
 
@@ -22,7 +26,9 @@
 
             label: {
                 type: String,
-            }
+            },
+
+            theme: {}
         },
     };
 </script>
