@@ -5,8 +5,10 @@ import defaultOptions from './stubs/defaultOptions';
 import defaultTheme from './stubs/defaultTheme';
 import Input from './components/Input';
 import Panel from './components/Panel';
+import Nav from './components/Nav';
 
 const components = [
+    Nav,
     Panel,
     Input
 ];
@@ -33,7 +35,8 @@ components.forEach(component => {
 
 export {
     Input,
-    Panel
+    Panel,
+    Nav
 };
 
 export default {

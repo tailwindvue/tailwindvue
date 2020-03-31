@@ -1,4 +1,7 @@
 export default {
+    nav: {
+        nav: ''
+    },
     panel: {
         panel: 'p-4 rounded shadow bg-grey-100'
     },
