@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import Panel from '@/components/Panel';
+import Panel from 'Components/Panel';
 
 describe('Panel', () => {
     it('renders the panel', () => expect(shallowMount(Panel).contains('div')).toBe(true));
