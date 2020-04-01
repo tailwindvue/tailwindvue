@@ -13,7 +13,14 @@
         name: 'Panel',
 
         props: {
-            theme: {}
+            theme: {
+                default: () => {
+                    return {
+                        panel: '',
+                        header: ''
+                    };
+                }
+            }
         },
     };
 </script>

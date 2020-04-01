@@ -1,13 +1,13 @@
 import '@/assets/css/tailwind.css';
 import deepmerge from 'deepmerge';
-import { toKebabCase } from './helpers';
-import defaultOptions from './stubs/defaultOptions';
-import defaultTheme from './stubs/defaultTheme';
-import Input from './components/Input';
-import Panel from './components/Panel';
-import Nav from './components/Nav';
-import Heading from './components/Heading';
-import App from './components/App';
+import { toKebabCase } from '@/helpers';
+import defaultOptions from '@/stubs/defaultOptions';
+import defaultTheme from '@/stubs/defaultTheme';
+import Input from '@/components/Input';
+import Panel from '@/components/Panel';
+import Nav from '@/components/Nav';
+import Heading from '@/components/Heading';
+import App from '@/components/App';
 
 const components = [
     App,
@@ -26,6 +26,8 @@ components.forEach(component => {
         props['theme'] = {
             default: () => defaultTheme[toKebabCase(component.name)]
         };
+
+        console.log(props);
 
         Vue.component(options.prefix + toKebabCase(component.name), {
             ...component,

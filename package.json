@@ -1,14 +1,28 @@
 {
     "name": "@tailwindvue/tailwindvue",
     "version": "0.1.0",
+    "description": "A collection of VueJs components made with TailwindCSS",
+    "keywords": [
+        "Vue",
+        "VueJs",
+        "Tailwind",
+        "TailwindCSS",
+        "Components"
+    ],
+    "author": "Carl Cassar <hello@carlcassar.com>",
     "main": "dist/tailwindvue.umd.min.js",
     "module": "dist/tailwindvue.umd.js",
     "unpkg": "dist/tailwindvue.common.js",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tailwindvue/tailwindvue"
+    },
+    "sideEffects": false,
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "test:unit": "vue-cli-service test:unit",
+        "test": "vue-cli-service test:unit",
         "build-lib": "vue-cli-service build --target lib --name tailwindvue src/main.js",
         "watch": "vue-cli-service build --watch --target lib --name tailwindvue src/main.js"
     },

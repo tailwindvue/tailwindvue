@@ -1,29 +1,5 @@
-# tailwindvue
+# TailwindVue
 
-## Project setup
-```
-yarn install
-```
+Welcome to TailwindVue, a collection of VueJS components made with TailwindCSS.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Read the documentation at [https://tailwindvue.com](https://tailwindvue.com).
