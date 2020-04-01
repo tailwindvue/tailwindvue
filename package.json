@@ -2,6 +2,7 @@
     "name": "@tailwindvue/tailwindvue",
     "version": "0.1.0",
     "description": "A collection of VueJs components made with TailwindCSS",
+    "private": false,
     "keywords": [
         "Vue",
         "VueJs",
