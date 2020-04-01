@@ -1,51 +1,37 @@
+// Import Tailwind Css
 import '@/assets/css/tailwind.css';
-import deepmerge from 'deepmerge';
-import { toKebabCase } from '@/helpers';
-import defaultOptions from '@/stubs/defaultOptions';
-import defaultTheme from '@/stubs/defaultTheme';
-import Input from '@/components/Input';
-import Panel from '@/components/Panel';
-import Nav from '@/components/Nav';
-import Heading from '@/components/Heading';
-import App from '@/components/App';
+
+// Import Component Installer
+import Install from './classes/Install';
+
+// Import Components
+import Input from 'Components/Input';
+import Panel from 'Components/Panel';
+import Nav from 'Components/Nav';
+import Heading from 'Components/Heading';
+import App from 'Components/App';
 
 const components = [
     App,
-    Heading,
     Nav,
+    Heading,
     Panel,
-    Input,
+    Input
 ];
 
-components.forEach(component => {
-    component.install = (Vue, options = {}) => {
-        options = deepmerge(defaultOptions, options);
+// Install every component.
+components.forEach(component => Install.component(component));
 
-        const { props } = component;
-
-        props['theme'] = {
-            default: () => defaultTheme[toKebabCase(component.name)]
-        };
-
-        console.log(props);
-
-        Vue.component(options.prefix + toKebabCase(component.name), {
-            ...component,
-            ...{
-                props
-            }
-        });
-    };
-});
-
+// Export components for individual use.
 export {
     App,
+    Nav,
     Heading,
-    Input,
     Panel,
-    Nav
+    Input
 };
 
+// Export the component library.
 export default {
     install(Vue, options) {
         components.forEach(component => Vue.use(component, options));
