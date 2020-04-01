@@ -6,6 +6,7 @@
     "publishConfig": {
         "access": "public"
     },
+    "homepage": "https://www.tailwindvue.com",
     "keywords": [
         "Vue",
         "VueJs",
