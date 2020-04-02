@@ -9,7 +9,7 @@ import Input from 'Components/Input';
 import Panel from 'Components/Panel';
 import Nav from 'Components/Nav';
 import Heading from 'Components/Heading';
-import App from 'Components/App';
+import App from 'Components/layout/App';
 
 const components = [
     App,

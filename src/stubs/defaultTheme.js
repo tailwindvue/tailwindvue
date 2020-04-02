@@ -10,7 +10,13 @@ export default {
     |
     */
 
-    app: 'text-gray-900 bg-gray-100 h-screen p-10',
+    app: {
+        component: 'text-gray-900 bg-gray-100 h-screen',
+        navbar: '',
+        wrapper: 'container mx-auto flex flex-wrap px-4',
+        sidebar: 'w-full md:w-1/5',
+        main: 'w-full md:w-4/5'
+    },
 
     /*
     |--------------------------------------------------------------------------
