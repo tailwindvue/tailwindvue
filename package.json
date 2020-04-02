@@ -1,6 +1,6 @@
 {
     "name": "@tailwindvue/tailwindvue",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "A collection of VueJs components made with TailwindCSS",
     "private": false,
     "publishConfig": {
