@@ -7,13 +7,13 @@ import Install from './classes/Install';
 // Import Components
 import Input from 'Components/Input';
 import Panel from 'Components/Panel';
-import Nav from 'Components/Nav';
+import Sidenav from 'Components/Sidenav';
 import Heading from 'Components/Heading';
 import App from 'Components/layout/App';
 
 const components = [
     App,
-    Nav,
+    Sidenav,
     Heading,
     Panel,
     Input
@@ -25,7 +25,7 @@ components.forEach(component => Install.component(component));
 // Export components for individual use.
 export {
     App,
-    Nav,
+    Sidenav,
     Heading,
     Panel,
     Input

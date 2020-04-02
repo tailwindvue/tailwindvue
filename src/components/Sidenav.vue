@@ -1,5 +1,5 @@
 <template>
-    <div :class="theme.nav">
+    <div :class="theme.sidenav">
         <div v-for="item in items">
             <router-link :class="theme.item + ' ' + theme.itemHovered" v-if="item.routerLink" :to="item.routerLink">
                 {{ item.label }}
@@ -32,7 +32,7 @@
 
 <script>
     export default {
-        name: 'Nav',
+        name: 'Sidenav',
 
         props: {
             items: {

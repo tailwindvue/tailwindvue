@@ -37,8 +37,8 @@ export default {
         h5: ''
     },
 
-    nav: {
-        nav: '',
+    sidenav: {
+        sidenav: '',
         item: 'block uppercase mt-4 text-xs text-gray-500 font-medium ',
         itemHovered: 'hover:text-gray-600',
         subItem: 'block normal-case font-normal text-gray-600 text-sm hover:text-gray-800',
