@@ -1,5 +1,5 @@
 <template>
-    <div :class="theme.sidenav">
+    <div :class="theme.sidebar + ' md:block ' + visibility" @click="toggleVisibility">
         <div v-for="item in items">
             <router-link :class="theme.item + ' ' + theme.itemHovered" v-if="item.routerLink" :to="item.routerLink">
                 {{ item.label }}
@@ -14,7 +14,8 @@
             </div>
 
             <div v-for="subItem in item.items">
-                <router-link :class="theme.subItem + ' ' + theme.subItemHovered" v-if="subItem.routerLink" :to="subItem.routerLink">
+                <router-link :class="theme.subItem + ' ' + theme.subItemHovered" v-if="subItem.routerLink"
+                             :to="subItem.routerLink">
                     {{ subItem.label }}
                 </router-link>
 
@@ -31,8 +32,14 @@
 </template>
 
 <script>
+    import { TailwindVueEventBus } from '../main';
+
     export default {
-        name: 'Sidenav',
+        name: 'Sidebar',
+
+        mounted() {
+            TailwindVueEventBus.$on('toggleSidebar', this.toggleVisibility);
+        },
 
         props: {
             items: {
@@ -41,6 +48,19 @@
             },
 
             theme: {}
+        },
+
+        data() {
+            return {
+                visibility: 'hidden'
+            };
+        },
+
+        methods: {
+            toggleVisibility() {
+                TailwindVueEventBus.$emit('toggleHamburger');
+                this.visibility = this.visibility === 'hidden' ? 'block' : 'hidden';
+            }
         },
     };
 </script>

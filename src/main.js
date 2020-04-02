@@ -1,3 +1,6 @@
+// import Vue
+import Vue from 'vue';
+
 // Import Tailwind Css
 import '@/assets/css/tailwind.css';
 
@@ -7,16 +10,20 @@ import Install from './classes/Install';
 // Import Components
 import Input from 'Components/Input';
 import Panel from 'Components/Panel';
-import Sidenav from 'Components/Sidenav';
+import Sidebar from 'Components/Sidebar';
 import Heading from 'Components/Heading';
 import App from 'Components/layout/App';
+import Navbar from 'Components/Navbar';
+
+const TailwindVueEventBus = new Vue();
 
 const components = [
     App,
-    Sidenav,
+    Sidebar,
     Heading,
     Panel,
-    Input
+    Input,
+    Navbar
 ];
 
 // Install every component.
@@ -25,10 +32,12 @@ components.forEach(component => Install.component(component));
 // Export components for individual use.
 export {
     App,
-    Sidenav,
+    Sidebar,
     Heading,
     Panel,
-    Input
+    Input,
+    Navbar,
+    TailwindVueEventBus
 };
 
 // Export the component library.
