@@ -14,6 +14,7 @@ import Sidebar from 'Components/Sidebar';
 import Heading from 'Components/Heading';
 import App from 'Components/layout/App';
 import Navbar from 'Components/Navbar';
+import Alert from 'Components/Alert';
 
 const TailwindVueEventBus = new Vue();
 
@@ -23,7 +24,8 @@ const components = [
     Heading,
     Panel,
     Input,
-    Navbar
+    Navbar,
+    Alert
 ];
 
 // Install every component.
