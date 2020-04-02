@@ -21,7 +21,17 @@
         name: 'App',
 
         props: {
-            theme: {}
+            theme: {
+                default: () => {
+                    return {
+                        component: '',
+                        navbar: '',
+                        wrapper: '',
+                        sidebar: '',
+                        main: ''
+                    };
+                }
+            },
         },
     };
 </script>
