@@ -54,7 +54,7 @@
         },
 
         methods: {
-            toggleMain(visibility) {
+            toggleMain() {
                 this.mainVisibility = this.mainVisibility === 'hidden' ? 'block' : 'hidden';
             }
         },
