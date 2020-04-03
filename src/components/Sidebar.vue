@@ -38,7 +38,7 @@
         name: 'Sidebar',
 
         mounted() {
-            TailwindVueEventBus.$on('toggleSidebar', this.toggleVisibility);
+            TailwindVueEventBus.$on('menuClicked', this.toggleVisibility);
         },
 
         props: {
@@ -58,7 +58,7 @@
 
         methods: {
             toggleVisibility() {
-                TailwindVueEventBus.$emit('toggleHamburger');
+                TailwindVueEventBus.$emit('sidebarToggled');
                 this.visibility = this.visibility === 'hidden' ? 'block' : 'hidden';
             }
         },

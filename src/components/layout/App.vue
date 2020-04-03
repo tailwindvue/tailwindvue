@@ -8,7 +8,7 @@
                 <div :class="theme.sidebar">
                     <slot name="sidebar"/>
                 </div>
-                <div :class="theme.main">
+                <div :class="theme.main + ' md:block ' + mainVisibility">
                     <slot/>
                 </div>
             </div>
@@ -17,8 +17,14 @@
 </template>
 
 <script>
+    import { TailwindVueEventBus } from '../../main';
+
     export default {
         name: 'App',
+
+        mounted() {
+            TailwindVueEventBus.$on('menuClicked', this.toggleMain);
+        },
 
         props: {
             theme: {
@@ -32,6 +38,18 @@
                     };
                 }
             },
+        },
+
+        data() {
+            return {
+                mainVisibility: 'visible'
+            };
+        },
+
+        methods: {
+            toggleMain() {
+                this.mainVisibility = this.mainVisibility === 'hidden' ? 'block' : 'hidden';
+            }
         },
     };
 </script>

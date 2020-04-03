@@ -10,10 +10,9 @@
             <div :class="theme.right">
                 <slot name="right"/>
             </div>
-            <div :class="theme.hamburger" @click="toggleSidebar">
-                <slot name="hamburger">
-                    <div v-if="hamburger">&times;</div>
-                    <div v-else>&#9776;</div>
+            <div :class="theme.menu" @click="menuClicked">
+                <slot name="menu">
+                    <div v-html="menuIcon"/>
                 </slot>
             </div>
         </div>
@@ -27,7 +26,7 @@
         name: 'Navbar',
 
         mounted() {
-            TailwindVueEventBus.$on('toggleHamburger', this.toggleHamburger);
+            TailwindVueEventBus.$on('sidebarToggled', this.toggleMenuIcon);
         },
 
         props: {
@@ -36,17 +35,17 @@
 
         data() {
             return {
-                hamburger: false
+                menuIcon: '&#9776;'
             };
         },
 
         methods: {
-            toggleHamburger() {
-                this.hamburger = !this.hamburger;
+            toggleMenuIcon() {
+                this.menuIcon = this.menuIcon === '&#9776;' ? '&times;' : '&#9776;';
             },
 
-            toggleSidebar() {
-                TailwindVueEventBus.$emit('toggleSidebar');
+            menuClicked() {
+                TailwindVueEventBus.$emit('menuClicked');
             }
         },
     };

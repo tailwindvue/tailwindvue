@@ -13,7 +13,7 @@ export default {
     app: {
         component: 'text-gray-800 bg-gray-100 h-screen overflow-y-scroll',
         navbar: '',
-        wrapper: 'container mx-auto flex flex-wrap px-4',
+        wrapper: 'container mx-auto flex flex-wrap px-4 mt-20',
         sidebar: 'w-full md:w-1/5',
         main: 'w-full md:w-4/5'
     },
@@ -38,19 +38,19 @@ export default {
     },
 
     navbar: {
-        component: 'bg-white h-16 mb-4 border-b',
+        component: 'bg-white h-16 mb-4 border-b fixed w-full z-10',
         wrapper: 'container mx-auto px-4 flex flex-wrap justify-between items-center h-full',
         left: 'w-1/3 text-left',
         middle: 'w-1/3 text-center',
         right: 'w-1/3 text-right hidden md:block',
-        hamburger: 'w-1/3 text-right md:hidden cursor-pointer select-none text-3xl'
+        menu: 'w-1/3 text-right md:hidden cursor-pointer select-none text-3xl'
     },
 
     sidebar: {
-        sidebar: 'mb-4',
-        item: 'block uppercase mt-4 text-xs text-gray-500 font-medium ',
+        sidebar: 'mb-4 z-10',
+        item: 'block uppercase mt-4 text-sm text-gray-500 font-medium ',
         itemHovered: 'hover:text-gray-600',
-        subItem: 'block normal-case font-normal text-gray-600 text-sm hover:text-gray-800',
+        subItem: 'block normal-case font-normal text-gray-600 hover:text-gray-800',
         subItemHovered: 'hover:text-gray-800'
     },
 
