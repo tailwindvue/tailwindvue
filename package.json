@@ -58,6 +58,7 @@
         "preset": "@vue/cli-plugin-unit-jest",
         "moduleNameMapper": {
             "Components/(.*)$": "<rootDir>/src/components/$1"
-        }
+        },
+        "transformIgnorePatterns": ["/node_modules/(?!prismjs)"]
     }
 }
