@@ -58,8 +58,8 @@
 
         methods: {
             toggleVisibility() {
-                TailwindVueEventBus.$emit('sidebarToggled');
                 this.visibility = this.visibility === 'hidden' ? 'block' : 'hidden';
+                TailwindVueEventBus.$emit('sidebarToggled', this.visibility);
             }
         },
     };

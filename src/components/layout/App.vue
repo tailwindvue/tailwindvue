@@ -30,7 +30,7 @@
         name: 'App',
 
         mounted() {
-            TailwindVueEventBus.$on('menuClicked', this.toggleMain);
+            TailwindVueEventBus.$on('sidebarToggled', this.toggleMain);
         },
 
         props: {
@@ -54,7 +54,7 @@
         },
 
         methods: {
-            toggleMain() {
+            toggleMain(visibility) {
                 this.mainVisibility = this.mainVisibility === 'hidden' ? 'block' : 'hidden';
             }
         },
