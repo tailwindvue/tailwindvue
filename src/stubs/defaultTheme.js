@@ -11,11 +11,12 @@ export default {
     */
 
     app: {
-        component: 'text-gray-800 bg-gray-100 flex flex-col h-full',
-        navbar: '',
-        wrapper: 'container mx-auto flex flex-wrap px-4 flex-1 pt-20',
-        sidebar: 'w-full md:w-1/5',
-        main: 'w-full md:w-4/5',
+        component: 'text-gray-800 bg-gray-100 flex flex-col min-h-screen',
+        header: '',
+        wrapper: 'flex flex-col flex-auto',
+        container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
+        sidebar: 'w-full md:w-1/3 lg:w-1/5',
+        main: 'w-full md:w-4/6 lg:w-4/5',
         footer: 'p-4 mt-4 bg-white bg-gray-200 border-t text-center'
     },
 
@@ -39,7 +40,7 @@ export default {
     },
 
     navbar: {
-        component: 'bg-white h-16 mb-4 border-b fixed w-full z-10',
+        component: 'bg-white h-16 border-b w-full',
         wrapper: 'container mx-auto px-4 flex flex-wrap justify-between items-center h-full',
         left: 'w-1/3 text-left',
         middle: 'w-1/3 text-center',
@@ -56,8 +57,8 @@ export default {
     },
 
     alert: {
-        component: 'flex border-l-4 p-4 min-h-32',
-        icon: 'flex w-16 justify-center items-center',
+        component: 'flex flex-col md:flex-row border-l-4 p-4 min-h-32',
+        icon: 'flex w-16 mb-4 md:mb-0 md:justify-center items-center',
         body: 'flex-1',
         action: 'flex w-8 text-xl justify-center items-center cursor-pointer select-none',
         types: {

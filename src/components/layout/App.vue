@@ -1,17 +1,19 @@
 <template>
     <div :class="theme.component">
-        <div :class="theme.navbar">
-            <slot name="navbar"/>
-        </div>
+        <header :class="theme.header">
+            <slot name="header"/>
+        </header>
         <div :class="theme.wrapper">
-            <div :class="theme.sidebar">
-                <slot name="sidebar"/>
-            </div>
-            <div :class="theme.main + ' md:block ' + mainVisibility">
-                <slot/>
+            <div :class="theme.container">
+                <aside :class="theme.sidebar">
+                    <slot name="sidebar"/>
+                </aside>
+                <main :class="theme.main + ' md:block ' + mainVisibility">
+                    <slot/>
+                </main>
             </div>
         </div>
-        <div :class="theme.footer">
+        <footer :class="theme.footer">
             <i class="fas fa-envelope fa-fw"></i>
             <a href="mailto:hello@tailwindvue.com">
                 hello@tailwindvue.com
@@ -19,7 +21,7 @@
             <span class="hidden md:inline-block">
                 <i class="fas fa-hand-point-left fa-fw"></i> Why not say hello?
             </span>
-        </div>
+        </footer>
     </div>
 </template>
 
@@ -38,8 +40,9 @@
                 default: () => {
                     return {
                         component: '',
-                        navbar: '',
+                        header: '',
                         wrapper: '',
+                        container: '',
                         sidebar: '',
                         main: ''
                     };
