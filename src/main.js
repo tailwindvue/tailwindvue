@@ -15,8 +15,9 @@ import Heading from 'Components/Heading';
 import App from 'Components/layout/App';
 import Navbar from 'Components/Navbar';
 import Alert from 'Components/Alert';
+import Code from 'Components/Code';
 
-const TailwindVueEventBus = new Vue();
+export const TailwindVueEventBus = new Vue();
 
 const components = [
     App,
@@ -25,7 +26,8 @@ const components = [
     Panel,
     Input,
     Navbar,
-    Alert
+    Alert,
+    Code
 ];
 
 // Install every component.
@@ -39,7 +41,8 @@ export {
     Panel,
     Input,
     Navbar,
-    TailwindVueEventBus
+    Alert,
+    Code
 };
 
 // Export the component library.

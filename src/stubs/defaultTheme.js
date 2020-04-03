@@ -76,5 +76,13 @@ export default {
     input: {
         label: 'font-bold block pb-1',
         input: 'border w-full p-2 rounded-md'
+    },
+
+    code: {
+        component: 'relative',
+        pre: 'rounded mb-0 pb-0',
+        code: '',
+        language: 'absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin',
+        caption: 'text-xs font-bold uppercase'
     }
 };
