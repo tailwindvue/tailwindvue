@@ -40,7 +40,6 @@
         "core-js": "^3.6.4",
         "deepmerge": "^4.2.2",
         "prismjs": "^1.19.0",
-        "tailwindcss": "^1.2.0",
         "vue": "^2.6.11"
     },
     "devDependencies": {

@@ -1,9 +1,6 @@
 // import Vue
 import Vue from 'vue';
 
-// Import Tailwind Css
-import '@/assets/css/tailwind.css';
-
 // Import Component Installer
 import Install from './classes/Install';
 
