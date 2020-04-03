@@ -8,7 +8,7 @@
 
 ![TailwindVue Banner](https://repository-images.githubusercontent.com/250559015/86745c80-74ef-11ea-8f15-79bf98026247)
 
-Welcome to TailwindVue, a library of components made with VueJS and TailwindCSS.
+Welcome to TailwindVue, a library of components made with VueJS and Tailwind CSS.
 
 Read the documentation at [https://www.tailwindvue.com](https://www.tailwindvue.com).
 

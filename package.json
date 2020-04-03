@@ -1,7 +1,7 @@
 {
     "name": "@tailwindvue/tailwindvue",
     "version": "0.1.8",
-    "description": "A collection of VueJs components made with TailwindCSS",
+    "description": "A collection of VueJs components made with Tailwind CSS",
     "private": false,
     "publishConfig": {
         "access": "public"
@@ -11,7 +11,7 @@
         "Vue",
         "VueJs",
         "Tailwind",
-        "TailwindCSS",
+        "Tailwind CSS",
         "Components"
     ],
     "author": "Carl Cassar <hello@carlcassar.com>",
