@@ -11,11 +11,12 @@ export default {
     */
 
     app: {
-        component: 'text-gray-800 bg-gray-100 h-screen overflow-y-scroll',
+        component: 'text-gray-800 bg-gray-100 flex flex-col h-full',
         navbar: '',
-        wrapper: 'container mx-auto flex flex-wrap px-4 mt-20',
+        wrapper: 'container mx-auto flex flex-wrap px-4 flex-1 pt-20',
         sidebar: 'w-full md:w-1/5',
-        main: 'w-full md:w-4/5'
+        main: 'w-full md:w-4/5',
+        footer: 'p-4 mt-4 bg-white bg-gray-200 border-t text-center'
     },
 
     /*
