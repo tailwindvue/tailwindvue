@@ -1,6 +1,8 @@
 <template>
-    <div :class="theme[type]">
-        <slot/>
+    <div :class="theme.component">
+        <div :class="theme.headings[type]">
+            <slot/>
+        </div>
     </div>
 </template>
 
@@ -9,11 +11,29 @@
         name: 'Heading',
 
         props: {
+            /**
+             * @returns {String}
+             */
             type: {
                 default: 'h1'
             },
 
-            theme: {}
+            /**
+             * @returns {Object}
+             */
+            theme: {
+                default: () => {
+                    return {
+                        headings: {
+                            h1: '',
+                            h2: '',
+                            h3: '',
+                            h4: '',
+                            h5: '',
+                        }
+                    };
+                }
+            }
         },
     };
 </script>

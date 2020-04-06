@@ -46,7 +46,7 @@ export default class Install {
         const { props } = component;
 
         props['theme'] = {
-            default: () => defaultTheme[this.toKebabCase(component.name)]
+            default: () => defaultTheme[component.name]
         };
 
         return props;

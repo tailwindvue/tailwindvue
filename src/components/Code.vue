@@ -22,10 +22,10 @@
         computed: {
             codeTheme() {
                 if (this.language === 'vuejs') {
-                    return `${this.theme.code} language-html`
+                    return `${this.theme.code} language-html`;
                 }
 
-                return `${this.theme.code} language-${this.language}`
+                return `${this.theme.code} language-${this.language}`;
             }
         },
 
@@ -56,3 +56,9 @@
         },
     };
 </script>
+
+<style>
+    pre {
+        margin: 0 !important;
+    }
+</style>
