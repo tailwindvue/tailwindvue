@@ -59,7 +59,7 @@ export default {
     alert: {
         component: 'flex flex-col md:flex-row border-l-4 p-4 min-h-32',
         icon: 'flex w-16 mb-4 md:mb-0 md:justify-center items-center',
-        body: 'flex-1',
+        body: 'flex-1 flex justify-between',
         action: 'flex w-8 text-xl justify-center items-center cursor-pointer select-none',
         types: {
             default: 'bg-white',

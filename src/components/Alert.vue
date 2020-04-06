@@ -4,10 +4,12 @@
             <slot name="icon"/>
         </div>
         <div :class="theme.body">
-            <slot/>
-        </div>
-        <div v-if="dismissable" :class="theme.action" @click="dismiss">
-            &times;
+            <div>
+                <slot/>
+            </div>
+            <div v-if="dismissable" :class="theme.action" @click="dismiss">
+                &times;
+            </div>
         </div>
     </div>
 </template>
