@@ -19,7 +19,12 @@ export default class Install {
         component.install = (Vue, options = {}) => {
             options = deepmerge(defaultOptions, options);
 
-            this.makeComponent(Vue, options, component);
+            Vue.component(this.name(options, component), {
+                ...(component),
+                ...{
+                    props: this.props(component)
+                }
+            });
         };
     }
 
@@ -32,8 +37,8 @@ export default class Install {
      * @param {object} component
      * @returns {*}
      */
-    static makeName(options, component) {
-        return options.prefix + this.toKebabCase(component.name);
+    static name(options, component) {
+        return options.prefix + '-' + this.toKebabCase(component.name);
     }
 
     /**
@@ -42,7 +47,7 @@ export default class Install {
      * @param {object} component
      * @returns {*}
      */
-    static makeProps(component) {
+    static props(component) {
         const { props } = component;
 
         props['theme'] = {
@@ -51,23 +56,6 @@ export default class Install {
 
         return props;
     }
-
-    /**
-     * Make a new component from the old component and additional injected properties.
-     *
-     * @param {Vue} Vue
-     * @param {Object} options
-     * @param {Object} component
-     */
-    static makeComponent(Vue, options, component) {
-        Vue.component(this.makeName(options, component), {
-            ...component,
-            ...{
-                props: this.makeProps(component)
-            }
-        });
-    }
-
     /**
      * Convert the component name from TitleCase to KebabCase.
      *
