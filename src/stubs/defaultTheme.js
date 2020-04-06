@@ -105,8 +105,8 @@ export default {
 
     TabbedCodeDemo: {
         component: 'w-full',
-        tabs: 'flex ml-4',
-        tab: 'py-1 px-4 cursor-pointer text-center rounded-t hover:bg-gray-200 text-gray-500',
+        tabs: 'flex md:ml-4 text-sm md:text-base flex-wrap',
+        tab: 'mb-2 md:mb-0 py-1 px-4 w-1/3 md:w-auto cursor-pointer text-center rounded md:rounded-b-none hover:bg-gray-200 text-gray-500',
         activeTab: 'bg-gray-300 border-gray-500 rounded-t text-gray-700',
         inactiveTab: 'border-gray-200'
     },
