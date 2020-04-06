@@ -7,26 +7,43 @@
             <div>
                 <slot/>
             </div>
-            <div v-if="dismissable" :class="theme.action" @click="dismiss">
-                &times;
+            <div ref="dismiss-button" v-if="dismissable" :class="theme.action" @click="dismiss">
+                <slot name="action">&times;</slot>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import defaultTheme from '../stubs/defaultTheme';
+
     export default {
         name: 'Alert',
 
+        mounted() {
+            if (this.duration) {
+                this.setDurationTimeout(this.duration);
+            }
+        },
+
         watch: {
             duration(value) {
-                setTimeout(() => this.dismiss(), value * 1000);
+                this.setDurationTimeout(value);
             }
         },
 
         props: {
             type: {
                 default: 'default',
+                validator: value => {
+                    return [
+                        'default',
+                        'info',
+                        'warning',
+                        'danger',
+                        'success'
+                    ].includes(value);
+                }
             },
 
             dismissable: {
@@ -39,10 +56,7 @@
 
             theme: {
                 default: () => {
-                    return {
-                        component: '',
-                        icon: ''
-                    };
+                    return defaultTheme.Alert;
                 }
             }
         },
@@ -58,6 +72,10 @@
                 this.visible = !this.visible;
                 this.$emit('dismissed', this);
             },
+
+            setDurationTimeout(value) {
+                setTimeout(() => this.dismiss(), value * 1000);
+            }
         },
     };
 </script>

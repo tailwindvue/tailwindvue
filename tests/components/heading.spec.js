@@ -31,7 +31,7 @@ describe('Heading', () => {
         expect(wrapper.vm.$props.type).toBe('h1');
     });
 
-    it('accepts a type that can modify the heading type', () => {
+    it('renders the header type passed as a header type prop', () => {
         const wrapper = shallowMount(Heading, {
             propsData: { type: 'h2' }
         });
