@@ -60,7 +60,7 @@ export default {
     },
 
     Alert: {
-        component: 'flex flex-col md:flex-row border-l-4 p-4 min-h-32',
+        component: 'flex flex-col md:flex-row border-l-4 p-4 min-h-32 border',
         icon: 'flex w-16 mb-4 md:mb-0 md:justify-center items-center',
         body: 'flex-1 flex justify-between',
         action: 'flex w-8 text-xl justify-center items-center cursor-pointer select-none',
@@ -88,18 +88,34 @@ export default {
         pre: 'rounded',
         code: '',
         language: 'absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin',
-        caption: 'mt-1 text-xs font-bold uppercase'
+        caption: 'mt-2 text-xs uppercase text-gray-500 ml-4'
     },
 
     CodeDemo: {
-        component: 'mt-4 border rounded-lg p-0',
+        component: 'border rounded-lg',
         demo: 'm-4',
-        caption: 'mt-1 text-xs font-bold uppercase',
+        caption: 'mt-2 text-xs uppercase text-gray-500 ml-4',
         code: {
             component: 'relative',
             pre: 'rounded rounded-t-none',
             code: '',
             language: 'absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin',
         }
+    },
+
+    TabbedCodeDemo: {
+        component: 'w-full',
+        tabs: 'flex ml-4',
+        tab: 'py-1 px-4 cursor-pointer text-center rounded-t hover:bg-gray-200 text-gray-500',
+        activeTab: 'bg-gray-300 border-gray-500 rounded-t text-gray-700',
+        inactiveTab: 'border-gray-200'
+    },
+
+    Tabs: {
+        component: 'w-full',
+        tabs: 'flex border-b',
+        tab: 'w-full px-4 py-2 cursor-pointer text-center hover:bg-gray-200 text-gray-500',
+        activeTab: 'bg-gray-300 rounded-t text-gray-700',
+        inactiveTab: 'border-gray-200'
     }
 };

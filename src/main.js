@@ -14,6 +14,9 @@ import Navbar from 'Components/Navbar';
 import Alert from 'Components/Alert';
 import Code from 'Components/Code';
 import CodeDemo from './components/CodeDemo';
+import Tabs from './components/Tabs';
+import Tab from './components/Tab';
+import TabbedCodeDemo from './components/TabbedCodeDemo';
 
 export const TailwindVueEventBus = new Vue();
 
@@ -26,7 +29,10 @@ const components = [
     Navbar,
     Alert,
     Code,
-    CodeDemo
+    CodeDemo,
+    TabbedCodeDemo,
+    Tabs,
+    Tab
 ];
 
 // Install every component.
@@ -42,7 +48,10 @@ export {
     Navbar,
     Alert,
     Code,
-    CodeDemo
+    CodeDemo,
+    TabbedCodeDemo,
+    Tabs,
+    Tab
 };
 
 // Export the component library.
