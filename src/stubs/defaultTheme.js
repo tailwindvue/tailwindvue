@@ -38,7 +38,8 @@ export default {
             h2: 'my-3 text-3xl',
             h3: 'my-2 text-2xl',
             h4: 'my-1 text-xl',
-            h5: 'my-0 text-normal'
+            h5: 'my-0 text-normal',
+            h6: 'my-0 text-sm'
         },
     },
 

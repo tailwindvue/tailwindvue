@@ -1,6 +1,6 @@
 <template>
     <div :class="theme.component">
-        <div :class="theme.headings[type]">
+        <div :is="type" :class="theme.headings[type]">
             <slot/>
         </div>
     </div>
@@ -30,6 +30,7 @@
                             h3: '',
                             h4: '',
                             h5: '',
+                            h6: '',
                         }
                     };
                 }
