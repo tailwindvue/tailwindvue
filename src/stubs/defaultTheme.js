@@ -42,10 +42,10 @@ export default {
     navbar: {
         component: 'bg-white h-16 border-b w-full',
         wrapper: 'container mx-auto px-4 flex flex-wrap justify-between items-center h-full',
-        left: 'w-1/3 text-left',
-        middle: 'w-1/3 text-center',
-        right: 'w-1/3 text-right hidden md:block',
-        menu: 'w-1/3 text-right md:hidden cursor-pointer select-none text-3xl'
+        left: 'w-1/2 md:w-1/3 text-left',
+        middle: 'hidden md:block w-1/3  text-center',
+        right: 'w-1/2 md:w-1/3 text-right hidden md:block',
+        menu: 'w-1/3 text-right md:hidden cursor-pointer select-none text-3xl leading-none -mt-1'
     },
 
     sidebar: {
