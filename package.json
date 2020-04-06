@@ -58,6 +58,9 @@
     ],
     "jest": {
         "preset": "@vue/cli-plugin-unit-jest",
+        "testMatch": [
+            "**/tests/**/*.spec.[jt]s?(x)"
+        ],
         "moduleNameMapper": {
             "Components/(.*)$": "<rootDir>/src/components/$1"
         },
