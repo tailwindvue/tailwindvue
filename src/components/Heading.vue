@@ -1,6 +1,7 @@
 <template>
     <div :class="theme.component">
         <div :is="type" :class="theme.headings[type]">
+            {{ text }}
             <slot/>
         </div>
     </div>
@@ -11,16 +12,18 @@
         name: 'Heading',
 
         props: {
-            /**
-             * @returns {String}
-             */
+            /** @returns {String} */
             type: {
-                default: 'h1'
+                default: 'h1',
+                type: String
             },
 
-            /**
-             * @returns {Object}
-             */
+            /** @returns {String} */
+            text: {
+                type: String
+            },
+
+            /** @returns {Object} */
             theme: {
                 default: () => {
                     return {
