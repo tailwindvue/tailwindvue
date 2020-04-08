@@ -118,5 +118,16 @@ export default {
         tab: 'w-full px-4 py-2 cursor-pointer text-center hover:bg-gray-200 text-gray-500',
         activeTab: 'bg-gray-300 rounded-t text-gray-700',
         inactiveTab: 'border-gray-200'
+    },
+
+    Table: {
+        component: 'bg-white rounded-md border',
+        headerRounding: 'py-1 bg-gray-200 rounded-t-md border-red-900 w-full',
+        wrapper: 'overflow-x-scroll',
+        table: 'table-auto w-full overflow-scroll',
+        thead: 'border-b border-b-2 bg-gray-200 uppercase text-xs text-gray-600',
+        th: 'pt-2 pb-3 px-3 font-medium tracking-widest',
+        tr: 'first:border-t-0 border-t',
+        td: 'p-3 text-center'
     }
 };

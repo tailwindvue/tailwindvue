@@ -17,6 +17,7 @@ import CodeDemo from './components/CodeDemo';
 import Tabs from './components/Tabs';
 import Tab from './components/Tab';
 import TabbedCodeDemo from './components/TabbedCodeDemo';
+import Table from './components/Table';
 
 export const TailwindVueEventBus = new Vue();
 
@@ -32,7 +33,8 @@ const components = [
     CodeDemo,
     TabbedCodeDemo,
     Tabs,
-    Tab
+    Tab,
+    Table
 ];
 
 // Install every component.
@@ -51,7 +53,8 @@ export {
     CodeDemo,
     TabbedCodeDemo,
     Tabs,
-    Tab
+    Tab,
+    Table
 };
 
 // Export the component library.
