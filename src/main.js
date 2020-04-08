@@ -18,6 +18,7 @@ import Tabs from './components/Tabs';
 import Tab from './components/Tab';
 import TabbedCodeDemo from './components/TabbedCodeDemo';
 import Table from './components/Table';
+import Badge from './components/Badge';
 
 export const TailwindVueEventBus = new Vue();
 
@@ -34,7 +35,8 @@ const components = [
     TabbedCodeDemo,
     Tabs,
     Tab,
-    Table
+    Table,
+    Badge
 ];
 
 // Install every component.

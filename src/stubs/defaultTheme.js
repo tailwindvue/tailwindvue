@@ -129,5 +129,16 @@ export default {
         th: 'pt-2 pb-3 px-3 font-medium tracking-widest',
         tr: 'first:border-t-0 border-t',
         td: 'p-3 text-center'
-    }
+    },
+
+    Badge: {
+        component: 'py-1 px-2 text-xs rounded uppercase tracking-wide font-medium border',
+        types: {
+            default: 'bg-white text-gray-600',
+            info: 'bg-blue-100 text-blue-600 border-blue-200',
+            warning: 'bg-yellow-100 text-yellow-600 border-yellow-400',
+            danger: 'bg-red-100 text-red-600 border-red-200',
+            success: 'bg-green-100 text-green-600 border-green-200',
+        }
+    },
 };
