@@ -57,7 +57,7 @@ export default {
     */
 
     badge: {
-        component: 'py-1 px-2 text-xs rounded uppercase tracking-wide font-medium border',
+        component: 'py-1 px-2 text-xs rounded uppercase tracking-wide font-medium border inline-block',
         types: {
             default: 'bg-white text-gray-600',
             info: 'bg-blue-100 text-blue-600 border-blue-200',
