@@ -37,7 +37,7 @@ export default {
 
     app: {
         component: 'text-gray-800 bg-gray-100 flex flex-col min-h-screen',
-        header: 'mb-4',
+        header: 'mb-20',
         wrapper: 'flex flex-col flex-auto',
         container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
         left: 'w-full md:w-1/4 lg:w-1/6',
@@ -163,10 +163,10 @@ export default {
     */
 
     navbar: {
-        component: 'bg-white h-16 border-b w-full',
+        component: 'bg-white h-16 border-b w-full fixed z-20',
         wrapper: 'container mx-auto px-4 flex flex-wrap justify-between items-center h-full',
         left: 'w-1/2 md:w-1/3 text-left',
-        middle: 'hidden md:block w-1/3  text-center',
+        middle: 'hidden md:block w-1/3 text-center',
         right: 'w-1/2 md:w-1/3 text-right hidden md:block',
         menu: 'w-1/3 text-right md:hidden cursor-pointer select-none text-3xl leading-none -mt-1'
     },
@@ -197,7 +197,7 @@ export default {
     |
     */
     sidebar: {
-        sidebar: 'mb-4 z-10',
+        component: 'mb-4 z-10 fixed',
         item: 'block uppercase mt-4 text-sm text-gray-500 font-medium',
         itemHovered: 'hover:text-gray-600',
         subItem: 'block normal-case font-normal text-gray-600 hover:text-gray-800',

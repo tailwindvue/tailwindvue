@@ -1,5 +1,5 @@
 <template>
-    <div :class="theme.sidebar + ' md:block ' + visibility" @click="toggleVisibility">
+    <div :class="theme.component + ' md:block ' + visibility" @click="toggleVisibility">
         <div v-for="item in items">
             <div :is="tagType(item)" :key="item.name" :class="classes(item, 'item')" :to="item.path" :href="item.url">
                 {{ item.name }}
