@@ -4,7 +4,7 @@
         <div :class="theme.wrapper">
             <table :class="theme.table">
                 <thead v-if="showHeader" :class="theme.thead">
-                <tr v-if="items.length" is="TableRow">
+                <tr v-if="headings.length" is="TableRow">
                     <th is="TableHeading" v-for="heading in headings" :key="heading">
                         {{ heading }}
                     </th>
@@ -13,8 +13,8 @@
                 </thead>
                 <tbody :class="theme.tbody">
                 <slot/>
-                <tr is="TableRow" v-if="items.length" v-for="item in items" :key="heading">
-                    <td is="TableColumn" :class="theme.td" v-for="column in item" :key="item">
+                <tr is="TableRow" v-if="items.length" v-for="item in items">
+                    <td is="TableColumn" :class="theme.td" v-for="column in item" :key="column">
                         {{ column }}
                     </td>
                 </tr>
