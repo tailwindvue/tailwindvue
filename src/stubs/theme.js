@@ -40,8 +40,9 @@ export default {
         header: 'mb-4',
         wrapper: 'flex flex-col flex-auto',
         container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
-        sidebar: 'w-full md:w-1/3 lg:w-1/5',
-        main: 'w-full md:w-4/6 lg:w-4/5',
+        left: 'w-full md:w-1/4 lg:w-1/6',
+        main: 'w-full md:w-3/4 lg:w-4/6',
+        right: 'w-full hidden lg:w-1/6 lg:block',
         footer: 'p-4 mt-4 bg-white bg-gray-200 border-t text-center'
     },
 

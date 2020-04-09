@@ -5,12 +5,15 @@
         </header>
         <div :class="theme.wrapper">
             <div :class="theme.container">
-                <aside :class="theme.sidebar">
-                    <slot name="sidebar"/>
+                <aside v-if="$slots.left" :class="theme.left">
+                    <slot name="left"/>
                 </aside>
                 <main :class="theme.main + ' md:block ' + mainVisibility">
                     <slot/>
                 </main>
+                <aside v-if="$slots.right" :class="theme.right">
+                    <slot name="right"/>
+                </aside>
             </div>
         </div>
         <footer :class="theme.footer">
