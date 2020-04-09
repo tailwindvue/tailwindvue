@@ -132,7 +132,7 @@ export default {
             h6: 'my-0 text-sm inline-block'
         },
         hovered: 'cursor-pointer',
-        anchor: 'ml-2 text-gray-500'
+        anchor: 'ml-2 text-gray-500 text-lg'
     },
 
     /*

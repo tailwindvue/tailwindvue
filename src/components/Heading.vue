@@ -3,12 +3,12 @@
          :class="theme.component + (this.isHovered ? theme.hovered : '')"
          @click="goToHeader">
         <span :is="type" :class="theme.headings[type]"
-             @mouseenter="toggleIsHovered"
-             @mouseleave="toggleIsHovered">
+              @mouseenter="toggleIsHovered"
+              @mouseleave="toggleIsHovered">
             {{ text }}
             <slot/>
-            <span v-if="isHovered" :class="theme.anchor">#</span>
         </span>
+        <span v-if="isHovered" :class="theme.anchor">#</span>
     </div>
 </template>
 
