@@ -40,10 +40,10 @@ export default {
         header: 'mb-20',
         wrapper: 'flex flex-col flex-auto',
         container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
-        left: 'w-full md:w-1/4 lg:w-1/6',
-        main: 'w-full md:w-3/4 lg:w-4/6',
-        right: 'w-full hidden lg:w-1/6 lg:block',
-        footer: 'p-4 mt-4 bg-white bg-gray-200 border-t text-center'
+        left: 'w-full md:w-1/4 lg:w-64',
+        main: 'w-full md:w-3/4 lg:flex-1',
+        right: 'w-full hidden lg:w-64 lg:block flex justify-end',
+        footer: 'p-4 mt-10 md:mt-20 bg-white bg-gray-200 border-t text-center'
     },
 
     /*
