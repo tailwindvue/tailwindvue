@@ -1,6 +1,6 @@
 # Tailwind Vue
 
-![Test](https://github.com/tailwindvue/tailwindvue/workflows/Test/badge.svg?branch=master)
+![Tests Badge](https://github.com/tailwindvue/tailwindvue/workflows/Tests/badge.svg?branch=master)
 
 > This package is under development and is in its very early stages. Feel free to try it and contribute,
 > but be aware that it is **not ready for production yet**. Work on this library is ongoing. Please check
