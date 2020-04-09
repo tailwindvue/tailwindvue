@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import defaultTheme from '../stubs/defaultTheme';
+    import defaultTheme from '../stubs/theme';
 
     export default {
         name: 'Badge',

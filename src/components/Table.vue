@@ -24,7 +24,7 @@
 
 <script>
     import { snakeCase } from 'lodash';
-    import defaultTheme from '../stubs/defaultTheme';
+    import defaultTheme from '../stubs/theme';
 
     export default {
         name: 'Table',
