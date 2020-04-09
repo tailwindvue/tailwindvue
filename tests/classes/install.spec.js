@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Install from '../../src/classes/Install';
-import defaultOptions from '../../src/stubs/options';
+import Options from '../../src/stubs/options';
 
 const TestComponent = {
     name: 'TestComponent',
@@ -10,7 +10,7 @@ const TestComponent = {
     }
 };
 
-jest.mock('../../src/stubs/defaultTheme', () => {
+jest.mock('../../src/stubs/theme', () => {
     return {
         __esModule: true,
         default: {
@@ -27,7 +27,7 @@ describe('Install', () => {
     });
 
     it('can generate the component name with no prefix option', () => {
-        expect(Install.name(defaultOptions, TestComponent)).toBe('tw-test-component');
+        expect(Install.name(Options, TestComponent)).toBe('tw-test-component');
     });
 
     it('can generate the component name when a prefix option is specified', () => {
