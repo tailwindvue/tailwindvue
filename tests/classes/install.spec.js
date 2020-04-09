@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Install from '../../src/classes/Install';
-import defaultOptions from '../../src/stubs/defaultOptions';
+import defaultOptions from '../../src/stubs/options';
 
 const TestComponent = {
     name: 'TestComponent',
