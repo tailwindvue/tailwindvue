@@ -88,7 +88,7 @@ export default {
         component: 'relative',
         pre: 'rounded',
         code: '',
-        language: 'absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin',
+        language: 'absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin hidden md:block',
         caption: 'mt-2 text-xs uppercase text-gray-500 ml-4'
     },
 
@@ -100,7 +100,7 @@ export default {
             component: 'relative',
             pre: 'rounded rounded-t-none',
             code: '',
-            language: 'absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin',
+            language: 'absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin hidden md:block',
         }
     },
 
