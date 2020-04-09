@@ -125,12 +125,14 @@ export default {
         component: '',
         headings: {
             h1: 'mb-4 border-b text-4xl',
-            h2: 'my-3 text-3xl',
-            h3: 'my-2 text-2xl',
-            h4: 'my-1 text-xl',
-            h5: 'my-0 text-normal',
-            h6: 'my-0 text-sm'
+            h2: 'my-3 text-3xl inline-block',
+            h3: 'my-2 text-2xl inline-block',
+            h4: 'my-1 text-xl inline-block',
+            h5: 'my-0 text-normal inline-block',
+            h6: 'my-0 text-sm inline-block'
         },
+        hovered: 'cursor-pointer',
+        anchor: 'ml-2 text-gray-500'
     },
 
     /*
@@ -196,7 +198,7 @@ export default {
     */
     sidebar: {
         sidebar: 'mb-4 z-10',
-        item: 'block uppercase mt-4 text-sm text-gray-500 font-medium ',
+        item: 'block uppercase mt-4 text-sm text-gray-500 font-medium',
         itemHovered: 'hover:text-gray-600',
         subItem: 'block normal-case font-normal text-gray-600 hover:text-gray-800',
         subItemHovered: 'hover:text-gray-800'
