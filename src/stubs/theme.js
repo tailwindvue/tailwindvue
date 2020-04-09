@@ -253,8 +253,48 @@ export default {
         wrapper: 'overflow-x-scroll',
         table: 'table-auto w-full overflow-scroll',
         thead: 'border-b border-b-2 bg-gray-200 uppercase text-xs text-gray-600',
-        th: 'pt-2 pb-3 px-3 font-medium tracking-widest',
-        tr: 'first:border-t-0 border-t',
-        td: 'p-3 text-center'
+        tbody: '',
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | The Table Row Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    */
+    tableRow: {
+        component: 'first:border-t-0 border-t',
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | The Table Column Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    */
+    tableColumn: {
+        component: 'p-2 first:border-t-0 border-t',
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | The Table Heading Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    */
+    tableHeading: {
+        component: 'pt-2 pb-3 px-3 font-medium tracking-widest',
     },
 };

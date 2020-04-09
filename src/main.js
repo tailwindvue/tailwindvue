@@ -19,6 +19,9 @@ import Tab from './components/Tab';
 import TabbedCodeDemo from './components/TabbedCodeDemo';
 import Table from './components/Table';
 import Badge from './components/Badge';
+import TableRow from './components/TableRow';
+import TableColumn from './components/TableColumn';
+import TableHeading from './components/TableHeading';
 
 export const TailwindVueEventBus = new Vue();
 
@@ -36,6 +39,9 @@ const components = [
     Tab,
     TabbedCodeDemo,
     Table,
+    TableRow,
+    TableColumn,
+    TableHeading,
     Tabs,
 ];
 
@@ -56,6 +62,9 @@ export {
     Tab,
     TabbedCodeDemo,
     Table,
+    TableRow,
+    TableColumn,
+    TableHeading,
     Tabs,
 };
 
