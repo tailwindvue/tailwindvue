@@ -1,5 +1,6 @@
 import defaultOptions from '../stubs/defaultOptions';
 import defaultTheme from '../stubs/defaultTheme';
+import { kebabCase, lowerFirst } from 'lodash';
 import deepmerge from 'deepmerge';
 
 /**
@@ -38,7 +39,7 @@ export default class Install {
      * @returns {*}
      */
     static name(options, component) {
-        return options.prefix + '-' + this.toKebabCase(component.name);
+        return options.prefix + '-' + kebabCase(component.name);
     }
 
     /**
@@ -51,21 +52,9 @@ export default class Install {
         const { props } = component;
 
         props['theme'] = {
-            default: () => defaultTheme[component.name]
+            default: () => defaultTheme[lowerFirst(component.name)]
         };
 
         return props;
-    }
-    /**
-     * Convert the component name from TitleCase to KebabCase.
-     *
-     * E.g.: 'MyComponent' -> 'my-component'
-     * @param string
-     * @returns {*|string}
-     */
-    static toKebabCase(string) {
-        return string && string.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-            .map(x => x.toLowerCase())
-            .join('-');
     }
 }

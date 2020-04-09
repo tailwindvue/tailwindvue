@@ -1,66 +1,16 @@
 export default {
     /*
     |--------------------------------------------------------------------------
-    | The Application.
+    | The Alert Component
     |--------------------------------------------------------------------------
     |
-    | This component is a wrapper you can use to surround all other components.
-    | You can then use it to apply application-level styles such as padding,
-    | text colour, background colour and anything else that is relevant.
+    | This component renders an alert. There are five default styles for the
+    | alert component: default, danger, info, warning and success. It can
+    | also display an icon and a button to hide it when it is clicked.
     |
     */
 
-    App: {
-        component: 'text-gray-800 bg-gray-100 flex flex-col min-h-screen',
-        header: 'mb-4',
-        wrapper: 'flex flex-col flex-auto',
-        container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
-        sidebar: 'w-full md:w-1/3 lg:w-1/5',
-        main: 'w-full md:w-4/6 lg:w-4/5',
-        footer: 'p-4 mt-4 bg-white bg-gray-200 border-t text-center'
-    },
-
-    /*
-    |--------------------------------------------------------------------------
-    | The Heading Component.
-    |--------------------------------------------------------------------------
-    |
-    | This component allows you to quickly create semantically correct page
-    | headings: h1, h2, h3, h4 and h5. Sensible styles have been applied
-    | for each heading. You can modify the styles for every heading.
-    |
-    */
-
-    Heading: {
-        component: '',
-        headings: {
-            h1: 'mb-4 border-b text-4xl',
-            h2: 'my-3 text-3xl',
-            h3: 'my-2 text-2xl',
-            h4: 'my-1 text-xl',
-            h5: 'my-0 text-normal',
-            h6: 'my-0 text-sm'
-        },
-    },
-
-    Navbar: {
-        component: 'bg-white h-16 border-b w-full',
-        wrapper: 'container mx-auto px-4 flex flex-wrap justify-between items-center h-full',
-        left: 'w-1/2 md:w-1/3 text-left',
-        middle: 'hidden md:block w-1/3  text-center',
-        right: 'w-1/2 md:w-1/3 text-right hidden md:block',
-        menu: 'w-1/3 text-right md:hidden cursor-pointer select-none text-3xl leading-none -mt-1'
-    },
-
-    Sidebar: {
-        sidebar: 'mb-4 z-10',
-        item: 'block uppercase mt-4 text-sm text-gray-500 font-medium ',
-        itemHovered: 'hover:text-gray-600',
-        subItem: 'block normal-case font-normal text-gray-600 hover:text-gray-800',
-        subItemHovered: 'hover:text-gray-800'
-    },
-
-    Alert: {
+    alert: {
         component: 'flex flex-col md:flex-row border-l-4 p-4 min-h-32 border',
         icon: 'flex w-16 mb-4 md:mb-0 md:justify-center items-center',
         body: 'flex-1 flex justify-between',
@@ -74,17 +24,61 @@ export default {
         }
     },
 
-    Panel: {
-        header: 'text-xl mb-2 uppercase font-thin tracking-wider',
-        panel: 'p-4 rounded shadow bg-white'
+    /*
+    |--------------------------------------------------------------------------
+    | The App Component
+    |--------------------------------------------------------------------------
+    |
+    | This component is a wrapper component that surrounds other components.
+    | You can use it to apply application level styles such as background
+    | colour, text colour, and other styles that can apply to the app.
+    |
+    */
+
+    app: {
+        component: 'text-gray-800 bg-gray-100 flex flex-col min-h-screen',
+        header: 'mb-4',
+        wrapper: 'flex flex-col flex-auto',
+        container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
+        sidebar: 'w-full md:w-1/3 lg:w-1/5',
+        main: 'w-full md:w-4/6 lg:w-4/5',
+        footer: 'p-4 mt-4 bg-white bg-gray-200 border-t text-center'
     },
 
-    Input: {
-        label: 'font-bold block pb-1',
-        input: 'border w-full p-2 rounded-md'
+    /*
+    |--------------------------------------------------------------------------
+    | The Badge Component
+    |--------------------------------------------------------------------------
+    |
+    | This component will display a badge in one of the configurable styles:
+    | default, info, warning, danger and success. Every badge can also be
+    | displayed in the sizes predefined here: small, medium and large.
+    |
+    */
+
+    badge: {
+        component: 'py-1 px-2 text-xs rounded uppercase tracking-wide font-medium border',
+        types: {
+            default: 'bg-white text-gray-600',
+            info: 'bg-blue-100 text-blue-600 border-blue-200',
+            warning: 'bg-yellow-100 text-yellow-600 border-yellow-400',
+            danger: 'bg-red-100 text-red-600 border-red-200',
+            success: 'bg-green-100 text-green-600 border-green-200',
+        }
     },
 
-    Code: {
+    /*
+    |--------------------------------------------------------------------------
+    | The Code Component
+    |--------------------------------------------------------------------------
+    |
+    | This component will apply code highlighting to a block of code that is
+    | passed to it in the default slot. You can set the language for each
+    | code fragment and specify a caption tht will be displayed below.
+    |
+    */
+
+    code: {
         component: 'relative',
         pre: 'rounded',
         code: '',
@@ -92,7 +86,18 @@ export default {
         caption: 'mt-2 text-xs uppercase text-gray-500 ml-4'
     },
 
-    CodeDemo: {
+    /*
+    |--------------------------------------------------------------------------
+    | The Code Demo Component
+    |--------------------------------------------------------------------------
+    |
+    | The code demo component can be used when you want to display a demo of
+    | some code along side a snippet of the actual code. Just as with the
+    | code component, you can declare the language and a code caption.
+    |
+    */
+
+    codeDemo: {
         component: 'border rounded-lg',
         demo: 'm-4',
         caption: 'mt-2 text-xs uppercase text-gray-500 ml-4',
@@ -104,15 +109,109 @@ export default {
         }
     },
 
-    TabbedCodeDemo: {
-        component: 'w-full',
-        tabs: 'flex md:ml-4 text-sm md:text-base flex-wrap',
-        tab: 'mb-2 md:mb-0 py-1 px-4 w-1/3 md:w-auto cursor-pointer text-center rounded md:rounded-b-none hover:bg-gray-200 text-gray-500',
-        activeTab: 'bg-gray-300 border-gray-500 rounded-t text-gray-700',
-        inactiveTab: 'border-gray-200'
+    /*
+    |--------------------------------------------------------------------------
+    | The Heading Component
+    |--------------------------------------------------------------------------
+    |
+    | This component allows you to create semantically correct headings: h1,
+    | h2, h3, h4 and h5. Sensible styles have been set for every heading.
+    | Styles for the component and every heading can be changed below.
+    |
+    */
+
+    heading: {
+        component: '',
+        headings: {
+            h1: 'mb-4 border-b text-4xl',
+            h2: 'my-3 text-3xl',
+            h3: 'my-2 text-2xl',
+            h4: 'my-1 text-xl',
+            h5: 'my-0 text-normal',
+            h6: 'my-0 text-sm'
+        },
     },
 
-    Tabs: {
+    /*
+    |--------------------------------------------------------------------------
+    | The Input Component
+    |--------------------------------------------------------------------------
+    |
+    | The input component will render a text input with a label. A number of
+    | options are available to change the look of the input and the label
+    | as well as the different states that the input component enters.
+    |
+    */
+
+    input: {
+        label: 'font-bold block pb-1',
+        input: 'border w-full p-2 rounded-md'
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | The Navbar Component
+    |--------------------------------------------------------------------------
+    |
+    | This component will create a responsive page navbar with three content
+    | slots. On smaller screens, the right slot will be replaced with a
+    | menu icon which will trigger the event to toggle the sidebar.
+    |
+    */
+
+    navbar: {
+        component: 'bg-white h-16 border-b w-full',
+        wrapper: 'container mx-auto px-4 flex flex-wrap justify-between items-center h-full',
+        left: 'w-1/2 md:w-1/3 text-left',
+        middle: 'hidden md:block w-1/3  text-center',
+        right: 'w-1/2 md:w-1/3 text-right hidden md:block',
+        menu: 'w-1/3 text-right md:hidden cursor-pointer select-none text-3xl leading-none -mt-1'
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | The Panel Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    */
+    panel: {
+        header: 'text-xl mb-2 uppercase font-thin tracking-wider',
+        panel: 'p-4 rounded shadow bg-white'
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | The Sidebar Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    */
+    sidebar: {
+        sidebar: 'mb-4 z-10',
+        item: 'block uppercase mt-4 text-sm text-gray-500 font-medium ',
+        itemHovered: 'hover:text-gray-600',
+        subItem: 'block normal-case font-normal text-gray-600 hover:text-gray-800',
+        subItemHovered: 'hover:text-gray-800'
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | The Tabs Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    */
+    tabs: {
         component: 'w-full',
         tabs: 'flex border-b',
         tab: 'w-full px-4 py-2 cursor-pointer text-center hover:bg-gray-200 text-gray-500',
@@ -120,7 +219,35 @@ export default {
         inactiveTab: 'border-gray-200'
     },
 
-    Table: {
+    /*
+    |--------------------------------------------------------------------------
+    | The Tabbed Demo Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    */
+    tabbedCodeDemo: {
+        component: 'w-full',
+        tabs: 'flex md:ml-4 text-sm md:text-base flex-wrap',
+        tab: 'mb-2 md:mb-0 py-1 px-4 w-1/3 md:w-auto cursor-pointer text-center rounded md:rounded-b-none hover:bg-gray-200 text-gray-500',
+        activeTab: 'bg-gray-300 border-gray-500 rounded-t text-gray-700',
+        inactiveTab: 'border-gray-200'
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | The Table Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    */
+    table: {
         component: 'bg-white rounded-md border',
         headerRounding: 'py-1 bg-gray-200 rounded-t-md border-red-900 w-full',
         wrapper: 'overflow-x-scroll',
@@ -129,16 +256,5 @@ export default {
         th: 'pt-2 pb-3 px-3 font-medium tracking-widest',
         tr: 'first:border-t-0 border-t',
         td: 'p-3 text-center'
-    },
-
-    Badge: {
-        component: 'py-1 px-2 text-xs rounded uppercase tracking-wide font-medium border',
-        types: {
-            default: 'bg-white text-gray-600',
-            info: 'bg-blue-100 text-blue-600 border-blue-200',
-            warning: 'bg-yellow-100 text-yellow-600 border-yellow-400',
-            danger: 'bg-red-100 text-red-600 border-red-200',
-            success: 'bg-green-100 text-green-600 border-green-200',
-        }
     },
 };

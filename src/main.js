@@ -23,20 +23,20 @@ import Badge from './components/Badge';
 export const TailwindVueEventBus = new Vue();
 
 const components = [
-    App,
-    Sidebar,
-    Heading,
-    Panel,
-    Input,
-    Navbar,
     Alert,
+    App,
+    Badge,
     Code,
     CodeDemo,
-    TabbedCodeDemo,
-    Tabs,
+    Heading,
+    Input,
+    Navbar,
+    Panel,
+    Sidebar,
     Tab,
+    TabbedCodeDemo,
     Table,
-    Badge
+    Tabs,
 ];
 
 // Install every component.
@@ -44,19 +44,19 @@ components.forEach(component => Install.component(component));
 
 // Export components for individual use.
 export {
-    App,
-    Sidebar,
-    Heading,
-    Panel,
-    Input,
-    Navbar,
     Alert,
+    App,
     Code,
     CodeDemo,
-    TabbedCodeDemo,
-    Tabs,
+    Heading,
+    Input,
+    Navbar,
+    Panel,
+    Sidebar,
     Tab,
-    Table
+    TabbedCodeDemo,
+    Table,
+    Tabs,
 };
 
 // Export the component library.

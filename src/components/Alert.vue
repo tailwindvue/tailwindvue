@@ -56,7 +56,7 @@
 
             theme: {
                 default: () => {
-                    return defaultTheme.Alert;
+                    return defaultTheme.alert;
                 }
             }
         },

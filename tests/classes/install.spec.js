@@ -14,7 +14,7 @@ jest.mock('../../src/stubs/defaultTheme', () => {
     return {
         __esModule: true,
         default: {
-            TestComponent: {
+            testComponent: {
                 'component': 'test-class'
             }
         }
@@ -22,12 +22,6 @@ jest.mock('../../src/stubs/defaultTheme', () => {
 });
 
 describe('Install', () => {
-    it('can convert a camel case text string to kekab case', () => {
-        const camelCaseString = 'SomeCamelCaseString';
-
-        expect(Install.toKebabCase(camelCaseString)).toBe('some-camel-case-string');
-    });
-
     it('can make populate the theme prop', () => {
         expect(Install.props(TestComponent).theme.default()).toMatchObject({ component: 'test-class' });
     });
