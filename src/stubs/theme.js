@@ -141,8 +141,8 @@ export default {
         number: 'inline-block bg-gray-700 text-base text-white h-6 w-6 rounded-full inline-flex justify-center items-center mr-2',
         headings: {
             h1: 'mb-4 border-b text-4xl w-full',
-            h2: 'my-3 text-3xl',
-            h3: 'my-2 text-2xl',
+            h2: 'my-4 text-3xl',
+            h3: 'my-4 text-2xl',
             h4: 'my-1 text-xl',
             h5: 'my-0 text-normal',
             h6: 'my-0 text-sm'
