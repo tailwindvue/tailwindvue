@@ -1,14 +1,15 @@
 <template>
-    <div :id="id"
-         :class="theme.component + (this.isHovered ? theme.hovered : '')"
-         @click="goToHeader">
-        <span :is="type" :class="theme.headings[type]"
-              @mouseenter="toggleIsHovered"
-              @mouseleave="toggleIsHovered">
-            {{ text }}
-            <slot/>
+    <div :id="id" :class="theme.component + ' '  + theme.headings[type] + ' ' + (id ? theme.hovered : '')" @click="goToHeader">
+
+        <span v-if="number" :class="theme.number">
+            {{ number }}
         </span>
-        <span v-if="isHovered" :class="theme.anchor">#</span>
+
+        <span :is="type">{{ text }}<slot/></span>
+
+        <span v-if="id" :class="theme.anchor">
+            &num;
+        </span>
     </div>
 </template>
 
@@ -29,6 +30,10 @@
 
             /** @returns {String} */
             text: {
+                type: String
+            },
+
+            number: {
                 type: String
             },
 

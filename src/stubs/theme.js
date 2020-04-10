@@ -36,7 +36,7 @@ export default {
     */
 
     app: {
-        component: 'text-gray-800 bg-gray-100 flex flex-col min-h-screen',
+        component: 'text-gray-700 bg-gray-100 flex flex-col min-h-screen',
         header: 'mb-20',
         wrapper: 'flex flex-col flex-auto',
         container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
@@ -122,7 +122,7 @@ export default {
     */
 
     content: {
-        component: 'direct-children:mb-2',
+        component: 'direct-children:mb-4',
     },
 
     /*
@@ -137,17 +137,18 @@ export default {
     */
 
     heading: {
-        component: '',
+        component: 'flex items-center group',
+        number: 'inline-block bg-gray-700 text-base text-white h-6 w-6 rounded-full inline-flex justify-center items-center mr-2',
         headings: {
-            h1: 'mb-4 border-b text-4xl',
-            h2: 'my-3 text-3xl inline-block',
-            h3: 'my-2 text-2xl inline-block',
-            h4: 'my-1 text-xl inline-block',
-            h5: 'my-0 text-normal inline-block',
-            h6: 'my-0 text-sm inline-block'
+            h1: 'mb-4 border-b text-4xl w-full',
+            h2: 'my-3 text-3xl',
+            h3: 'my-2 text-2xl',
+            h4: 'my-1 text-xl',
+            h5: 'my-0 text-normal',
+            h6: 'my-0 text-sm'
         },
         hovered: 'cursor-pointer',
-        anchor: 'ml-2 text-gray-500 text-lg'
+        anchor: 'ml-2 text-gray-500 text-xl invisible group-hover:visible'
     },
 
     /*
