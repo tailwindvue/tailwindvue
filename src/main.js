@@ -4,6 +4,10 @@ import Vue from 'vue';
 // Import Component Installer
 import Install from './classes/Install';
 
+// Import Stubs
+import Theme from './stubs/theme';
+import Options from './stubs/options';
+
 // Import Components
 import Alert from 'Components/Alert';
 import App from 'Components/layout/App';
@@ -49,6 +53,12 @@ const components = [
 
 // Install every component.
 components.forEach(component => Install.component(component));
+
+// Export Stubs
+export {
+    Theme,
+    Options
+};
 
 // Export components for individual use.
 export {
