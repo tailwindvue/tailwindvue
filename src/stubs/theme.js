@@ -199,7 +199,7 @@ export default {
     */
 
     panel: {
-        header: 'text-xl mb-2 uppercase font-thin tracking-wider',
+        header: 'text-xl mb-2 font-medium tracking-wider',
         panel: 'p-4 rounded shadow bg-white'
     },
 
