@@ -112,6 +112,21 @@ export default {
 
     /*
     |--------------------------------------------------------------------------
+    | The Content Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    */
+
+    content: {
+        component: 'direct-children:mb-2',
+    },
+
+    /*
+    |--------------------------------------------------------------------------
     | The Heading Component
     |--------------------------------------------------------------------------
     |
@@ -181,6 +196,7 @@ export default {
     |
     |
     */
+
     panel: {
         header: 'text-xl mb-2 uppercase font-thin tracking-wider',
         panel: 'p-4 rounded shadow bg-white'
@@ -196,8 +212,9 @@ export default {
     |
     |
     */
+
     sidebar: {
-        component: 'mb-4 z-10 fixed',
+        component: 'z-10 fixed',
         item: 'block uppercase mt-4 text-sm text-gray-500 font-medium',
         itemHovered: 'hover:text-gray-600',
         subItem: 'block normal-case font-normal text-gray-600 hover:text-gray-800',
@@ -214,6 +231,7 @@ export default {
     |
     |
     */
+
     tabs: {
         component: 'w-full',
         tabs: 'flex border-b',
@@ -232,6 +250,7 @@ export default {
     |
     |
     */
+
     tabbedCodeDemo: {
         component: 'w-full',
         tabs: 'flex md:ml-4 text-sm md:text-base flex-wrap',
@@ -250,6 +269,7 @@ export default {
     |
     |
     */
+
     table: {
         component: 'bg-white rounded-md border',
         headerRounding: 'py-1 bg-gray-200 rounded-t-md border-red-900 w-full',
@@ -269,6 +289,7 @@ export default {
     |
     |
     */
+
     tableRow: {
         component: 'first:border-t-0 border-t',
     },
@@ -283,6 +304,7 @@ export default {
     |
     |
     */
+
     tableColumn: {
         component: 'p-2 first:border-t-0 border-t',
     },
@@ -297,6 +319,7 @@ export default {
     |
     |
     */
+
     tableHeading: {
         component: 'pt-2 pb-3 px-3 font-medium tracking-widest',
     },

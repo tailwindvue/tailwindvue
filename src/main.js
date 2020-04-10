@@ -5,23 +5,24 @@ import Vue from 'vue';
 import Install from './classes/Install';
 
 // Import Components
-import Input from 'Components/Input';
-import Panel from 'Components/Panel';
-import Sidebar from 'Components/Sidebar';
-import Heading from 'Components/Heading';
-import App from 'Components/layout/App';
-import Navbar from 'Components/Navbar';
 import Alert from 'Components/Alert';
+import App from 'Components/layout/App';
+import Badge from './components/Badge';
 import Code from 'Components/Code';
 import CodeDemo from './components/CodeDemo';
-import Tabs from './components/Tabs';
+import Content from './components/Content';
+import Heading from 'Components/Heading';
+import Input from 'Components/Input';
+import Navbar from 'Components/Navbar';
+import Panel from 'Components/Panel';
+import Sidebar from 'Components/Sidebar';
 import Tab from './components/Tab';
 import TabbedCodeDemo from './components/TabbedCodeDemo';
 import Table from './components/Table';
-import Badge from './components/Badge';
-import TableRow from './components/TableRow';
 import TableColumn from './components/TableColumn';
 import TableHeading from './components/TableHeading';
+import TableRow from './components/TableRow';
+import Tabs from './components/Tabs';
 
 export const TailwindVueEventBus = new Vue();
 
@@ -31,6 +32,7 @@ const components = [
     Badge,
     Code,
     CodeDemo,
+    Content,
     Heading,
     Input,
     Navbar,
@@ -39,9 +41,9 @@ const components = [
     Tab,
     TabbedCodeDemo,
     Table,
-    TableRow,
     TableColumn,
     TableHeading,
+    TableRow,
     Tabs,
 ];
 
@@ -54,6 +56,7 @@ export {
     App,
     Code,
     CodeDemo,
+    Content,
     Heading,
     Input,
     Navbar,
@@ -62,9 +65,9 @@ export {
     Tab,
     TabbedCodeDemo,
     Table,
-    TableRow,
     TableColumn,
     TableHeading,
+    TableRow,
     Tabs,
 };
 
