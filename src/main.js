@@ -1,8 +1,9 @@
 // import Vue
 import Vue from 'vue';
 
-// Import Component Installer
-import Install from './classes/Install';
+// Import utilities
+import install from './utilities/install';
+import whitelist from './utilities/whitelist';
 
 // Import Stubs
 import Theme from './stubs/theme';
@@ -52,7 +53,11 @@ const components = [
 ];
 
 // Install every component.
-components.forEach(component => Install.component(component));
+components.forEach(component => install(component));
+
+export {
+    whitelist
+}
 
 // Export Stubs
 export {
