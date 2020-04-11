@@ -1,57 +1,89 @@
 // import Vue
 import Vue from 'vue';
 
-// Import Component Installer
-import Install from './classes/Install';
+// Import utilities
+import install from './utilities/install';
+import whitelist from './utilities/whitelist';
+
+// Import Stubs
+import Theme from './stubs/theme';
+import Options from './stubs/options';
 
 // Import Components
-import Input from 'Components/Input';
-import Panel from 'Components/Panel';
-import Sidebar from 'Components/Sidebar';
-import Heading from 'Components/Heading';
-import App from 'Components/layout/App';
-import Navbar from 'Components/Navbar';
 import Alert from 'Components/Alert';
+import App from 'Components/layout/App';
+import Badge from './components/Badge';
 import Code from 'Components/Code';
 import CodeDemo from './components/CodeDemo';
-import Tabs from './components/Tabs';
+import Content from './components/Content';
+import Heading from 'Components/Heading';
+import Input from 'Components/Input';
+import Navbar from 'Components/Navbar';
+import Panel from 'Components/Panel';
+import Sidebar from 'Components/Sidebar';
 import Tab from './components/Tab';
 import TabbedCodeDemo from './components/TabbedCodeDemo';
+import Table from './components/Table';
+import TableColumn from './components/TableColumn';
+import TableHeading from './components/TableHeading';
+import TableRow from './components/TableRow';
+import Tabs from './components/Tabs';
 
 export const TailwindVueEventBus = new Vue();
 
 const components = [
-    App,
-    Sidebar,
-    Heading,
-    Panel,
-    Input,
-    Navbar,
     Alert,
+    App,
+    Badge,
     Code,
     CodeDemo,
+    Content,
+    Heading,
+    Input,
+    Navbar,
+    Panel,
+    Sidebar,
+    Tab,
     TabbedCodeDemo,
+    Table,
+    TableColumn,
+    TableHeading,
+    TableRow,
     Tabs,
-    Tab
 ];
 
 // Install every component.
-components.forEach(component => Install.component(component));
+components.forEach(component => install(component));
+
+export {
+    whitelist
+}
+
+// Export Stubs
+export {
+    Theme,
+    Options
+};
 
 // Export components for individual use.
 export {
-    App,
-    Sidebar,
-    Heading,
-    Panel,
-    Input,
-    Navbar,
     Alert,
+    App,
     Code,
     CodeDemo,
+    Content,
+    Heading,
+    Input,
+    Navbar,
+    Panel,
+    Sidebar,
+    Tab,
     TabbedCodeDemo,
+    Table,
+    TableColumn,
+    TableHeading,
+    TableRow,
     Tabs,
-    Tab
 };
 
 // Export the component library.

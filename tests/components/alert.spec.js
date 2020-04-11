@@ -3,11 +3,11 @@ import { Alert } from '../../src/main';
 
 jest.useFakeTimers();
 
-jest.mock('../../src/stubs/defaultTheme', () => {
+jest.mock('../../src/stubs/theme', () => {
     return {
         __esModule: true,
         default: {
-            Alert: {
+            alert: {
                 types: {
                     success: 'success-classes'
                 }

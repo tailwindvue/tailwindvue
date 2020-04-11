@@ -1,8 +1,15 @@
 <template>
-    <div :class="theme.component">
-        <div :is="type" :class="theme.headings[type]">
-            <slot/>
-        </div>
+    <div :id="id" :class="theme.component + ' '  + theme.headings[type] + ' ' + (id ? theme.hovered : '')" @click="goToHeader">
+
+        <span v-if="number" :class="theme.number">
+            {{ number }}
+        </span>
+
+        <span :is="type">{{ text }}<slot/></span>
+
+        <span v-if="id" :class="theme.anchor">
+            &num;
+        </span>
     </div>
 </template>
 
@@ -11,16 +18,26 @@
         name: 'Heading',
 
         props: {
-            /**
-             * @returns {String}
-             */
-            type: {
-                default: 'h1'
+            id: {
+                type: String
             },
 
-            /**
-             * @returns {Object}
-             */
+            /** @returns {String} */
+            type: {
+                default: 'h1',
+                type: String
+            },
+
+            /** @returns {String} */
+            text: {
+                type: String
+            },
+
+            number: {
+                type: String
+            },
+
+            /** @returns {Object} */
             theme: {
                 default: () => {
                     return {
@@ -34,6 +51,28 @@
                         }
                     };
                 }
+            }
+        },
+
+        data() {
+            return {
+                isHovered: false
+            };
+        },
+
+        methods: {
+            toggleIsHovered() {
+                if (!this.id) {
+                    return;
+                }
+
+                this.isHovered = !this.isHovered;
+            },
+            goToHeader() {
+                if (!this.id) {
+                    return;
+                }
+                this.$router.push({ path: '#' + this.id });
             }
         },
     };

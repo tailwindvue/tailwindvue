@@ -1,31 +1,16 @@
 <template>
-    <div :class="theme.sidebar + ' md:block ' + visibility" @click="toggleVisibility">
+    <div :class="theme.component + ' md:block ' + visibility" @click="toggleVisibility">
         <div v-for="item in items">
-            <router-link :class="theme.item + ' ' + theme.itemHovered" v-if="item.routerLink" :to="item.routerLink">
-                {{ item.label }}
-            </router-link>
-
-            <a :class="theme.item + ' ' + theme.itemHovered" v-if="item.url" :href="item.url">
-                {{ item.label }}
-            </a>
-
-            <div :class="theme.item" v-if="!item.url && !item.routerLink">
-                {{ item.label }}
+            <div :is="tagType(item)" :key="item.name" :class="classes(item, 'item')" :to="item.path" :href="item.url">
+                {{ item.name }}
             </div>
 
-            <div v-for="subItem in item.items">
-                <router-link :class="theme.subItem + ' ' + theme.subItemHovered" v-if="subItem.routerLink"
-                             :to="subItem.routerLink">
-                    {{ subItem.label }}
-                </router-link>
-
-                <a :class="theme.subItem + ' ' + theme.subItemHovered" v-if="subItem.url" :href="subItem.url">
-                    {{ subItem.label }}
-                </a>
-
-                <div :class="theme.subItem" v-if="!subItem.url && !subItem.routerLink">
-                    {{ subItem.label }}
-                </div>
+            <div :is="tagType(subItem)"
+                 :key="subItem.name"
+                 v-for="subItem in item.items"
+                 :class="classes(subItem, 'subItem')"
+                 :to="subItem.path">
+                {{ subItem.name }}
             </div>
         </div>
     </div>
@@ -60,6 +45,28 @@
             toggleVisibility() {
                 this.visibility = this.visibility === 'hidden' ? 'block' : 'hidden';
                 TailwindVueEventBus.$emit('sidebarToggled', this.visibility);
+            },
+
+            classes(item, name) {
+                let classes = this.theme[name];
+
+                if (this.tagType(item) !== 'div') {
+                    classes += this.theme[name + 'Hovered'];
+                }
+
+                return classes;
+            },
+
+            tagType(item) {
+                if (item.hasOwnProperty('path')) {
+                    return 'router-link';
+                }
+
+                if (item.hasOwnProperty('url')) {
+                    return 'a';
+                }
+
+                return 'div';
             }
         },
     };

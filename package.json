@@ -1,7 +1,7 @@
 {
     "name": "@tailwindvue/tailwindvue",
     "version": "0.1.10",
-    "description": "A collection of VueJs components made with Tailwind CSS",
+    "description": "Tailwind Vue is a customisable library of beautiful components made with Vue.js and Tailwind CSS.",
     "private": false,
     "publishConfig": {
         "access": "public"
@@ -32,16 +32,16 @@
     ],
     "sideEffects": false,
     "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
         "test": "vue-cli-service test:unit",
-        "build-lib": "vue-cli-service build --target lib --name tailwindvue src/main.js",
-        "watch": "vue-cli-service build --watch --target lib --name tailwindvue src/main.js"
+        "build": "vue-cli-service build --target lib --name tailwindvue src/main.js",
+        "watch": "vue-cli-service build --watch --target lib --name tailwindvue src/main.js",
+        "release": "git checkout master && yarn run build --mode production && np"
     },
     "dependencies": {
         "babel-plugin-prismjs": "^2.0.1",
         "core-js": "^3.6.4",
         "deepmerge": "^4.2.2",
+        "lodash": "^4.17.15",
         "prismjs": "^1.19.0",
         "vue": "^2.6.11"
     },
