@@ -32,11 +32,10 @@
     ],
     "sideEffects": false,
     "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
         "test": "vue-cli-service test:unit",
-        "build-lib": "vue-cli-service build --target lib --name tailwindvue src/main.js",
-        "watch": "vue-cli-service build --watch --target lib --name tailwindvue src/main.js"
+        "build": "vue-cli-service build --target lib --name tailwindvue src/main.js",
+        "watch": "vue-cli-service build --watch --target lib --name tailwindvue src/main.js",
+        "release": "yarn run build --mode production && np"
     },
     "dependencies": {
         "babel-plugin-prismjs": "^2.0.1",
