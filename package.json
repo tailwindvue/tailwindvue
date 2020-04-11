@@ -30,7 +30,6 @@
         "src",
         "dist"
     ],
-    "sideEffects": false,
     "scripts": {
         "test": "vue-cli-service test:unit",
         "build": "vue-cli-service build --target lib --name tailwindvue src/main.js",
