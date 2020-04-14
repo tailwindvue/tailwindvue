@@ -37,8 +37,8 @@ module.exports = {
 
     app: {
         component: 'text-gray-700 bg-gray-100 flex flex-col min-h-screen',
-        header: 'mb-20',
-        wrapper: 'flex flex-col flex-auto',
+        header: '',
+        wrapper: 'flex flex-col flex-auto pt-20',
         container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
         left: 'w-full md:w-1/4 lg:w-64',
         main: 'w-full md:w-3/4 lg:flex-1',
