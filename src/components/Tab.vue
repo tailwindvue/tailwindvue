@@ -1,18 +1,14 @@
 <template>
     <div v-show="active">
-        <slot/>
+        <slot />
     </div>
 </template>
 
 <script>
+    import theme from '../stubs/theme';
+
     export default {
         name: 'Tab',
-
-        mounted() {
-            if (this.$el.hasAttribute('active')) {
-                this.active = true;
-            }
-        },
 
         props: {
             name: {
@@ -21,9 +17,8 @@
             },
 
             theme: {
-                default: () => {
-                    return {};
-                }
+                type: Object,
+                default: theme.tab
             }
         },
 
@@ -31,6 +26,12 @@
             return {
                 active: false
             };
+        },
+
+        mounted() {
+            if (this.$el.hasAttribute('active')) {
+                this.active = true;
+            }
         },
     };
 </script>

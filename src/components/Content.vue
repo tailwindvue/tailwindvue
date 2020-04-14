@@ -1,6 +1,6 @@
 <template>
     <div :class="theme.component">
-        <slot/>
+        <slot />
     </div>
 </template>
 
@@ -12,6 +12,7 @@
 
         props: {
             theme: {
+                type: Object,
                 default: () => {
                     return theme.content;
                 }

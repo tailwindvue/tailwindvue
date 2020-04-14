@@ -109,7 +109,7 @@ describe('Alert', () => {
         expect(wrapper.find('div').exists()).toBeTruthy();
 
         // But if we set the duration prop on the component
-        wrapper.setProps({duration : 2});
+        wrapper.setProps({ duration: 2 });
 
         // And wait for the watcher to set the timeout
         await wrapper.vm.$nextTick();

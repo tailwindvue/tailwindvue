@@ -1,13 +1,19 @@
 <template>
-    <div :class="theme.component + ' md:block ' + visibility" @click="toggleVisibility">
-        <div v-for="item in items">
-            <div :is="tagType(item)" :key="item.name" :class="classes(item, 'item')" :to="item.path" :href="item.url">
+    <div :class="theme.component + ' md:block ' + visibility"
+         @click="toggleVisibility">
+        <div v-for="item in items"
+             :key="item.path">
+            <div :is="tagType(item)"
+                 :key="item.name"
+                 :class="classes(item, 'item')"
+                 :to="item.path"
+                 :href="item.url">
                 {{ item.name }}
             </div>
 
             <div :is="tagType(subItem)"
-                 :key="subItem.name"
                  v-for="subItem in item.items"
+                 :key="subItem.name"
                  :class="classes(subItem, 'subItem')"
                  :to="subItem.path">
                 {{ subItem.name }}
@@ -18,13 +24,10 @@
 
 <script>
     import { TailwindVueEventBus } from '../main';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Sidebar',
-
-        mounted() {
-            TailwindVueEventBus.$on('menuClicked', this.toggleVisibility);
-        },
 
         props: {
             items: {
@@ -32,13 +35,20 @@
                 required: true
             },
 
-            theme: {}
+            theme: {
+                type: Object,
+                default: theme.sidebar
+            }
         },
 
         data() {
             return {
                 visibility: 'hidden'
             };
+        },
+
+        mounted() {
+            TailwindVueEventBus.$on('menuClicked', this.toggleVisibility);
         },
 
         methods: {
@@ -58,11 +68,11 @@
             },
 
             tagType(item) {
-                if (item.hasOwnProperty('path')) {
+                if (Object.prototype.hasOwnProperty.call(item, 'path')) {
                     return 'router-link';
                 }
 
-                if (item.hasOwnProperty('url')) {
+                if (Object.prototype.hasOwnProperty.call(item, 'url')) {
                     return 'a';
                 }
 

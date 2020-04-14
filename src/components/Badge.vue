@@ -1,5 +1,5 @@
 <template>
-    <span :class="theme.component + ' ' + theme.types[type]">{{ text }}<slot/></span>
+    <span :class="theme.component + ' ' + theme.types[type]">{{ text }}<slot /></span>
 </template>
 
 <script>
@@ -11,9 +11,12 @@
         props: {
             text: {
                 type: String,
+                default: '',
+                required: false,
             },
 
             type: {
+                type: String,
                 default: 'default',
                 validator: value => {
                     return [
@@ -27,8 +30,9 @@
             },
 
             theme: {
+                type: Object,
                 default: () => {
-                    return defaultTheme.Badge;
+                    return defaultTheme.badge;
                 }
             },
         }

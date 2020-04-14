@@ -38,7 +38,6 @@ function name(options, component) {
     return options.prefix + '-' + kebabCase(component.name);
 }
 
-
 /**
  * Make a new set of props that can be injected into the component.
  *

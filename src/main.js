@@ -57,7 +57,7 @@ components.forEach(component => install(component));
 
 export {
     whitelist
-}
+};
 
 // Export Stubs
 export {

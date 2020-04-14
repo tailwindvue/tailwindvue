@@ -1,10 +1,10 @@
 <template>
     <div :class="theme.panel">
         <header :class="theme.header">
-            <slot name="header"/>
+            <slot name="header" />
         </header>
 
-        <slot/>
+        <slot />
     </div>
 </template>
 
@@ -14,6 +14,7 @@
 
         props: {
             theme: {
+                type: Object,
                 default: () => {
                     return {
                         panel: '',

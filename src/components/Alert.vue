@@ -1,14 +1,21 @@
 <template>
-    <div v-if="visible" :class="theme.component + ' ' + theme.types[type]">
-        <div v-if="$slots.icon" :class="theme.icon">
-            <slot name="icon"/>
+    <div v-if="visible"
+         :class="theme.component + ' ' + theme.types[type]">
+        <div v-if="$slots.icon"
+             :class="theme.icon">
+            <slot name="icon" />
         </div>
         <div :class="theme.body">
             <div>
-                <slot/>
+                <slot />
             </div>
-            <div ref="dismiss-button" v-if="dismissable" :class="theme.action" @click="dismiss">
-                <slot name="action">&times;</slot>
+            <div v-if="dismissable"
+                 ref="dismiss-button"
+                 :class="theme.action"
+                 @click="dismiss">
+                <slot name="action">
+                    &times;
+                </slot>
             </div>
         </div>
     </div>
@@ -19,18 +26,6 @@
 
     export default {
         name: 'Alert',
-
-        mounted() {
-            if (this.duration) {
-                this.setDurationTimeout(this.duration);
-            }
-        },
-
-        watch: {
-            duration(value) {
-                this.setDurationTimeout(value);
-            }
-        },
 
         props: {
             type: {
@@ -47,17 +42,21 @@
             },
 
             dismissable: {
-                default: false,
+                type: Boolean,
+                default: false
             },
 
             duration: {
-                default: false,
+                type: [Number, Boolean],
+                default: false
             },
 
             theme: {
+                type: Object,
                 default: () => {
                     return defaultTheme.alert;
                 }
+
             }
         },
 
@@ -65,6 +64,18 @@
             return {
                 visible: true
             };
+        },
+
+        watch: {
+            duration(value) {
+                this.setDurationTimeout(value);
+            }
+        },
+
+        mounted() {
+            if (this.duration) {
+                this.setDurationTimeout(this.duration);
+            }
         },
 
         methods: {

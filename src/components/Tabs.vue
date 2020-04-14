@@ -1,35 +1,27 @@
 <template>
     <div :class="theme.component">
         <div :class="theme.tabs">
-            <div :class="theme.tab + ' ' + (tab.name === currentTab ? theme.activeTab : theme.inactiveTab)"
-                 v-for="tab in tabs"
+            <div v-for="tab in tabs"
+                 :key="tab.name"
+                 :class="theme.tab + ' ' + (tab.name === currentTab ? theme.activeTab : theme.inactiveTab)"
                  @click="setActive(tab)">
                 {{ tab.name }}
             </div>
         </div>
-        <slot/>
+        <slot />
     </div>
 </template>
 
 <script>
+    import theme from '../stubs/theme';
+
     export default {
         name: 'Tabs',
 
-        mounted() {
-            this.setActive(this.getActiveTab() ? this.getActiveTab() : this.tabs[0]);
-        },
-
         props: {
             theme: {
-                default: () => {
-                    return {
-                        component: '',
-                        tabs: '',
-                        tab: '',
-                        activeTab: '',
-                        inactiveTab: ''
-                    };
-                }
+                type: Object,
+                default: theme.tabs
             }
         },
 
@@ -40,6 +32,10 @@
             };
         },
 
+        mounted() {
+            this.setActive(this.getActiveTab() ? this.getActiveTab() : this.tabs[0]);
+        },
+
         methods: {
             setActive(tab) {
                 this.tabs.forEach(tab => tab.$data.active = false);
@@ -48,7 +44,7 @@
             },
 
             getActiveTab() {
-                return this.tabs.find(tab => tab.hasOwnProperty('active') && tab.active);
+                return this.tabs.find(tab => Object.prototype.hasOwnProperty.call(tab, 'active') && tab.active);
             }
         },
     };

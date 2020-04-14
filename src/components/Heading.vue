@@ -1,13 +1,16 @@
 <template>
-    <div :id="id" :class="theme.component + ' '  + theme.headings[type] + ' ' + (id ? theme.hovered : '')" @click="goToHeader">
-
-        <span v-if="number" :class="theme.number">
+    <div :id="id"
+         :class="theme.component + ' ' + theme.headings[type] + ' ' + (id ? theme.hovered : '')"
+         @click="goToHeader">
+        <span v-if="number"
+              :class="theme.number">
             {{ number }}
         </span>
 
-        <span :is="type">{{ text }}<slot/></span>
+        <span :is="type">{{ text }}<slot /></span>
 
-        <span v-if="id" :class="theme.anchor">
+        <span v-if="id"
+              :class="theme.anchor">
             &num;
         </span>
     </div>
@@ -19,26 +22,30 @@
 
         props: {
             id: {
-                type: String
+                type: String,
+                default: '',
+                required: false
             },
 
-            /** @returns {String} */
             type: {
-                default: 'h1',
-                type: String
+                type: String,
+                default: 'h1'
             },
 
-            /** @returns {String} */
             text: {
-                type: String
+                type: String,
+                default: '',
+                required: false
             },
 
             number: {
-                type: String
+                type: String,
+                default: '',
+                required: false,
             },
 
-            /** @returns {Object} */
             theme: {
+                type: Object,
                 default: () => {
                     return {
                         headings: {

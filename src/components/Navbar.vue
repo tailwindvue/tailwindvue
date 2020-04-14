@@ -2,17 +2,18 @@
     <div :class="theme.component">
         <div :class="theme.wrapper">
             <div :class="theme.left">
-                <slot name="left"/>
+                <slot name="left" />
             </div>
             <div :class="theme.middle">
-                <slot name="middle"/>
+                <slot name="middle" />
             </div>
             <div :class="theme.right">
-                <slot name="right"/>
+                <slot name="right" />
             </div>
-            <div :class="theme.menu" @click="menuClicked">
+            <div :class="theme.menu"
+                 @click="menuClicked">
                 <slot name="menu">
-                    <div v-html="menuIcon"/>
+                    &#9776;
                 </slot>
             </div>
         </div>
@@ -21,22 +22,26 @@
 
 <script>
     import { TailwindVueEventBus } from '../main';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Navbar',
 
-        mounted() {
-            TailwindVueEventBus.$on('sidebarToggled', this.toggleMenuIcon);
-        },
-
         props: {
-            theme: {}
+            theme: {
+                type: Object,
+                default: theme.navbar,
+            }
         },
 
         data() {
             return {
                 menuIcon: '&#9776;'
             };
+        },
+
+        mounted() {
+            TailwindVueEventBus.$on('sidebarToggled', this.toggleMenuIcon);
         },
 
         methods: {

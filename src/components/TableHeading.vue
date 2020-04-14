@@ -1,6 +1,6 @@
 <template>
     <td :class="theme.component">
-        <slot/>
+        <slot />
     </td>
 </template>
 
@@ -12,9 +12,8 @@
 
         props: {
             theme: {
-                default: () => {
-                    return theme.tableHeading;
-                }
+                type: Object,
+                default: theme.tableHeading
             }
         },
     };

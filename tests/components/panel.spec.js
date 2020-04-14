@@ -24,7 +24,6 @@ describe('Panel', () => {
         expect(wrapper.vm.$el.innerHTML).toContain('Header content here');
     });
 
-
     it('applies the correct styles', () => {
         const panelClasses = 'panel-classes';
         const headerClasses = 'header-classes';

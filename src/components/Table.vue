@@ -1,25 +1,42 @@
 <template>
     <div :class="theme.component">
-        <div v-if="showHeader" :class="theme.headerRounding"></div>
+
+        <div v-if="showHeader"
+             :class="theme.headerRounding" />
+
         <div :class="theme.wrapper">
+
             <table :class="theme.table">
-                <thead v-if="showHeader" :class="theme.thead">
-                <tr v-if="headings.length" is="TableRow">
-                    <th is="TableHeading" v-for="heading in headings" :key="heading">
+                <thead v-if="showHeader"
+                       :class="theme.thead">
+                <tr is="TableRow"
+                    v-if="headings.length">
+                    <th is="TableHeading"
+                        v-for="heading in headings"
+                        :key="heading">
                         {{ heading }}
                     </th>
                 </tr>
-                <slot name="header"/>
+                <slot name="header" />
                 </thead>
-                <tbody :class="theme.tbody">
-                <slot/>
-                <tr is="TableRow" v-if="items.length" v-for="item in items">
-                    <td is="TableColumn" :class="theme.td" v-for="column in item" :key="column">
+                <tbody v-if="items.length"
+                       :class="theme.tbody">
+                <tr is="TableRow"
+                    v-for="item in items"
+                    :key="item.name">
+                    <td is="TableColumn"
+                        v-for="column in item"
+                        :key="column"
+                        :class="theme.td">
                         {{ column }}
                     </td>
                 </tr>
                 </tbody>
+                <tbody v-else>
+                <slot />
+                </tbody>
             </table>
+
         </div>
     </div>
 </template>
@@ -40,15 +57,6 @@
             TableHeading
         },
 
-        computed: {
-            headings() {
-                if (!this.items.length) {
-                    return [];
-                }
-                return Object.keys(this.items[0]).map(heading => snakeCase(heading).replace('_', ' '));
-            },
-        },
-
         props: {
             items: {
                 type: Array,
@@ -61,10 +69,18 @@
             },
 
             theme: {
-                default: () => {
-                    return theme.table;
-                }
+                type: Object,
+                default: theme.table
             }
+        },
+
+        computed: {
+            headings() {
+                if (!this.items.length) {
+                    return [];
+                }
+                return Object.keys(this.items[0]).map(heading => snakeCase(heading).replace('_', ' '));
+            },
         },
     };
 </script>

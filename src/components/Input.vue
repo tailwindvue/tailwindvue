@@ -1,15 +1,20 @@
 <template>
     <div>
-        <label :class="theme.label" :for="name" v-text="label"/>
-        <input :class="theme.input"
-               type="text"
-               :name="name"
-               :value="value"
-               @input="$emit('input', $event.target.value)">
+        <label :class="theme.label"
+               :for="name"
+               v-text="label">
+            <input :class="theme.input"
+                   type="text"
+                   :name="name"
+                   :value="value"
+                   @input="$emit('input', $event.target.value)">
+        </label>
     </div>
 </template>
 
 <script>
+    import theme from '../stubs/theme';
+
     export default {
         name: 'Input',
 
@@ -26,9 +31,14 @@
 
             label: {
                 type: String,
+                default: '',
+                required: false,
             },
 
-            theme: {}
+            theme: {
+                type: Object,
+                default: theme.input
+            }
         },
     };
 </script>

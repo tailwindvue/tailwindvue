@@ -1,8 +1,12 @@
 <template>
     <div :class="theme.component">
-        <pre :class="theme.pre"><code :class="codeTheme"><slot/></code></pre>
-        <div :class="theme.language">{{ language }}</div>
-        <div :class="theme.caption">{{ caption }}</div>
+        <pre :class="theme.pre"><code :class="codeTheme"><slot /></code></pre>
+        <div :class="theme.language">
+            {{ language }}
+        </div>
+        <div :class="theme.caption">
+            {{ caption }}
+        </div>
     </div>
 </template>
 
@@ -19,6 +23,37 @@
     export default {
         name: 'Code',
 
+        props: {
+            code: {
+                type: String,
+                default: '',
+                required: false
+            },
+
+            language: {
+                type: String,
+                default: '',
+                required: false
+            },
+
+            caption: {
+                type: String,
+                default: '',
+                required: false,
+            },
+
+            theme: {
+                type: Object,
+                default: () => {
+                    return {
+                        component: '',
+                        pre: '',
+                        code: ''
+                    };
+                }
+            }
+        },
+
         computed: {
             codeTheme() {
                 if (this.language === 'vuejs') {
@@ -33,26 +68,6 @@
             this.$el.querySelectorAll('pre code').forEach(block => {
                 Prism.highlightElement(block);
             });
-        },
-
-        props: {
-            code: {
-                type: String
-            },
-
-            language: {},
-
-            caption: {},
-
-            theme: {
-                default: () => {
-                    return {
-                        component: '',
-                        pre: '',
-                        code: ''
-                    };
-                }
-            }
         },
     };
 </script>
