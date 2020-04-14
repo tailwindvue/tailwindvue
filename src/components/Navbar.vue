@@ -30,7 +30,7 @@
         props: {
             theme: {
                 type: Object,
-                default: theme.navbar,
+                default: () => theme.navbar
             }
         },
 

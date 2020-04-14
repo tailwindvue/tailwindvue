@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import defaultTheme from '../stubs/theme';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Alert',
@@ -53,10 +53,7 @@
 
             theme: {
                 type: Object,
-                default: () => {
-                    return defaultTheme.alert;
-                }
-
+                default: () => theme.alert
             }
         },
 

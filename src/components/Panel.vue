@@ -9,18 +9,15 @@
 </template>
 
 <script>
+    import theme from '../stubs/theme';
+
     export default {
         name: 'Panel',
 
         props: {
             theme: {
                 type: Object,
-                default: () => {
-                    return {
-                        panel: '',
-                        header: ''
-                    };
-                }
+                default: () => theme.panel
             }
         },
     };

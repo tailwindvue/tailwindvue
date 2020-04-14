@@ -18,7 +18,7 @@
 
             theme: {
                 type: Object,
-                default: theme.tab
+                default: () => theme.tab
             }
         },
 

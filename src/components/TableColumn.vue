@@ -13,7 +13,7 @@
         props: {
             theme: {
                 type: Object,
-                default: theme.tableColumn
+                default: () => theme.tableColumn
             }
         },
     };

@@ -13,9 +13,7 @@
         props: {
             theme: {
                 type: Object,
-                default: () => {
-                    return theme.content;
-                }
+                default: () => theme.content
             }
         },
     };

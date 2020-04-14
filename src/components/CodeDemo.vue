@@ -19,6 +19,7 @@
 
 <script>
     import Code from './Code';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'CodeDemo',
@@ -42,11 +43,7 @@
 
             theme: {
                 type: Object,
-                default: () => {
-                    return {
-                        component: '',
-                    };
-                }
+                default: () => theme.codeDemo
             }
         },
     };

@@ -70,7 +70,7 @@
 
             theme: {
                 type: Object,
-                default: theme.table
+                default: () => theme.table
             }
         },
 

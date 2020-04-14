@@ -17,6 +17,8 @@
 </template>
 
 <script>
+    import theme from '../stubs/theme';
+
     export default {
         name: 'Heading',
 
@@ -46,18 +48,7 @@
 
             theme: {
                 type: Object,
-                default: () => {
-                    return {
-                        headings: {
-                            h1: '',
-                            h2: '',
-                            h3: '',
-                            h4: '',
-                            h5: '',
-                            h6: '',
-                        }
-                    };
-                }
+                default: () => theme.heading
             }
         },
 

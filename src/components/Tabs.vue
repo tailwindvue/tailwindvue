@@ -21,7 +21,7 @@
         props: {
             theme: {
                 type: Object,
-                default: theme.tabs
+                default: () => theme.tabs
             }
         },
 

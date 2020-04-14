@@ -13,7 +13,7 @@
         props: {
             theme: {
                 type: Object,
-                default: theme.tableRow
+                default: () => theme.tableRow
             }
         },
     };

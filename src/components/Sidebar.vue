@@ -37,7 +37,7 @@
 
             theme: {
                 type: Object,
-                default: theme.sidebar
+                default: () => theme.sidebar
             }
         },
 

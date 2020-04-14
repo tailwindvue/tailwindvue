@@ -19,7 +19,7 @@
         props: {
             theme: {
                 type: Object,
-                default: theme.tabbedCodeDemo
+                default: () => theme.tabbedCodeDemo
             }
         },
     };

@@ -12,6 +12,7 @@
 
 <script>
     import Prism from 'prismjs';
+    import theme from '../stubs/theme';
 
     Prism.plugins.NormalizeWhitespace.setDefaults({
         'remove-trailing': true,
@@ -44,13 +45,7 @@
 
             theme: {
                 type: Object,
-                default: () => {
-                    return {
-                        component: '',
-                        pre: '',
-                        code: ''
-                    };
-                }
+                default: () => theme.code
             }
         },
 

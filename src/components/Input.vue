@@ -37,7 +37,7 @@
 
             theme: {
                 type: Object,
-                default: theme.input
+                default: () => theme.input
             }
         },
     };
