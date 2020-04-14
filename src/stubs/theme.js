@@ -42,7 +42,7 @@ module.exports = {
         container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
         left: 'w-full md:w-1/4 lg:w-64',
         main: 'w-full md:w-3/4 lg:flex-1',
-        right: 'w-full hidden lg:w-64 lg:block flex justify-end',
+        right: 'w-full hidden lg:w-64 lg:block flex justify-end text-right',
         footer: 'p-4 mt-10 md:mt-20 bg-white bg-gray-200 border-t text-center'
     },
 
@@ -81,7 +81,7 @@ module.exports = {
 
     code: {
         component: 'relative',
-        pre: 'rounded',
+        pre: 'rounded p-10',
         code: '',
         language: 'absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin hidden md:block',
         caption: 'mt-2 text-xs uppercase text-gray-500 ml-4'
@@ -215,7 +215,7 @@ module.exports = {
     */
 
     sidebar: {
-        component: 'z-10 fixed',
+        component: '',
         item: 'block uppercase mt-4 text-sm text-gray-500 font-medium',
         itemHovered: 'hover:text-gray-600',
         subItem: 'block normal-case font-normal text-gray-600 hover:text-gray-800',
