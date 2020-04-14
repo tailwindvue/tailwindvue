@@ -12,7 +12,9 @@
     export default {
         name: 'TabbedCodeDemo',
 
-        components: Tabs,
+        components: {
+            Tabs
+        },
 
         props: {
             theme: {
