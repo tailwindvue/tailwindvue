@@ -34,7 +34,6 @@
         "test": "vue-cli-service test:unit",
         "build": "vue-cli-service build --target lib --name tailwindvue src/main.js",
         "watch": "vue-cli-service build --watch --target lib --name tailwindvue src/main.js",
-        "release": "git checkout master && yarn run build --mode production && np"
     },
     "dependencies": {
         "babel-plugin-prismjs": "^2.0.1",
