@@ -18,6 +18,7 @@ import CodeDemo from './components/CodeDemo';
 import Content from './components/Content';
 import Heading from 'Components/Heading';
 import Input from 'Components/Input';
+import Link from 'Components/Link';
 import Navbar from 'Components/Navbar';
 import Panel from 'Components/Panel';
 import Sidebar from 'Components/Sidebar';
@@ -40,6 +41,7 @@ const components = [
     Content,
     Heading,
     Input,
+    Link,
     Navbar,
     Panel,
     Sidebar,
@@ -74,6 +76,7 @@ export {
     Content,
     Heading,
     Input,
+    Link,
     Navbar,
     Panel,
     Sidebar,
