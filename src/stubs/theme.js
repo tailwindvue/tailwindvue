@@ -36,10 +36,10 @@ module.exports = {
     */
 
     app: {
-        component: 'text-gray-700 bg-gray-100 flex flex-col min-h-screen',
+        component: 'text-gray-700 flex flex-col min-h-screen',
         header: '',
-        wrapper: 'flex flex-col flex-auto pt-20',
-        container: 'flex flex-col md:flex-row container mx-auto w-full px-4',
+        wrapper: 'flex flex-col flex-auto mt-16',
+        container: 'flex flex-col md:flex-row container mx-auto w-full px-4 lg:px-10 pt-4',
         left: 'w-full md:w-1/4 lg:w-64',
         main: 'w-full md:w-3/4 lg:flex-1',
         right: 'w-full hidden lg:w-64 lg:block flex justify-end text-right',
@@ -194,7 +194,7 @@ module.exports = {
     */
 
     navbar: {
-        component: 'bg-white h-16 border-b w-full fixed z-20',
+        component: 'bg-gray-100 h-16 border-b w-full fixed z-20',
         wrapper: 'container mx-auto px-4 flex flex-wrap justify-between items-center h-full',
         left: 'w-1/2 md:w-1/3 text-left',
         middle: 'hidden md:block w-1/3 text-center',

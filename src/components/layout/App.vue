@@ -4,6 +4,7 @@
             <slot name="header" />
         </header>
         <div :class="theme.wrapper">
+            <slot name="banner" />
             <div :class="theme.container">
                 <aside v-if="$slots.left"
                        :class="theme.left">
@@ -19,13 +20,7 @@
             </div>
         </div>
         <footer :class="theme.footer">
-            <i class="fas fa-envelope fa-fw" />
-            <a href="mailto:hello@tailwindvue.com">
-                hello@tailwindvue.com
-            </a>
-            <span class="hidden md:inline-block">
-                <i class="fas fa-hand-point-left fa-fw" /> Why not say hello?
-            </span>
+            <slot name="footer" />
         </footer>
     </div>
 </template>
