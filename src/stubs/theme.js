@@ -195,7 +195,7 @@ module.exports = {
 
     navbar: {
         component: 'bg-gray-100 h-16 border-b w-full fixed z-20',
-        wrapper: 'container mx-auto px-4 flex flex-wrap justify-between items-center h-full',
+        wrapper: 'container mx-auto px-4 lg:px-10 flex flex-wrap justify-between items-center h-full',
         left: 'w-1/2 md:w-1/3 text-left',
         middle: 'hidden md:block w-1/3 text-center',
         right: 'w-1/2 md:w-1/3 text-right hidden md:block',
