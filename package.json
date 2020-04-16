@@ -1,6 +1,6 @@
 {
     "name": "@tailwindvue/tailwindvue",
-    "version": "0.1.14",
+    "version": "0.1.15",
     "description": "Tailwind Vue is a customisable library of beautiful components made with Vue.js and Tailwind CSS.",
     "private": false,
     "publishConfig": {
