@@ -42,7 +42,7 @@
 </template>
 
 <script>
-    import { snakeCase } from 'lodash';
+    import snakeCase from 'lodash.snakecase';
     import theme from '../stubs/theme';
     import TableRow from './TableRow';
     import TableColumn from './TableColumn';

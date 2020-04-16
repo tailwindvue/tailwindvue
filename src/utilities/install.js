@@ -1,6 +1,7 @@
 import defaultOptions from '../stubs/options';
 import defaultTheme from '../stubs/theme';
-import { kebabCase, lowerFirst } from 'lodash';
+import kebabCase from 'lodash.kebabcase';
+import lowerFirst from 'lodash.lowerfirst';
 import deepmerge from 'deepmerge';
 
 /**

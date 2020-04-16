@@ -3,11 +3,6 @@ import Vue from 'vue';
 
 // Import utilities
 import install from './utilities/install';
-import whitelist from './utilities/whitelist';
-
-// Import Stubs
-import Theme from './stubs/theme';
-import Options from './stubs/options';
 
 // Import Components
 import Alert from 'Components/Alert';
@@ -56,16 +51,6 @@ const components = [
 
 // Install every component.
 components.forEach(component => install(component));
-
-export {
-    whitelist
-};
-
-// Export Stubs
-export {
-    Theme,
-    Options
-};
 
 // Export components for individual use.
 export {
