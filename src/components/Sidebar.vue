@@ -1,24 +1,7 @@
 <template>
     <div :class="theme.component + ' md:block ' + visibility"
          @click="toggleVisibility">
-        <div v-for="item in items"
-             :key="item.path">
-            <div :is="tagType(item)"
-                 :key="item.name"
-                 :class="classes(item, 'item')"
-                 :to="item.path"
-                 :href="item.url">
-                {{ item.name }}
-            </div>
-
-            <div :is="tagType(subItem)"
-                 v-for="subItem in item.items"
-                 :key="subItem.name"
-                 :class="classes(subItem, 'subItem')"
-                 :to="subItem.path">
-                {{ subItem.name }}
-            </div>
-        </div>
+        <slot />
     </div>
 </template>
 
@@ -30,11 +13,6 @@
         name: 'Sidebar',
 
         props: {
-            items: {
-                type: Array,
-                required: true
-            },
-
             theme: {
                 type: Object,
                 default: () => theme.sidebar
