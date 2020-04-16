@@ -11,15 +11,7 @@
 </template>
 
 <script>
-    import Prism from 'prismjs';
     import theme from '../stubs/theme';
-
-    Prism.plugins.NormalizeWhitespace.setDefaults({
-        'remove-trailing': true,
-        'remove-indent': true,
-        'left-trim': true,
-        'right-trim': true,
-    });
 
     export default {
         name: 'Code',
@@ -60,15 +52,10 @@
         },
 
         mounted() {
-            this.$el.querySelectorAll('pre code').forEach(block => {
-                Prism.highlightElement(block);
+            document.querySelectorAll('pre code').forEach(block => {
+                this.$nextTick(this.$highlight(block));
             });
-        },
+        }
     };
 </script>
 
-<style>
-    pre {
-        margin: 0 !important;
-    }
-</style>
