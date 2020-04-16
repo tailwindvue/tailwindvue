@@ -63,18 +63,6 @@
         "last 2 versions"
     ],
     "postcss": {},
-    "jest": {
-        "preset": "@vue/cli-plugin-unit-jest",
-        "testMatch": [
-            "**/tests/**/*.spec.[jt]s?(x)"
-        ],
-        "moduleNameMapper": {
-            "Components/(.*)$": "<rootDir>/src/components/$1"
-        },
-        "transformIgnorePatterns": [
-            "/node_modules/(?!prismjs)"
-        ]
-    },
     "gitHooks": {
         "pre-commit": "lint-staged"
     },
