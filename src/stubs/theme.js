@@ -40,9 +40,9 @@ module.exports = {
         header: '',
         wrapper: 'flex flex-col flex-auto mt-16',
         container: 'flex flex-col md:flex-row container mx-auto w-full px-4 lg:px-10 pt-4',
-        left: 'w-full md:w-1/4 lg:w-64',
-        main: 'w-full md:w-3/4 lg:flex-1',
-        right: 'w-full hidden lg:w-64 lg:block flex justify-end text-right',
+        left: 'w-full md:w-1/4 lg:w-1/4 xl:w-1/6',
+        main: 'w-full md:w-3/4 lg:w-2/4 xl:w-2/3',
+        right: 'hidden lg:w-1/4 lg:block xl:w-1/6 flex justify-end text-right',
         footer: 'p-4 mt-10 md:mt-20 bg-white bg-gray-200 border-t text-center'
     },
 
