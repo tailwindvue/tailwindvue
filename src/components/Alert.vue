@@ -1,18 +1,15 @@
 <template>
-    <div v-if="visible"
-         :class="theme.component + ' ' + theme.types[type]">
+    <div v-if="isRendered"
+         :class="[theme.component, theme.types[type]]">
         <div v-if="$slots.icon"
              :class="theme.icon">
             <slot name="icon" />
         </div>
         <div :class="theme.body">
-            <div>
-                <slot />
-            </div>
+            <slot />
             <div v-if="dismissable"
-                 ref="dismiss-button"
                  :class="theme.action"
-                 @click="dismiss">
+                 @click="dismissAlert">
                 <slot name="action">
                     &times;
                 </slot>
@@ -29,7 +26,9 @@
 
         props: {
             type: {
+                type: String,
                 default: 'default',
+                required: false,
                 validator: value => {
                     return [
                         'default',
@@ -41,48 +40,53 @@
                 }
             },
 
-            dismissable: {
-                type: Boolean,
-                default: false
+            render: {
+                type: [Number, Boolean],
+                default: true,
+                required: false,
             },
 
-            duration: {
-                type: [Number, Boolean],
-                default: false
+            dismissable: {
+                type: Boolean,
+                default: false,
+                required: false,
             },
 
             theme: {
                 type: Object,
-                default: () => theme.alert
+                default: () => theme.alert,
+                required: false
             }
         },
 
         data() {
             return {
-                visible: true
+                isRendered: typeof this.render === 'boolean' ? this.render : true
             };
         },
 
         watch: {
-            duration(value) {
-                this.setDurationTimeout(value);
+            render(value) {
+                if (typeof value === 'number') {
+                    this.dismissAlertAfterSeconds(value);
+                }
             }
         },
 
         mounted() {
-            if (this.duration) {
-                this.setDurationTimeout(this.duration);
+            if (this.render && typeof this.render === 'number') {
+                this.dismissAlertAfterSeconds(this.render);
             }
         },
 
         methods: {
-            dismiss() {
-                this.visible = !this.visible;
+            dismissAlert() {
+                this.isRendered = !this.isRendered;
                 this.$emit('dismissed', this);
             },
 
-            setDurationTimeout(value) {
-                setTimeout(() => this.dismiss(), value * 1000);
+            dismissAlertAfterSeconds(seconds) {
+                setTimeout(() => this.dismissAlert(), seconds * 1000);
             }
         },
     };

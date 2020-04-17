@@ -34,8 +34,12 @@
             A dismissable alert
         </tw-alert>
 
-        <tw-alert :duration="2">
+        <tw-alert :render="3">
             A self dismissing alert
+        </tw-alert>
+
+        <tw-alert :render="false">
+            An un-rendered alert
         </tw-alert>
     </div>
 </template>
