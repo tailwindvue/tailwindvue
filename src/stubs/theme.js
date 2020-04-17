@@ -11,10 +11,22 @@ module.exports = {
     */
 
     alert: {
-        component: 'flex flex-col md:flex-row border-l-4 p-4 min-h-32 border',
-        icon: 'flex w-16 mb-4 md:mb-0 md:justify-center items-center',
-        body: 'flex-1 flex justify-between',
-        action: 'flex w-8 text-xl justify-center items-center cursor-pointer select-none',
+        component: 'flex flex-col md:flex-row border-l-4 p-4 min-h-32 border relative',
+        progress: {
+            wrapper: 'absolute top-0 left-0 h-full w-full',
+            bar: 'h-full w-full transition-all duration-100 linear opacity-50 text-xs',
+            types: {
+                default: 'bg-gray-200',
+                danger: 'bg-red-200',
+                info: 'bg-blue-200',
+                warning: 'bg-yellow-200',
+                success: 'bg-green-200',
+            }
+        },
+        icon: 'flex w-16 mb-4 md:mb-0 md:justify-center items-center z-10',
+        body: 'flex-grow flex justify-between z-10 items-center',
+        remainingDuration: 'inline-block italic',
+        dismissButton: 'inline font-bold text-xl leading-none cursor-pointer select-none z-10 md:ml-2',
         types: {
             default: 'bg-white',
             danger: 'bg-red-100 text-red-800 border-red-500',
