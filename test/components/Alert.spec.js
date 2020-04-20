@@ -1,171 +1,295 @@
 import { shallowMount } from '@vue/test-utils';
 import { Alert } from '../../src/main';
 import theme from '../../src/stubs/theme';
+import { toContainElement, toHaveClasses } from '../utilities';
 
-// Fake timing functions
 jest.useFakeTimers();
+
+/**
+ * @typedef {jest.expect} expect
+ */
+expect.extend({
+    toContainElement,
+    toHaveClasses
+});
 
 describe('Alert', () => {
     describe('Features', () => {
         it('can be mounted as vue component', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert);
+            const alert = shallowMount(Alert);
 
-            // We expect it to be mounted as a valid Vue component
-            expect(wrapper.isVueInstance()).toBeTruthy();
+            expect(alert.isVueInstance()).toBeTruthy();
         });
 
-        it('is dismissed if the dismiss button is clicked', () => {
-            // Given a dismissable alert
-            const wrapper = shallowMount(Alert, {
+        it('is dismissed if the dismiss button is clicked', async () => {
+            const alert = shallowMount(Alert, {
                 propsData: { dismissable: true }
             });
 
-            // We expect the alert to exist in the DOM
-            expect(wrapper.find('div').exists()).toBeTruthy();
+            expect(alert.isEmpty()).toBeFalsy();
 
-            // But when the dismissed button is clicked
-            wrapper.findAll('div').at(2).trigger('click');
+            alert.findAll('button').trigger('click');
 
-            // We expect the alert to be dismissed and no longer exist in the DOM
-            wrapper.vm.$nextTick().then(() => expect(wrapper.find('div').exists()).toBeFalsy());
+            await alert.vm.$nextTick();
+            expect(alert.isEmpty()).toBeTruthy();
         });
 
-        it('is dismissed after a number of seconds if the render duration is set before mounting', async () => {
-            // Given an alert with a duration of one second
-            const wrapper = shallowMount(Alert, {
-                propsData: { render: 1 }
+        it('is dismissed after a number of seconds if the duration is set before mounting', async () => {
+            const alert = shallowMount(Alert, {
+                propsData: { duration: 1 }
             });
 
-            // We expect the alert to exist in the DOM
-            expect(wrapper.find('div').exists()).toBeTruthy();
+            expect(alert.isEmpty()).toBeFalsy();
 
-            // But after the duration has elapsed
-            jest.runAllTimers();
+            jest.runOnlyPendingTimers();
 
-            // We expect the alert to be dismissed and no longer exist in the DOM
-            await wrapper.vm.$nextTick();
-            expect(wrapper.find('div').exists()).toBeFalsy();
+            await alert.vm.$nextTick();
+            expect(alert.isEmpty()).toBeTruthy();
         });
 
-        it('is dismissed after a number of seconds if the render duration is set after mounting', async () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert);
+        it('is dismissed after a number of seconds if the duration is set after mounting', async () => {
+            const alert = shallowMount(Alert);
 
-            // We expect the component to exist in the DOM
-            expect(wrapper.find('div').exists()).toBeTruthy();
+            expect(alert.isEmpty()).toBeFalsy();
 
-            // But if we set the duration prop on the component after it has been mounted
-            wrapper.setProps({ render: 2 });
+            alert.setProps({ duration: 2 });
 
-            // And wait for the watcher to set the timeout
-            await wrapper.vm.$nextTick();
+            await alert.vm.$nextTick();
 
-            // Then after the duration has elapsed
-            jest.runAllTimers();
+            jest.runOnlyPendingTimers();
 
-            // We expect the alert to be dismissed and no longer exist in the DOM
-            await wrapper.vm.$nextTick();
-            expect(wrapper.find('div').exists()).toBeFalsy();
+            await alert.vm.$nextTick();
+            expect(alert.isEmpty()).toBeTruthy();
         });
 
         it('is rendered if the render prop is not set', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert);
+            const alert = shallowMount(Alert);
 
-            // We expect the alert not to be rendered
-            expect(wrapper.find('div').exists()).toBeTruthy();
+            expect(alert.isEmpty()).toBeFalsy();
         });
 
         it('is rendered if the render prop is set to true', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert, {
+            const alert = shallowMount(Alert, {
                 propsData: { render: true }
             });
 
-            // We expect the alert not to be rendered
-            expect(wrapper.find('div').exists()).toBeTruthy();
+            expect(alert.isEmpty()).toBeFalsy();
         });
 
         it('is not rendered if the render prop is set to false', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert, {
-                propsData: { render: false }
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    render: false,
+                    renderDuration: 10
+                }
             });
 
-            // We expect the alert not to be rendered
-            expect(wrapper.find('div').exists()).toBeFalsy();
+            expect(alert.isEmpty()).toBeTruthy();
+        });
+
+        it('renders the progress bar if the showProgress prop is set to true and the alert has a duration', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    showProgress: true,
+                    duration: 10
+                }
+            });
+
+            expect(alert).toContainElement(theme.alert.progress.wrapper);
+        });
+
+        it('does not render the progress bar if the showProgress prop is set to false', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    showProgress: false,
+                    duration: 10
+                }
+            });
+
+            expect(alert).not.toContainElement(theme.alert.progress.wrapper);
+        });
+
+        it('does not render the progress bar if the showProgress prop is not defined', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    duration: 10
+                }
+            });
+
+            expect(alert).not.toContainElement(theme.alert.progress.wrapper);
+        });
+
+        it('does not render the progress bar if the duration is not set', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    showProgress: true,
+                }
+            });
+
+            expect(alert).not.toContainElement(theme.alert.progress.wrapper);
+        });
+
+        it('renders the remaining duration if the showRemainingDuration prop is set to true', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    showRemainingDuration: true,
+                    duration: 10
+                }
+            });
+
+            expect(alert).toContainElement(theme.alert.remainingDuration);
+        });
+
+        it('does not render the remaining duration if the showRemainingDuration prop is set to false', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    showRemainingDuration: false,
+                    duration: 10
+                }
+            });
+
+            expect(alert).not.toContainElement(theme.alert.remainingDuration);
+        });
+
+        it('does not render the remaining duration if the showRemainingDuration prop is not set', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    duration: 10
+                }
+            });
+
+            expect(alert).not.toContainElement(theme.alert.remainingDuration);
+        });
+
+        it('does not render the remaining duration if the duration is not set', () => {
+            const alert = shallowMount(Alert);
+
+            expect(alert).not.toContainElement(theme.alert.remainingDuration);
+        });
+
+        it('does not render the dismiss button if the dismissable prop is set to false', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    dismissable: false
+                }
+            });
+
+            expect(alert).not.toContainElement(theme.alert.dismissButton);
+        });
+
+        it('does not render the dismiss button if the dismissable prop is not set', () => {
+            const alert = shallowMount(Alert);
+
+            expect(alert).not.toContainElement(theme.alert.dismissButton);
+        });
+
+        it('renders the dismiss button if the dismissable prop is set to true', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    dismissable: true
+                }
+            });
+
+            expect(alert).toContainElement(theme.alert.dismissButton);
         });
     });
 
     describe('Styles', () => {
         it('applies the component styles to component', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert, {
+            const alert = shallowMount(Alert, {
                 propsData: { type: 'success' }
             });
 
-            // We expect it to have component classes
-            expect(wrapper.classes().join(' ')).toContain(theme.alert.component);
+            expect(alert).toHaveClasses(theme.alert.component);
         });
 
         it('applies the correct type styles to the component', () => {
-            // Given an 'success' alert
-            const wrapper = shallowMount(Alert, {
+            const successAlert = shallowMount(Alert, {
                 propsData: { type: 'success' }
             });
 
-            // We expect it to have the classes for the 'success' alert type
-            expect(wrapper.classes().join(' ')).toContain(theme.alert.types.success);
+            expect(successAlert).toHaveClasses(theme.alert.types.success);
         });
 
         it('applies the icon styles to the icon', () => {
-            // Given an alert with an icon slot
-            const wrapper = shallowMount(Alert, {
+            const alert = shallowMount(Alert, {
                 slots: { icon: '<i class="fa fa-info"></i>' }
             });
 
-            // We expect the icon to have the icon classes
-            expect(wrapper.findAll('div').at(1).classes().join(' ')).toContain(theme.alert.icon);
+            expect(alert.findAll('div').at(1)).toHaveClasses(theme.alert.icon);
         });
 
         it('applies the body styles to the body', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert);
+            const alert = shallowMount(Alert);
 
-            // We expect the alert body to have the body classes
-            expect(wrapper.findAll('div').at(1).classes().join(' ')).toContain(theme.alert.body);
+            expect(alert.findAll('div').at(1)).toHaveClasses(theme.alert.body);
         });
 
-        it('applies the action styles to the action', () => {
-            // Given a dismissable alert
-            const wrapper = shallowMount(Alert, {
+        it('applies the dismiss button styles to the dismiss button', () => {
+            const alert = shallowMount(Alert, {
                 propsData: { dismissable: true }
             });
 
-            // We expect the action to have the action styles
-            expect(wrapper.findAll('div').at(2).classes().join(' ')).toContain(theme.alert.action);
+            expect(alert.find('button')).toHaveClasses(theme.alert.dismissButton);
+        });
+
+        it('applies the progress alert styles to the progress alert', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    showProgress: true,
+                    duration: 2
+                }
+            });
+
+            expect(alert.findAll('div').at(1)).toHaveClasses(theme.alert.progress.wrapper);
+        });
+
+        it('applies the progress bar styles to the progress bar', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    showProgress: true,
+                    duration: 2
+                }
+            });
+
+            expect(alert.findAll('div').at(2)).toHaveClasses(theme.alert.progress.bar);
+        });
+
+        it('applies the progress type styles to the progress type', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    showProgress: true,
+                    duration: 2
+                }
+            });
+
+            expect(alert.findAll('div').at(2)).toHaveClasses(theme.alert.progress.types.default);
+        });
+
+        it('applies the remaining duration styles to the remaining duration', () => {
+            const alert = shallowMount(Alert, {
+                propsData: {
+                    showRemainingDuration: true,
+                    duration: 2
+                }
+            });
+
+            expect(alert.findAll('div').at(3)).toHaveClasses(theme.alert.remainingDuration);
         });
     });
 
     describe('Props', () => {
         it('accepts a type prop', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert);
+            const alert = shallowMount(Alert);
 
-            // With a type prop
-            const typeProp = wrapper.vm.$options.props['type'];
+            const typeProp = alert.vm.$options.props['type'];
 
-            // We expect it to be a String
             expect(typeProp.type).toBe(String);
 
-            // We expect the default value to be 'default'
             expect(typeProp.default).toBe('default');
 
-            // We expect the prop not to be required
             expect(typeProp.required).toBe(false);
 
-            // We expect the type prop to accept only valid values
             expect(typeProp.validator('default')).toBeTruthy();
             expect(typeProp.validator('info')).toBeTruthy();
             expect(typeProp.validator('warning')).toBeTruthy();
@@ -175,134 +299,166 @@ describe('Alert', () => {
         });
 
         it('accepts a dismissable prop', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert);
+            const alert = shallowMount(Alert);
 
-            // With a dismissable prop
-            const dismissableProp = wrapper.vm.$options.props['dismissable'];
+            const dismissableProp = alert.vm.$options.props['dismissable'];
 
-            // We expect it to be a Boolean
             expect(dismissableProp.type).toBe(Boolean);
 
-            // We expect the default value to be false
             expect(dismissableProp.default).toBeFalsy();
 
-            // We expect the prop not to be required
             expect(dismissableProp.required).toBeFalsy();
         });
 
         it('accepts a render prop', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert);
+            const alert = shallowMount(Alert);
 
-            // With a duration prop
-            const durationProp = wrapper.vm.$options.props['render'];
+            const renderProp = alert.vm.$options.props['render'];
 
-            // We expect it to be a Number or a Boolean
-            expect(durationProp.type).toEqual([Number, Boolean]);
+            expect(renderProp.type).toEqual(Boolean);
 
-            // We expect the default value to be true
-            expect(durationProp.default).toBeTruthy();
+            expect(renderProp.default).toBeTruthy();
 
-            // We expect the prop not to be required
+            expect(renderProp.required).toBeFalsy();
+        });
+
+        it('accepts a duration prop', () => {
+            const alert = shallowMount(Alert);
+
+            const durationProp = alert.vm.$options.props['duration'];
+
+            expect(durationProp.type).toEqual(Number);
+
+            expect(durationProp.default).toBeUndefined();
+
             expect(durationProp.required).toBeFalsy();
+
+            expect(durationProp.validator(-1)).toBeFalsy();
+            expect(durationProp.validator(0)).toBeTruthy();
+            expect(durationProp.validator(1)).toBeTruthy();
+        });
+
+        it('accepts a showRemainingDuration prop', () => {
+            const alert = shallowMount(Alert);
+
+            const showRemainingDurationProp = alert.vm.$options.props['showRemainingDuration'];
+
+            expect(showRemainingDurationProp.type).toEqual(Boolean);
+
+            expect(showRemainingDurationProp.default).toBeFalsy();
+
+            expect(showRemainingDurationProp.required).toBeFalsy();
+        });
+
+        it('accepts a showProgress prop', () => {
+            const alert = shallowMount(Alert);
+
+            const showProgressProp = alert.vm.$options.props['showProgress'];
+
+            expect(showProgressProp.type).toEqual(Boolean);
+
+            expect(showProgressProp.default).toBeFalsy();
+
+            expect(showProgressProp.required).toBeFalsy();
         });
 
         it('accepts a theme prop', () => {
-            // Given an alert
-            const wrapper = shallowMount(Alert);
+            const alert = shallowMount(Alert);
 
-            // With a theme prop
-            const durationProp = wrapper.vm.$options.props['theme'];
+            const durationProp = alert.vm.$options.props['theme'];
 
-            // We expect it to be an Object
             expect(durationProp.type).toBe(Object);
 
-            // We expect the default value to be the default theme
             expect(durationProp.default()).toBe(theme.alert);
 
-            // We expect the prop not to be required
             expect(durationProp.required).toBeFalsy();
         });
     });
 
     describe('Slots', () => {
         it('renders the default slot', () => {
-            // Given an alert body
             const body = 'Alert body';
 
-            // An an alert with a default slot containing the alert body
-            const wrapper = shallowMount(Alert, {
+            const alert = shallowMount(Alert, {
                 slots: { default: body }
             });
 
-            // We expect the alert to contain the alert body
-            expect(wrapper.vm.$el.innerHTML).toContain(body);
+            expect(alert.vm.$el.innerHTML).toContain(body);
         });
 
         it('renders the icon slot', () => {
-            // Given an icon
             const icon = '<i class="fa fa-info"></i>';
 
-            // And an alert with an icon slot containing the icon
-            const wrapper = shallowMount(Alert, {
+            const alert = shallowMount(Alert, {
                 slots: { icon }
             });
 
-            // We expect the alert to contain the icon
-            expect(wrapper.vm.$el.innerHTML).toContain(icon);
+            expect(alert.vm.$el.innerHTML).toContain(icon);
         });
 
         it('renders the action slot if the alert is dismissable', () => {
-            // Given an action icon
             const action = '<i class="fa fa-times"></i>';
 
-            // And a dismissable alert with an action slot containing the action icon
-            const wrapper = shallowMount(Alert, {
+            const alert = shallowMount(Alert, {
                 propsData: { dismissable: true },
                 slots: { action }
             });
 
-            // We expect the alert to contain the action icon
-            expect(wrapper.vm.$el.innerHTML).toContain(action);
+            expect(alert.vm.$el.innerHTML).toContain(action);
         });
 
         it('does not render the action slot if the alert is not dismissable', () => {
-            // Given an action icon
             const action = '<i class="fa fa-times"></i>';
 
-            // And an alert with an action slot containing the action icon
-            const wrapper = shallowMount(Alert, {
+            const alert = shallowMount(Alert, {
                 slots: { action }
             });
 
-            // We expect the alert not to contain the action icon
-            expect(wrapper.vm.$el.innerHTML).not.toContain(action);
+            expect(alert.vm.$el.innerHTML).not.toContain(action);
         });
 
         it('renders a default action icon if the alert is dismissable and the action slot is not set', () => {
-            // Given a dismissable alert with no action slot set
-            const wrapper = shallowMount(Alert, {
+            const alert = shallowMount(Alert, {
                 propsData: { dismissable: true }
             });
 
-            // We expect to see the default action icon
-            expect(wrapper.vm.$el.innerHTML).toContain('×');
+            expect(alert.vm.$el.innerHTML).toContain('×');
+        });
+    });
+
+    describe('Computed', () => {
+        it('computes the remaining duration percentage', () => {
+            const localThis = { duration: 10, remainingDuration: 3 };
+
+            expect(Alert.computed.remainingDurationPercentage.call(localThis)).toBe(30);
+        });
+
+        it('computes the remaining duration style', () => {
+            const localThis = { remainingDurationPercentage: 50 };
+
+            expect(Alert.computed.remainingDurationStyle.call(localThis)).toBe('width: 50%;');
         });
     });
 
     describe('Events', () => {
         it('emits a dismissed event if the dismiss button is clicked', () => {
-            // Given a dismissable alert
-            const wrapper = shallowMount(Alert, {
+            const alert = shallowMount(Alert, {
                 propsData: { dismissable: true }
             });
 
-            // When the dismissed button is clicked
-            wrapper.findAll('div').at(2).trigger('click');
+            alert.findAll('button').trigger('click');
 
-            // We expect the alert to emit a dismissed event
-            expect(wrapper.emitted('dismissed')).toBeTruthy();
+            expect(alert.emitted('dismissed')).toBeTruthy();
+        });
+
+        it('emits a remainingDurationChanged event when the remaining duration has changed', async () => {
+            const alert = shallowMount(Alert, {
+                propsData: { duration: 5 }
+            });
+
+            jest.advanceTimersToNextTimer();
+
+            expect(alert.emitted('remainingDurationChanged')).toEqual([[4]]);
         });
     });
 });

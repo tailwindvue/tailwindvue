@@ -1,7 +1,7 @@
 <template>
     <div v-if="isRendered"
          :class="[theme.component, theme.types[type]]">
-        <div v-if="showProgress&& duration && remainingDuration"
+        <div v-if="showProgress && duration && remainingDuration"
              :class="theme.progress.wrapper">
             <div :class="[theme.progress.bar, theme.progress.types[type]]"
                  :style="remainingDurationStyle" />
@@ -17,13 +17,13 @@
                      :class="theme.remainingDuration">
                     {{ Math.ceil(remainingDuration) }}s
                 </div>
-                <div v-if="dismissable"
-                     :class="[theme.dismissButton]"
-                     @click="dismissAlert">
+                <button v-if="dismissable"
+                        :class="[theme.dismissButton]"
+                        @click="dismissAlert">
                     <slot name="action">
                         &times;
                     </slot>
-                </div>
+                </button>
             </div>
         </div>
     </div>
@@ -125,6 +125,14 @@
                     this.$emit('remainingDurationChanged', this.remainingDuration);
                 }
             },
+
+            duration(seconds) {
+                if (this.render && this.duration) {
+                    clearTimeout(this.timeout);
+                    clearInterval(this.interval);
+                    this.dismissAlertAfterSeconds(seconds);
+                }
+            }
         },
 
         mounted() {
@@ -145,8 +153,8 @@
                 this.timeout = setTimeout(() => this.dismissAlert(), seconds * 1000);
 
                 this.interval = setInterval(() => {
-                    this.$emit('remainingDurationChanged', Math.ceil(this.remainingDuration -= 0.1));
-                }, 100);
+                    this.$emit('remainingDurationChanged', this.remainingDuration -= 1);
+                }, 1000);
             }
         },
     };

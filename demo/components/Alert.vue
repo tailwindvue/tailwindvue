@@ -64,7 +64,6 @@
             duration
         </tw-alert>
 
-
         <tw-alert type="info"
                   :duration="10"
                   :show-progress="true">
@@ -101,8 +100,8 @@
             </button>
             <tw-alert v-model="isRendered"
                       :duration="10"
-                      @remainingDurationChanged="durationRemaining = $event"
-                      @dismissed="isRendered=!isRendered">
+                      @dismissed="isRendered=!isRendered"
+                      @remainingDurationChanged="durationRemaining = $event">
                 A self-dismissing dismissable alert with progress and controls
             </tw-alert>
         </div>
@@ -129,8 +128,8 @@
         data() {
             return {
                 isRendered: true,
-                renderDuration: 3,
-                durationRemaining: 3
+                renderDuration: 10,
+                durationRemaining: 10
             };
         },
     };

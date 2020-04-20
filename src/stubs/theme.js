@@ -14,7 +14,7 @@ module.exports = {
         component: 'flex flex-col md:flex-row border-l-4 p-4 min-h-32 border relative',
         progress: {
             wrapper: 'absolute top-0 left-0 h-full w-full',
-            bar: 'h-full w-full transition-all duration-100 linear opacity-50 text-xs',
+            bar: 'h-full w-full transition-all duration-1000 ease-linear opacity-50 text-xs',
             types: {
                 default: 'bg-gray-200',
                 danger: 'bg-red-200',
