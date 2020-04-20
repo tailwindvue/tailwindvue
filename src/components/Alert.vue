@@ -1,21 +1,29 @@
 <template>
-    <div v-if="visible"
-         :class="theme.component + ' ' + theme.types[type]">
+    <div v-if="isRendered"
+         :class="[theme.component, theme.types[type]]">
+        <div v-if="showProgress && duration && remainingDuration"
+             :class="theme.progress.wrapper">
+            <div :class="[theme.progress.bar, theme.progress.types[type]]"
+                 :style="remainingDurationStyle" />
+        </div>
         <div v-if="$slots.icon"
              :class="theme.icon">
             <slot name="icon" />
         </div>
         <div :class="theme.body">
+            <slot />
             <div>
-                <slot />
-            </div>
-            <div v-if="dismissable"
-                 ref="dismiss-button"
-                 :class="theme.action"
-                 @click="dismiss">
-                <slot name="action">
-                    &times;
-                </slot>
+                <div v-if="showRemainingDuration && remainingDuration"
+                     :class="theme.remainingDuration">
+                    {{ Math.ceil(remainingDuration) }}s
+                </div>
+                <button v-if="dismissable"
+                        :class="[theme.dismissButton]"
+                        @click="dismissAlert">
+                    <slot name="action">
+                        &times;
+                    </slot>
+                </button>
             </div>
         </div>
     </div>
@@ -27,62 +35,126 @@
     export default {
         name: 'Alert',
 
+        model: {
+            prop: 'render',
+            event: 'dismissed'
+        },
+
         props: {
             type: {
+                type: String,
                 default: 'default',
-                validator: value => {
+                required: false,
+                validator: type => {
                     return [
                         'default',
                         'info',
                         'warning',
                         'danger',
                         'success'
-                    ].includes(value);
+                    ].includes(type);
+                }
+            },
+
+            render: {
+                type: Boolean,
+                default: true,
+                required: false,
+            },
+
+            duration: {
+                type: Number,
+                default: undefined,
+                required: false,
+                validator: duration => {
+                    return duration >= 0;
                 }
             },
 
             dismissable: {
                 type: Boolean,
-                default: false
+                default: false,
+                required: false,
             },
 
-            duration: {
-                type: [Number, Boolean],
-                default: false
+            showRemainingDuration: {
+                type: Boolean,
+                default: false,
+                required: false,
+            },
+
+            showProgress: {
+                type: Boolean,
+                default: false,
+                required: false,
             },
 
             theme: {
                 type: Object,
-                default: () => theme.alert
+                default: () => theme.alert,
+                required: false
             }
         },
 
         data() {
             return {
-                visible: true
+                timeout: null,
+                interval: null,
+                isRendered: this.render,
+                remainingDuration: this.duration,
             };
         },
 
+        computed: {
+            remainingDurationPercentage() {
+                return this.remainingDuration / this.duration * 100;
+            },
+
+            remainingDurationStyle() {
+                return `width: ${this.remainingDurationPercentage}%;`;
+            }
+        },
+
         watch: {
-            duration(value) {
-                this.setDurationTimeout(value);
+            render(value) {
+                this.isRendered = value;
+
+                if (value === true) {
+                    this.remainingDuration = this.duration;
+                    this.dismissAlertAfterSeconds(this.duration);
+                    this.$emit('remainingDurationChanged', this.remainingDuration);
+                }
+            },
+
+            duration(seconds) {
+                if (this.render && this.duration) {
+                    clearTimeout(this.timeout);
+                    clearInterval(this.interval);
+                    this.dismissAlertAfterSeconds(seconds);
+                }
             }
         },
 
         mounted() {
-            if (this.duration) {
-                this.setDurationTimeout(this.duration);
+            if (this.render && this.duration) {
+                this.dismissAlertAfterSeconds(this.duration);
             }
         },
 
         methods: {
-            dismiss() {
-                this.visible = !this.visible;
+            dismissAlert() {
+                this.isRendered = !this.isRendered;
+                clearInterval(this.interval);
+                clearTimeout(this.timeout);
                 this.$emit('dismissed', this);
             },
 
-            setDurationTimeout(value) {
-                setTimeout(() => this.dismiss(), value * 1000);
+            dismissAlertAfterSeconds(seconds) {
+                this.interval = setInterval(() => {
+                    this.$emit('remainingDurationChanged', Math.ceil(this.remainingDuration -= 1.1));
+                }, 1000);
+
+                this.timeout = setTimeout(() => this.dismissAlert(), seconds * 1000);
             }
         },
     };

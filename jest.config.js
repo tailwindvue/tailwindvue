@@ -1,12 +1,12 @@
 module.exports = {
-    'preset': '@vue/cli-plugin-unit-jest',
-    'testMatch': [
+    preset: '@vue/cli-plugin-unit-jest',
+    testMatch: [
         '**/test/**/*.spec.[jt]s?(x)'
     ],
-    'moduleNameMapper': {
+    moduleNameMapper: {
         'Components/(.*)$': '<rootDir>/src/components/$1'
     },
-    'transformIgnorePatterns': [
+    transformIgnorePatterns: [
         '/node_modules/(?!prismjs)'
     ],
     collectCoverage: true,
