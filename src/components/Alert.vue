@@ -151,7 +151,7 @@
 
             dismissAlertAfterSeconds(seconds) {
                 this.interval = setInterval(() => {
-                    this.$emit('remainingDurationChanged', this.remainingDuration -= 1.1);
+                    this.$emit('remainingDurationChanged', Math.ceil(this.remainingDuration -= 1.1));
                 }, 1000);
 
                 this.timeout = setTimeout(() => this.dismissAlert(), seconds * 1000);
