@@ -19,7 +19,7 @@ yarn-error.log*
 # Ignore jest coverage
 coverage
 
-# Ignire editor directories and files
+# Ignoere editor directories and files
 .idea
 .vscode
 *.suo
