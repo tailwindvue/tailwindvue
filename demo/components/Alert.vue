@@ -1,10 +1,23 @@
 <template>
     <div id="content">
+
         <h1 class="text-3xl">
             Alert
         </h1>
 
-        <tw-alert>An alert</tw-alert>
+        <tw-alert>
+            An alert with <strong>other</strong> tags inside
+        </tw-alert>
+
+        <tw-alert>
+            An alert with a very long message. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet atque
+            blanditiis culpa cum, debitis doloribus earum est explicabo id iusto nemo nihil odit porro quis recusandae
+            tenetur totam vel. Blanditiis!
+        </tw-alert>
+
+        <tw-alert>
+            An alert
+        </tw-alert>
 
         <tw-alert type="info">
             An info alert

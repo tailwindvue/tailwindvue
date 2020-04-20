@@ -11,7 +11,7 @@ module.exports = {
     */
 
     alert: {
-        component: 'flex flex-col md:flex-row border-l-4 p-4 min-h-32 border relative',
+        component: 'flex items-center border-l-4 p-4 min-h-32 border relative',
         progress: {
             wrapper: 'absolute top-0 left-0 h-full w-full',
             bar: 'h-full w-full transition-all duration-1000 ease-linear opacity-50 text-xs',
@@ -23,10 +23,10 @@ module.exports = {
                 success: 'bg-green-200',
             }
         },
-        icon: 'flex w-16 mb-4 md:mb-0 md:justify-center items-center z-10',
-        body: 'flex-grow flex justify-between z-10 items-center',
-        remainingDuration: 'inline-block italic',
-        dismissButton: 'inline font-bold text-xl leading-none cursor-pointer select-none z-10 md:ml-2',
+        icon: 'flex-shrink-0 mr-4 z-10',
+        body: 'flex-1 z-10',
+        remainingDuration: 'ml-4 italic flex-shrink-0',
+        dismissButton: 'ml-4 flex-shrink-0 font-bold text-xl leading-none cursor-pointer select-none z-10',
         types: {
             default: 'bg-white',
             danger: 'bg-red-100 text-red-800 border-red-500',
