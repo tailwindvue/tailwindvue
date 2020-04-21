@@ -1,6 +1,9 @@
+#!/usr/bin/env node
+
 const compiler = require('vue-template-compiler');
 const camelCase = require('lodash.camelcase');
 const fs = require('fs');
+const yargs = require('yargs');
 
 function mapThing(thing) {
     let theme = {};
@@ -30,12 +33,40 @@ function objectify(thing) {
     return mapThing(compiled.ast).theme.children;
 }
 
-module.exports = {
-    thing: () => {
-        fs.readFile('../stubs/theme.vue', 'utf8', (error, contents) => {
-            fs.writeFile('../stubs/theme.js', `module.exports = ${JSON.stringify(objectify(contents))};`, 'utf8', (error) => {
-                console.log(error);
-            });
+const args = yargs
+    .option('input', {
+        alias: 'i',
+        type: 'string',
+        description: 'The file to convert.'
+    })
+    .option('output', {
+        alias: 'o',
+        type: 'string',
+        description: 'The file to output.'
+    }).argv;
+
+console.clear();
+
+if (args.input && args.output) {
+    fs.readFile(args.input, 'utf8', (error, contents) => {
+        if (error) {
+            return console.error(error);
+        }
+
+        fs.writeFile(args.output, `module.exports = ${JSON.stringify(objectify(contents), null, 4).replace(/"/g, `'`)};`, 'utf8', (error) => {
+            if (error) {
+                console.error(error);
+            }
         });
-    }
-};
+
+        console.info('\x1b[32m', `Success: Converted ${args.input} to ${args.output}`);
+    });
+}
+
+if (!args.input) {
+    console.error('\x1b[31m', 'Error: The input file option is required.');
+}
+
+if (!args.output) {
+    console.error('\x1b[31m', 'Error: The output file option is required.');
+}

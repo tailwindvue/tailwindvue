@@ -24,10 +24,18 @@ module.exports = {
                     }
                 }
             },
-            'icon': { 'class': 'flex-shrink-0 mr-4 z-10' },
-            'body': { 'class': 'flex-1 z-10' },
-            'remainingDuration': { 'class': 'ml-4 italic flex-shrink-0' },
-            'dismissButton': { 'class': 'ml-4 flex-shrink-0 font-bold text-xl leading-none cursor-pointer select-none z-10' }
+            'icon': {
+                'class': 'flex-shrink-0 mr-4 z-10'
+            },
+            'body': {
+                'class': 'flex-1 z-10'
+            },
+            'remainingDuration': {
+                'class': 'ml-4 italic flex-shrink-0'
+            },
+            'dismissButton': {
+                'class': 'ml-4 flex-shrink-0 font-bold text-xl leading-none cursor-pointer select-none z-10'
+            }
         }
     },
     'button': {
