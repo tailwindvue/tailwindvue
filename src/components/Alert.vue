@@ -12,20 +12,18 @@
         </div>
         <div :class="theme.body">
             <slot />
-            <div>
-                <div v-if="showRemainingDuration && remainingDuration"
-                     :class="theme.remainingDuration">
-                    {{ Math.ceil(remainingDuration) }}s
-                </div>
-                <button v-if="dismissable"
-                        :class="[theme.dismissButton]"
-                        @click="dismissAlert">
-                    <slot name="action">
-                        &times;
-                    </slot>
-                </button>
-            </div>
         </div>
+        <div v-if="showRemainingDuration && remainingDuration"
+             :class="theme.remainingDuration">
+            {{ Math.ceil(remainingDuration) }}s
+        </div>
+        <button v-if="dismissable"
+                :class="[theme.dismissButton]"
+                @click="dismissAlert">
+            <slot name="action">
+                &times;
+            </slot>
+        </button>
     </div>
 </template>
 
