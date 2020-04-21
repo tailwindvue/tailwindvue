@@ -19,7 +19,7 @@
 
 <script>
     import Code from './Code';
-    import theme from '../stubs/theme';
+    import theme from '../stubs/theme.bak';
 
     export default {
         name: 'CodeDemo',

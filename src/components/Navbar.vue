@@ -22,7 +22,7 @@
 
 <script>
     import { TailwindVueEventBus } from '../main';
-    import theme from '../stubs/theme';
+    import theme from '../stubs/theme.bak';
 
     export default {
         name: 'Navbar',

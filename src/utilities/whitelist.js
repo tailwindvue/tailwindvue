@@ -1,4 +1,4 @@
-const theme = require('../stubs/theme');
+const theme = require('../stubs/theme.bak');
 
 module.exports = {
 

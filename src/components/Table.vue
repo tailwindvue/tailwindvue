@@ -43,7 +43,7 @@
 
 <script>
     import snakeCase from 'lodash.snakecase';
-    import theme from '../stubs/theme';
+    import theme from '../stubs/theme.bak';
     import TableRow from './TableRow';
     import TableColumn from './TableColumn';
     import TableHeading from './TableHeading';

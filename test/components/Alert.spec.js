@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { Alert } from '../../src/main';
-import theme from '../../src/stubs/theme';
+import theme from '../../src/stubs/theme.bak';
 import { toContainElement, toHaveClasses } from '../utilities';
 
 jest.useFakeTimers();

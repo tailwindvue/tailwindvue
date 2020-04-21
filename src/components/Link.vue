@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import theme from '../stubs/theme';
+    import theme from '../stubs/theme.bak';
 
     export default {
         name: 'Link',

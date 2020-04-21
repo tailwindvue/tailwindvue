@@ -1,24 +1,27 @@
 <template>
     <div v-if="isRendered"
-         :class="[theme.component, theme.types[type]]">
+         :class="[theme.class, theme.variants[type]]">
         <div v-if="showProgress && duration && remainingDuration"
-             :class="theme.progress.wrapper">
-            <div :class="[theme.progress.bar, theme.progress.types[type]]"
+             :class="theme.children.progress.class">
+            <div :class="[
+                    theme.children.progress.children.progressBar.class,
+                    theme.children.progress.children.progressBar.variants,
+                 ]"
                  :style="remainingDurationStyle" />
         </div>
         <div v-if="$slots.icon"
-             :class="theme.icon">
+             :class="theme.children.icon.class">
             <slot name="icon" />
         </div>
-        <div :class="theme.body">
+        <div :class="theme.children.body.class">
             <slot />
         </div>
         <div v-if="showRemainingDuration && remainingDuration"
-             :class="theme.remainingDuration">
+             :class="theme.children.remainingDuration">
             {{ Math.ceil(remainingDuration) }}s
         </div>
         <button v-if="dismissable"
-                :class="[theme.dismissButton]"
+                :class="theme.children.dismissButton.class"
                 @click="dismissAlert">
             <slot name="action">
                 &times;
@@ -28,7 +31,7 @@
 </template>
 
 <script>
-    import theme from '../stubs/theme';
+    import { alert } from '../stubs/theme';
 
     export default {
         name: 'Alert',
@@ -89,7 +92,7 @@
 
             theme: {
                 type: Object,
-                default: () => theme.alert,
+                default: () => alert,
                 required: false
             }
         },
