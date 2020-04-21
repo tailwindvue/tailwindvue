@@ -5,7 +5,7 @@
              :class="theme.children.progress.class">
             <div :class="[
                     theme.children.progress.children.progressBar.class,
-                    theme.children.progress.children.progressBar.variants,
+                    theme.children.progress.children.progressBar.variants[type],
                  ]"
                  :style="remainingDurationStyle" />
         </div>
