@@ -274,7 +274,7 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert.findAll('div').at(3)).toHaveClasses(theme.alert.remainingDuration);
+            expect(alert.findAll('div').at(2)).toHaveClasses(theme.alert.remainingDuration);
         });
     });
 
