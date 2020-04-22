@@ -5,7 +5,7 @@
             <select id="component"
                     v-model="component"
                     name="component"
-                    class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-300 mb-4"
+                    class="block appearance-none w-full bg-white border text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 mb-4"
                     @change="setQuery">
                 <option v-for="option in options"
                         :key="option"
@@ -38,7 +38,8 @@
             Code: () => import('./components/Code'),
             CodeDemo: () => import('./components/CodeDemo'),
             Content: () => import('./components/Content'),
-            Heading: () => import('./components/Heading')
+            Heading: () => import('./components/Heading'),
+            Input: () => import('./components/Input')
         },
 
         data() {
@@ -50,7 +51,8 @@
                     'Code',
                     'CodeDemo',
                     'Content',
-                    'Heading'
+                    'Heading',
+                    'Input'
                 ]
             };
         },

@@ -1,19 +1,19 @@
 <template>
     <div>
-        <label :class="theme.label"
+        <label :class="theme.input.children.label.class"
                :for="name"
-               v-text="label">
-            <input :class="theme.input"
-                   type="text"
-                   :name="name"
-                   :value="value"
-                   @input="$emit('input', $event.target.value)">
-        </label>
+               v-text="label" />
+        <!--suppress HtmlFormInputWithoutLabel -->
+        <input :class="theme.input.children.label.children.input.class"
+               type="text"
+               :name="name"
+               :value="value"
+               @input="$emit('input', $event.target.value)">
     </div>
 </template>
 
 <script>
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Input',
@@ -37,7 +37,7 @@
 
             theme: {
                 type: Object,
-                default: () => theme.input
+                default: () => theme
             }
         },
     };

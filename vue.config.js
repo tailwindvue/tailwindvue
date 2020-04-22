@@ -9,7 +9,17 @@ module.exports = {
             }
         };
     },
+
+    chainWebpack: config => {
+        config
+            .plugin('html')
+            .tap(args => {
+                args[0].template = './demo/public/index.html';
+                return args;
+            });
+    },
+
     css: {
         extract: true
-    }
+    },
 };

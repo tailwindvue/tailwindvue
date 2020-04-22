@@ -33,6 +33,7 @@
     "scripts": {
         "lint": "vue-cli-service lint",
         "test": "vue-cli-service test:unit",
+        "serve": "vue-cli-service serve demo/main.js",
         "tailwindvue": "nodemon -e vue --watch src/stubs src/utilities/objectify.js --input src/stubs/theme.vue --output src/stubs/theme.js",
         "build": "vue-cli-service build --target lib --name tailwindvue src/main.js",
         "watch": "vue-cli-service build --watch --target lib --name tailwindvue src/main.js"

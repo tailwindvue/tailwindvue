@@ -1,4 +1,4 @@
-<!--suppress HtmlUnknownTag, HtmlDeprecatedTag -->
+<!--suppress HtmlUnknownTag, HtmlDeprecatedTag, HtmlFormInputWithoutLabel, HtmlExtraClosingTag -->
 <theme>
     <alert class="flex items-center border-l-4 p-4 min-h-32 border relative"
            :variants="{
@@ -57,7 +57,7 @@
 
     <content class="direct-children:mb-4" />
 
-    <heading class="flex items-center"
+    <Heading class="flex items-center"
              :variants="{
             h1: 'mb-4 border-b text-4xl w-full',
             h2: 'my-4 text-3xl',
@@ -68,5 +68,12 @@
         }">
         <number class="inline-block bg-gray-700 text-base text-white h-6 w-6 rounded-full inline-flex justify-center items-center mr-2" />
         <anchor class="ml-2 text-gray-500 text-xl cursor-pointer" />
-    </heading>
+    </Heading>
+
+    <Input>
+        <label class="font-bold block pb-1">
+            <input class="border w-full p-2 rounded-md" />
+        </label>
+    </Input>
+
 </theme>

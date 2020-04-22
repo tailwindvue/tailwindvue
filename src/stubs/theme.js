@@ -122,5 +122,17 @@ module.exports = {
                 'class': 'ml-2 text-gray-500 text-xl cursor-pointer'
             }
         }
+    },
+    'input': {
+        'children': {
+            'label': {
+                'class': 'font-bold block pb-1',
+                'children': {
+                    'input': {
+                        'class': 'border w-full p-2 rounded-md'
+                    }
+                }
+            }
+        }
     }
 };
