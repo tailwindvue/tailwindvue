@@ -1,23 +1,25 @@
 <template>
     <div :id="id"
-         :class="theme.component + ' ' + theme.headings[type] + ' ' + (id ? theme.hovered : '')"
-         @click="goToHeader">
+         :class="[theme.heading.class, theme.heading.variants[variant]]"
+         @click="goToHeader"
+         @mouseenter="toggleIsHovered"
+         @mouseleave="toggleIsHovered">
         <span v-if="number"
-              :class="theme.number">
+              :class="theme.heading.children.number.class">
             {{ number }}
         </span>
 
-        <span :is="type">{{ text }}<slot /></span>
+        <span :is="variant">{{ text }}<slot /></span>
 
-        <span v-if="id"
-              :class="theme.anchor">
+        <span v-if="id && isHovered"
+              :class="theme.heading.children.anchor.class">
             &num;
         </span>
     </div>
 </template>
 
 <script>
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Heading',
@@ -29,7 +31,7 @@
                 required: false
             },
 
-            type: {
+            variant: {
                 type: String,
                 default: 'h1'
             },
@@ -48,7 +50,7 @@
 
             theme: {
                 type: Object,
-                default: () => theme.heading
+                default: () => theme
             }
         },
 

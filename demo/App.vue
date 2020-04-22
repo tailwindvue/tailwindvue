@@ -37,6 +37,8 @@
             Badge: () => import('./components/Badge'),
             Code: () => import('./components/Code'),
             CodeDemo: () => import('./components/CodeDemo'),
+            Content: () => import('./components/Content'),
+            Heading: () => import('./components/Heading')
         },
 
         data() {
@@ -46,7 +48,9 @@
                     'Alert',
                     'Badge',
                     'Code',
-                    'CodeDemo'
+                    'CodeDemo',
+                    'Content',
+                    'Heading'
                 ]
             };
         },
