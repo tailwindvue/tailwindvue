@@ -45,6 +45,9 @@
         },
 
         mounted() {
+            if (!this.$highlight) {
+                return;
+            }
             document.querySelectorAll('pre code').forEach(block => {
                 this.$nextTick(this.$highlight(block));
             });
