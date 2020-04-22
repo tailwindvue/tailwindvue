@@ -1,11 +1,11 @@
 <template>
     <div v-if="isRendered"
-         :class="[theme.alert.class, theme.alert.variants[type]]">
+         :class="[theme.alert.class, theme.alert.variants[variant]]">
         <div v-if="showProgress && duration && remainingDuration"
              :class="theme.alert.children.progress.class">
             <div :class="[
                     theme.alert.children.progress.children.progressBar.class,
-                    theme.alert.children.progress.children.progressBar.variants[type],
+                    theme.alert.children.progress.children.progressBar.variants[variant],
                  ]"
                  :style="remainingDurationStyle" />
         </div>
@@ -42,7 +42,7 @@
         },
 
         props: {
-            type: {
+            variant: {
                 type: String,
                 default: 'default',
                 required: false,

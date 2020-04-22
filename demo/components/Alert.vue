@@ -19,23 +19,23 @@
             An alert
         </tw-alert>
 
-        <tw-alert type="info">
+        <tw-alert variant="info">
             An info alert
         </tw-alert>
 
-        <tw-alert type="warning">
+        <tw-alert variant="warning">
             A warning alert
         </tw-alert>
 
-        <tw-alert type="danger">
+        <tw-alert variant="danger">
             A danger alert
         </tw-alert>
 
-        <tw-alert type="success">
+        <tw-alert variant="success">
             A success alert
         </tw-alert>
 
-        <tw-alert type="info">
+        <tw-alert variant="info">
             <template #icon>
                 <i class="fa fa-pencil" />
             </template>
@@ -77,25 +77,25 @@
             duration
         </tw-alert>
 
-        <tw-alert type="info"
+        <tw-alert variant="info"
                   :duration="10"
                   :show-progress="true">
             A self-dismissing info alert with a 10 second duration
         </tw-alert>
 
-        <tw-alert type="warning"
+        <tw-alert variant="warning"
                   :duration="10"
                   :show-progress="true">
             A self-dismissing warning alert with a 10 second duration
         </tw-alert>
 
-        <tw-alert type="danger"
+        <tw-alert variant="danger"
                   :duration="10"
                   :show-progress="true">
             A self-dismissing danger alert with a 10 second duration
         </tw-alert>
 
-        <tw-alert type="success"
+        <tw-alert variant="success"
                   :duration="10"
                   :show-progress="true">
             A self-dismissing success alert with a 10 second duration
