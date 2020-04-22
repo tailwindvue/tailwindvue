@@ -1,17 +1,17 @@
 <template>
     <div>
-        <div :class="theme.component">
-            <div :class="theme.demo">
+        <div :class="theme.codeDemo.children.wrapper.class">
+            <div :class="theme.codeDemo.children.wrapper.children.demo.class">
                 <slot />
             </div>
 
-            <div is="Code"
-                 :theme="theme.code"
-                 :language="language">
+            <Code
+                    :theme="{code: theme.codeDemo.children.wrapper.children.code}"
+                    :language="language">
                 <slot name="code" />
-            </div>
+            </Code>
         </div>
-        <div :class="theme.caption">
+        <div :class="theme.codeDemo.children.caption.class">
             {{ caption }}
         </div>
     </div>
@@ -19,7 +19,7 @@
 
 <script>
     import Code from './Code';
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'CodeDemo',
@@ -43,7 +43,7 @@
 
             theme: {
                 type: Object,
-                default: () => theme.codeDemo
+                default: () => theme
             }
         },
     };

@@ -94,7 +94,7 @@ module.exports = {
     code: {
         component: 'relative',
         pre: 'rounded',
-        code: 'rounded',
+        code: 'rounded block bg-gray-800 text-white text-sm md:text-base p-4 leading-sm',
         language: 'absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin hidden md:block',
         caption: 'mt-2 text-xs uppercase text-gray-500 ml-4'
     },

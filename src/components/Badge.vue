@@ -1,9 +1,9 @@
 <template>
-    <span :class="theme.component + ' ' + theme.types[type]">{{ text }}<slot /></span>
+    <span :class="[theme.badge.class, theme.badge.variants[variant]]">{{ text }}<slot /></span>
 </template>
 
 <script>
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Badge',
@@ -15,7 +15,7 @@
                 required: false,
             },
 
-            type: {
+            variant: {
                 type: String,
                 default: 'default',
                 validator: value => {
@@ -31,9 +31,9 @@
 
             theme: {
                 type: Object,
-                default: () => theme.badge
+                default: () => theme
             },
-        }
+        },
     };
 
 </script>

@@ -1,17 +1,20 @@
 <template>
-    <div :class="theme.component">
-        <pre :class="theme.pre"><code :class="codeTheme"><slot /></code></pre>
-        <div :class="theme.language">
+    <div :class="theme.code.class">
+        <pre :class="theme.code.children.pre.class"><code :class="[
+            theme.code.children.pre.children.code.class,
+            `language-${language}`
+        ]"><slot /></code></pre>
+        <div :class="theme.code.children.language.class">
             {{ language }}
         </div>
-        <div :class="theme.caption">
+        <div :class="theme.code.children.caption.class">
             {{ caption }}
         </div>
     </div>
 </template>
 
 <script>
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Code',
@@ -37,17 +40,7 @@
 
             theme: {
                 type: Object,
-                default: () => theme.code
-            }
-        },
-
-        computed: {
-            codeTheme() {
-                if (this.language === 'vuejs') {
-                    return `${this.theme.code} language-html`;
-                }
-
-                return `${this.theme.code} language-${this.language}`;
+                default: () => theme
             }
         },
 

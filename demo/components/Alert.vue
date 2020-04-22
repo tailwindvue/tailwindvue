@@ -1,10 +1,5 @@
 <template>
-    <div id="content">
-
-        <h1 class="text-3xl">
-            Alert
-        </h1>
-
+    <div>
         <tw-alert>
             An alert with <strong>other</strong> tags inside
         </tw-alert>
@@ -148,8 +143,3 @@
     };
 </script>
 
-<style>
-    #content > * {
-        margin-bottom: 20px;
-    }
-</style>
