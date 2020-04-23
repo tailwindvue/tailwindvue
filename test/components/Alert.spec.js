@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { Alert } from '../../src/main';
-import theme from '../../src/stubs/theme.bak';
+import theme from '../../src/stubs/theme';
 import { toContainElement, toHaveClasses } from '../utilities';
 
 jest.useFakeTimers();
@@ -87,7 +87,7 @@ describe('Alert', () => {
             expect(alert.isEmpty()).toBeTruthy();
         });
 
-        it('renders the progress bar if the showProgress prop is set to true and the alert has a duration', () => {
+        it('renders the progress if the showProgress prop is set to true and the alert has a duration', () => {
             const alert = shallowMount(Alert, {
                 propsData: {
                     showProgress: true,
@@ -95,10 +95,10 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert).toContainElement(theme.alert.progress.wrapper);
+            expect(alert).toContainElement(theme.alert.children.progress.class);
         });
 
-        it('does not render the progress bar if the showProgress prop is set to false', () => {
+        it('does not render the progress if the showProgress prop is set to false', () => {
             const alert = shallowMount(Alert, {
                 propsData: {
                     showProgress: false,
@@ -106,27 +106,27 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert).not.toContainElement(theme.alert.progress.wrapper);
+            expect(alert).not.toContainElement(theme.alert.children.progress.class);
         });
 
-        it('does not render the progress bar if the showProgress prop is not defined', () => {
+        it('does not render the progress if the showProgress prop is not defined', () => {
             const alert = shallowMount(Alert, {
                 propsData: {
                     duration: 10
                 }
             });
 
-            expect(alert).not.toContainElement(theme.alert.progress.wrapper);
+            expect(alert).not.toContainElement(theme.alert.children.progress.class);
         });
 
-        it('does not render the progress bar if the duration is not set', () => {
+        it('does not render the progress if the duration is not set', () => {
             const alert = shallowMount(Alert, {
                 propsData: {
                     showProgress: true,
                 }
             });
 
-            expect(alert).not.toContainElement(theme.alert.progress.wrapper);
+            expect(alert).not.toContainElement(theme.alert.children.progress.class);
         });
 
         it('renders the remaining duration if the showRemainingDuration prop is set to true', () => {
@@ -137,7 +137,7 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert).toContainElement(theme.alert.remainingDuration);
+            expect(alert).toContainElement(theme.alert.children.remainingDuration.class);
         });
 
         it('does not render the remaining duration if the showRemainingDuration prop is set to false', () => {
@@ -148,7 +148,7 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert).not.toContainElement(theme.alert.remainingDuration);
+            expect(alert).not.toContainElement(theme.alert.children.remainingDuration.class);
         });
 
         it('does not render the remaining duration if the showRemainingDuration prop is not set', () => {
@@ -158,13 +158,13 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert).not.toContainElement(theme.alert.remainingDuration);
+            expect(alert).not.toContainElement(theme.alert.children.remainingDuration.class);
         });
 
         it('does not render the remaining duration if the duration is not set', () => {
             const alert = shallowMount(Alert);
 
-            expect(alert).not.toContainElement(theme.alert.remainingDuration);
+            expect(alert).not.toContainElement(theme.alert.children.remainingDuration.class);
         });
 
         it('does not render the dismiss button if the dismissable prop is set to false', () => {
@@ -174,13 +174,13 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert).not.toContainElement(theme.alert.dismissButton);
+            expect(alert).not.toContainElement(theme.alert.children.dismissButton.class);
         });
 
         it('does not render the dismiss button if the dismissable prop is not set', () => {
             const alert = shallowMount(Alert);
 
-            expect(alert).not.toContainElement(theme.alert.dismissButton);
+            expect(alert).not.toContainElement(theme.alert.children.dismissButton.class);
         });
 
         it('renders the dismiss button if the dismissable prop is set to true', () => {
@@ -190,7 +190,7 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert).toContainElement(theme.alert.dismissButton);
+            expect(alert).toContainElement(theme.alert.children.dismissButton.class);
         });
     });
 
@@ -200,15 +200,15 @@ describe('Alert', () => {
                 propsData: { type: 'success' }
             });
 
-            expect(alert).toHaveClasses(theme.alert.component);
+            expect(alert).toHaveClasses(theme.alert.class);
         });
 
-        it('applies the correct type styles to the component', () => {
+        it('applies the correct variant style to the component', () => {
             const successAlert = shallowMount(Alert, {
-                propsData: { type: 'success' }
+                propsData: { variant: 'success' }
             });
 
-            expect(successAlert).toHaveClasses(theme.alert.types.success);
+            expect(successAlert).toHaveClasses(theme.alert.variants.success);
         });
 
         it('applies the icon styles to the icon', () => {
@@ -216,13 +216,13 @@ describe('Alert', () => {
                 slots: { icon: '<i class="fa fa-info"></i>' }
             });
 
-            expect(alert.findAll('div').at(1)).toHaveClasses(theme.alert.icon);
+            expect(alert.findAll('div').at(1)).toHaveClasses(theme.alert.children.icon.class);
         });
 
         it('applies the body styles to the body', () => {
             const alert = shallowMount(Alert);
 
-            expect(alert.findAll('div').at(1)).toHaveClasses(theme.alert.body);
+            expect(alert.findAll('div').at(1)).toHaveClasses(theme.alert.children.body.class);
         });
 
         it('applies the dismiss button styles to the dismiss button', () => {
@@ -230,7 +230,7 @@ describe('Alert', () => {
                 propsData: { dismissable: true }
             });
 
-            expect(alert.find('button')).toHaveClasses(theme.alert.dismissButton);
+            expect(alert.find('button')).toHaveClasses(theme.alert.children.dismissButton.class);
         });
 
         it('applies the progress alert styles to the progress alert', () => {
@@ -241,7 +241,7 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert.findAll('div').at(1)).toHaveClasses(theme.alert.progress.wrapper);
+            expect(alert.findAll('div').at(1)).toHaveClasses(theme.alert.children.progress.class);
         });
 
         it('applies the progress bar styles to the progress bar', () => {
@@ -252,18 +252,19 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert.findAll('div').at(2)).toHaveClasses(theme.alert.progress.bar);
+            expect(alert.findAll('div').at(2)).toHaveClasses(theme.alert.children.progress.children.progressBar.class);
         });
 
-        it('applies the progress type styles to the progress type', () => {
+        it('applies the progress default styles to the progress type', () => {
             const alert = shallowMount(Alert, {
                 propsData: {
+                    variant: 'success',
                     showProgress: true,
                     duration: 2
                 }
             });
 
-            expect(alert.findAll('div').at(2)).toHaveClasses(theme.alert.progress.types.default);
+            expect(alert.findAll('div').at(2)).toHaveClasses(theme.alert.children.progress.children.progressBar.variants.success);
         });
 
         it('applies the remaining duration styles to the remaining duration', () => {
@@ -274,28 +275,28 @@ describe('Alert', () => {
                 }
             });
 
-            expect(alert.findAll('div').at(2)).toHaveClasses(theme.alert.remainingDuration);
+            expect(alert.findAll('div').at(2)).toHaveClasses(theme.alert.children.remainingDuration.class);
         });
     });
 
     describe('Props', () => {
-        it('accepts a type prop', () => {
+        it('accepts a variant prop', () => {
             const alert = shallowMount(Alert);
 
-            const typeProp = alert.vm.$options.props['type'];
+            const variantProp = alert.vm.$options.props['variant'];
 
-            expect(typeProp.type).toBe(String);
+            expect(variantProp.type).toBe(String);
 
-            expect(typeProp.default).toBe('default');
+            expect(variantProp.default).toBe('default');
 
-            expect(typeProp.required).toBe(false);
+            expect(variantProp.required).toBe(false);
 
-            expect(typeProp.validator('default')).toBeTruthy();
-            expect(typeProp.validator('info')).toBeTruthy();
-            expect(typeProp.validator('warning')).toBeTruthy();
-            expect(typeProp.validator('danger')).toBeTruthy();
-            expect(typeProp.validator('success')).toBeTruthy();
-            expect(typeProp.validator('invalid-type')).toBeFalsy();
+            expect(variantProp.validator('default')).toBeTruthy();
+            expect(variantProp.validator('info')).toBeTruthy();
+            expect(variantProp.validator('warning')).toBeTruthy();
+            expect(variantProp.validator('danger')).toBeTruthy();
+            expect(variantProp.validator('success')).toBeTruthy();
+            expect(variantProp.validator('invalid-type')).toBeFalsy();
         });
 
         it('accepts a dismissable prop', () => {
@@ -369,7 +370,7 @@ describe('Alert', () => {
 
             expect(durationProp.type).toBe(Object);
 
-            expect(durationProp.default()).toBe(theme.alert);
+            expect(durationProp.default()).toBe(theme);
 
             expect(durationProp.required).toBeFalsy();
         });

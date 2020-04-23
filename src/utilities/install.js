@@ -1,5 +1,5 @@
 import defaultOptions from '../stubs/options';
-import defaultTheme from '../stubs/theme.bak';
+import defaultTheme from '../stubs/theme';
 import kebabCase from 'lodash.kebabcase';
 import lowerFirst from 'lodash.lowerfirst';
 import deepmerge from 'deepmerge';

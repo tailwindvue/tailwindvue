@@ -23,21 +23,4 @@ describe('Panel', () => {
 
         expect(wrapper.vm.$el.innerHTML).toContain('Header content here');
     });
-
-    it('applies the correct styles', () => {
-        const panelClasses = 'panel-classes';
-        const headerClasses = 'header-classes';
-
-        const wrapper = shallowMount(Panel, {
-            propsData: {
-                theme: {
-                    panel: panelClasses,
-                    header: headerClasses
-                }
-            }
-        });
-
-        expect(wrapper.classes()).toContain(panelClasses);
-        expect(wrapper.find('header').classes()).toContain(headerClasses);
-    });
 });

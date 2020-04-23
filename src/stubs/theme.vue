@@ -35,6 +35,16 @@
         <dismissButton class="ml-4 flex-shrink-0 font-bold text-xl leading-none cursor-pointer select-none z-10" />
     </Alert>
 
+    <!-- ----------------------------------------------------------------------
+    | The App Component
+    |--------------------------------------------------------------------------
+    |
+    | This component is a wrapper component that surrounds other components.
+    | You can use it to apply application level styles such as background
+    | colour, text colour, and other styles that can apply to the app.
+    |
+    -->
+
     <App class="text-gray-700 flex flex-col min-h-screen">
         <header class="text-center" />
         <wrapper class="flex flex-col flex-auto mt-16">
@@ -48,6 +58,16 @@
         <footer class="text-center" />
     </App>
 
+    <!-- ----------------------------------------------------------------------
+    | The Badge Component
+    |--------------------------------------------------------------------------
+    |
+    | This component will display a badge in one of the configurable styles:
+    | default, info, warning, danger and success. Every badge can also be
+    | displayed in the sizes predefined here: small, medium and large.
+    |
+    -->
+
     <Badge class="py-1 px-2 text-xs rounded uppercase border-l-4 tracking-wide font-medium border inline-block"
            :variants="{
                default: 'border-left-white text-gray-600',
@@ -57,6 +77,16 @@
                success: 'border-left-green-100 text-green-600 border-green-200',
            }" />
 
+    <!-- ----------------------------------------------------------------------
+    | The Code Component
+    |--------------------------------------------------------------------------
+    |
+    | This component will apply code highlighting to a block of code that is
+    | passed to it in the default slot. You can set the language for each
+    | code fragment and specify a caption tht will be displayed below.
+    |
+    -->
+
     <Code class="relative">
         <pre class="rounded">
             <code class="rounded block bg-gray-800 text-white text-sm md:text-base p-4 leading-sm" />
@@ -64,6 +94,16 @@
         <language class="absolute right-0 top-0 py-2 px-3 text-gray-500 text-sm font-thin hidden md:block" />
         <caption class="mt-2 text-xs uppercase text-gray-500 ml-4" />
     </Code>
+
+    <!-- ----------------------------------------------------------------------
+    | The Code Demo Component
+    |--------------------------------------------------------------------------
+    |
+    | The code demo component can be used when you want to display a demo of
+    | some code along side a snippet of the actual code. Just as with the
+    | code component, you can declare the language and a code caption.
+    |
+    -->
 
     <CodeDemo>
         <wrapper class="border rounded-lg">
@@ -79,7 +119,27 @@
         <caption class="mt-2 text-xs uppercase text-gray-500 ml-4" />
     </CodeDemo>
 
+    <!-- ----------------------------------------------------------------------
+    | The Content Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
+
     <Content class="space-y-6" />
+
+    <!-- ----------------------------------------------------------------------
+    | The Heading Component
+    |--------------------------------------------------------------------------
+    |
+    | This component allows you to create semantically correct headings: h1,
+    | h2, h3, h4 and h5. Sensible styles have been set for every heading.
+    | Styles for the component and every heading can be changed below.
+    |
+    -->
 
     <Heading class="flex items-center"
              :variants="{
@@ -94,13 +154,43 @@
         <anchor class="ml-2 text-gray-500 text-xl cursor-pointer" />
     </Heading>
 
+    <!-- ----------------------------------------------------------------------
+    | The Input Component
+    |--------------------------------------------------------------------------
+    |
+    | The input component will render a text input with a label. A number of
+    | options are available to change the look of the input and the label
+    | as well as the different states that the input component enters.
+    |
+    -->
+
     <Input>
         <label class="font-bold block pb-1">
             <input class="border w-full p-2 rounded-md" />
         </label>
     </Input>
 
+    <!-- ----------------------------------------------------------------------
+    | The Link Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
+
     <Link class="text-gray-600 hover:text-gray-800 transition duration-200 ease-in" />
+
+    <!-- ----------------------------------------------------------------------
+    | The Navbar Component
+    |--------------------------------------------------------------------------
+    |
+    | This component will create a responsive page navbar with three content
+    | slots. On smaller screens, the right slot will be replaced with a
+    | menu icon which will trigger the event to toggle the sidebar.
+    |
+    -->
 
     <Navbar class="bg-gray-100 h-16 border-b w-full fixed z-20">
         <wrapper class="container mx-auto px-4 lg:px-10 flex flex-wrap justify-between items-center h-full">
@@ -111,13 +201,53 @@
         </wrapper>
     </Navbar>
 
+    <!-- ----------------------------------------------------------------------
+    | The Panel Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
+
     <Panel class="p-4 rounded shadow bg-white">
         <header class="text-xl font-medium tracking-wider" />
     </Panel>
 
+    <!-- ----------------------------------------------------------------------
+    | The Sidebar Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
+
     <Sidebar />
 
+    <!-- ----------------------------------------------------------------------
+    | The Tab Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
+
     <Tab />
+
+    <!-- ----------------------------------------------------------------------
+    | The Tabbed Code Demo Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
 
     <TabbedCodeDemo>
         <Tabs class="w-full">
@@ -131,6 +261,16 @@
         </Tabs>
     </TabbedCodeDemo>
 
+    <!-- ----------------------------------------------------------------------
+    | The Table Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
+
     <Table class="bg-white rounded-md border">
         <controls class="py-1 bg-gray-200 rounded-t-md w-full" />
         <wrapper class="overflow-x-scroll">
@@ -141,11 +281,51 @@
         </wrapper>
     </Table>
 
+    <!-- ----------------------------------------------------------------------
+    | The Table Column Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
+
     <TableColumn class="p-2 first:border-t-0 border-t" />
+
+    <!-- ----------------------------------------------------------------------
+    | The Table Heading Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
 
     <TableHeading class="pt-2 pb-3 px-3 font-medium tracking-widest" />
 
+    <!-- ----------------------------------------------------------------------
+    | The Table Row Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
+
     <TableRow />
+
+    <!-- ----------------------------------------------------------------------
+    | The Tabs Component
+    |--------------------------------------------------------------------------
+    |
+    |
+    |
+    |
+    |
+    -->
 
     <Tabs class="w-full">
         <tabs class="flex border-b">

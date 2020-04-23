@@ -17,7 +17,7 @@
             <slot />
         </div>
         <div v-if="showRemainingDuration && remainingDuration"
-             :class="theme.alert.children.remainingDuration">
+             :class="theme.alert.children.remainingDuration.class">
             {{ Math.ceil(remainingDuration) }}s
         </div>
         <button v-if="dismissable"

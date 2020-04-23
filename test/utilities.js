@@ -7,7 +7,6 @@
  * @returns {string}
  */
 export function selector(key) {
-    console.log('key', key);
     return '.' + key.replace(/ /g, '.').replace(/:/g, '\\:');
 }
 

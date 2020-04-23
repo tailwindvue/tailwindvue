@@ -3,10 +3,18 @@ import whitelist from '../../src/utilities/whitelist';
 jest.mock('../../src/stubs/theme', () => {
     return {
         testComponent: {
-            'component': 'class-one class-two',
-            'types': {
-                one: 'class-three',
-                two: 'class-four'
+            'class': 'class-one class-two',
+            'variants': {
+                variantOne: 'class-three',
+                variantTwo: 'class-four',
+            },
+            'children': {
+                childOne: {
+                    classes: 'class-five class-six',
+                    variants: {
+                        variantThree: 'class-seven',
+                    }
+                }
             }
         }
     };
@@ -18,17 +26,28 @@ describe('Whitelist', () => {
             'class-one',
             'class-two',
             'class-three',
-            'class-four'
+            'class-four',
+            'class-five',
+            'class-six',
+            'class-seven',
         ]);
     });
 
     it('can generate a list of classes to whitelist from a given theme', () => {
         const theme = {
             testComponent: {
-                'component': 'class-one class-two',
-                'types': {
-                    one: 'class-three',
-                    two: 'class-four'
+                'class': 'class-one class-two',
+                'variants': {
+                    variantOne: 'class-three',
+                    variantTwo: 'class-four',
+                },
+                'children': {
+                    childOne: {
+                        classes: 'class-five class-six',
+                        variants: {
+                            variantThree: 'class-seven',
+                        }
+                    }
                 }
             }
         };
@@ -37,7 +56,10 @@ describe('Whitelist', () => {
             'class-one',
             'class-two',
             'class-three',
-            'class-four'
+            'class-four',
+            'class-five',
+            'class-six',
+            'class-seven',
         ]);
     });
 });
