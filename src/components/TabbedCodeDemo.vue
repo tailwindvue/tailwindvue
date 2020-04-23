@@ -1,13 +1,14 @@
 <template>
     <div is="Tabs"
-         :theme="theme">
+         class="theme.tabbedCodeDemo.class"
+         :theme="{tabs: theme.tabbedCodeDemo.children.tabs}">
         <slot />
     </div>
 </template>
 
 <script>
     import Tabs from './Tabs';
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'TabbedCodeDemo',
@@ -19,7 +20,7 @@
         props: {
             theme: {
                 type: Object,
-                default: () => theme.tabbedCodeDemo
+                default: () => theme
             }
         },
     };

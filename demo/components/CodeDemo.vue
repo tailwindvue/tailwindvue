@@ -1,15 +1,12 @@
 <template>
-    <div>
+    <div class="container mx-auto px-4">
         <tw-code-demo language="html"
                       caption="A code-demo">
-            <div>
-                <p>
-                    Some Code Here
-                </p>
-            </div>
+
+            <div class="w-32 h-32 rounded-full bg-blue-500" />
 
             <template #code>
-                {{ code }}
+                {{ blueCircle }}
             </template>
         </tw-code-demo>
     </div>
@@ -17,7 +14,7 @@
 
 <script>
     import CodeDemo from '../../src/components/CodeDemo';
-    import { code } from '../snippets/code';
+    import { blueCircle } from '../snippets';
 
     export default {
         components: {
@@ -26,7 +23,7 @@
 
         data() {
             return {
-                code,
+                blueCircle
             };
         },
     };

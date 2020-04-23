@@ -243,10 +243,6 @@ module.exports = {
 
     sidebar: {
         component: '',
-        item: 'block uppercase mt-4 text-sm text-gray-500 font-medium',
-        itemHovered: 'hover:text-gray-600',
-        subItem: 'block normal-case font-normal text-gray-600 hover:text-gray-800',
-        subItemHovered: 'hover:text-gray-800'
     },
 
     /*
@@ -319,7 +315,7 @@ module.exports = {
     */
 
     tableRow: {
-        component: 'first:border-t-0 border-t',
+        component: '',
     },
 
     /*

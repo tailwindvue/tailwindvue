@@ -1,16 +1,16 @@
 <template>
-    <div :class="theme.component">
-        <div :class="theme.wrapper">
-            <div :class="theme.left">
+    <div :class="theme.navbar.class">
+        <div :class="theme.navbar.children.wrapper.class">
+            <div :class="theme.navbar.children.wrapper.children.left.class">
                 <slot name="left" />
             </div>
-            <div :class="theme.middle">
+            <div :class="theme.navbar.children.wrapper.children.middle.class">
                 <slot name="middle" />
             </div>
-            <div :class="theme.right">
+            <div :class="theme.navbar.children.wrapper.children.right.class">
                 <slot name="right" />
             </div>
-            <div :class="theme.menu"
+            <div :class="theme.navbar.children.wrapper.children.menu.class"
                  @click="menuClicked">
                 <slot name="menu">
                     &#9776;
@@ -21,8 +21,8 @@
 </template>
 
 <script>
-    import { TailwindVueEventBus } from '../main';
-    import theme from '../stubs/theme.bak';
+    // import { TailwindVueEventBus } from '../main';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Navbar',
@@ -30,7 +30,7 @@
         props: {
             theme: {
                 type: Object,
-                default: () => theme.navbar
+                default: () => theme
             }
         },
 
@@ -41,7 +41,7 @@
         },
 
         mounted() {
-            TailwindVueEventBus.$on('sidebarToggled', this.toggleMenuIcon);
+            // TailwindVueEventBus.$on('sidebarToggled', this.toggleMenuIcon);
         },
 
         methods: {
@@ -50,7 +50,7 @@
             },
 
             menuClicked() {
-                TailwindVueEventBus.$emit('menuClicked');
+                // TailwindVueEventBus.$emit('menuClicked');
             }
         },
     };

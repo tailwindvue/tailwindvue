@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div class="container mx-auto px-4">
         <tw-code language="html"
                  caption="A code snippet">
-            {{ code }}
+            {{ paragraph }}
         </tw-code>
     </div>
 </template>
 
 <script>
     import Code from '../../src/components/Code';
-    import { code } from '../snippets/code';
+    import { paragraph } from '../snippets';
 
     export default {
         components: {
@@ -18,7 +18,7 @@
 
         data() {
             return {
-                code,
+                paragraph,
             };
         },
     };

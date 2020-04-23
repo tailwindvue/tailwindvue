@@ -1,9 +1,13 @@
 <template>
-    <div :class="theme.component">
-        <div :class="theme.tabs">
+    <div :class="theme.tabs.class">
+        <div :class="theme.tabs.children.tabs.class">
             <div v-for="tab in tabs"
                  :key="tab.name"
-                 :class="theme.tab + ' ' + (tab.name === currentTab ? theme.activeTab : theme.inactiveTab)"
+                 :class="{
+                     [theme.tabs.children.tabs.children.tab.class]: true,
+                     [theme.tabs.children.tabs.children.tab.variants.active]: tab.name === currentTab,
+                     [theme.tabs.children.tabs.children.tab.variants.inactive]: tab.name !== currentTab
+                 }"
                  @click="setActive(tab)">
                 {{ tab.name }}
             </div>
@@ -13,7 +17,7 @@
 </template>
 
 <script>
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Tabs',
@@ -21,7 +25,7 @@
         props: {
             theme: {
                 type: Object,
-                default: () => theme.tabs
+                default: () => theme
             }
         },
 
@@ -33,6 +37,10 @@
         },
 
         mounted() {
+            if (!this.tabs.length) {
+                return console.warn('You must have at least one child tab in a tabs component.');
+            }
+
             this.setActive(this.getActiveTab() ? this.getActiveTab() : this.tabs[0]);
         },
 

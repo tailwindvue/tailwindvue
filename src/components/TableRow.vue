@@ -1,11 +1,11 @@
 <template>
-    <tr :class="theme.component">
+    <tr :class="theme.tableRow.class">
         <slot />
     </tr>
 </template>
 
 <script>
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'TableRow',
@@ -13,7 +13,7 @@
         props: {
             theme: {
                 type: Object,
-                default: () => theme.tableRow
+                default: () => theme
             }
         },
     };

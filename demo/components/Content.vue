@@ -1,5 +1,5 @@
 <template>
-    <tw-content>
+    <tw-content class="container mx-auto px-4">
         <div class="p-10 bg-green-500">
             Any
         </div>

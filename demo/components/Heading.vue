@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container mx-auto px-4">
         <tw-heading>The default heading</tw-heading>
 
         <tw-heading>

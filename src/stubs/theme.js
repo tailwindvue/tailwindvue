@@ -1,12 +1,12 @@
 module.exports = {
     'alert': {
-        'class': 'flex items-center border-l-4 p-4 min-h-32 border relative',
+        'class': 'flex items-center border-l-4 rounded p-4 min-h-32 border relative',
         'variants': {
-            'default': 'bg-white',
-            'danger': 'bg-red-100 text-red-800 border-red-500',
-            'info': 'bg-blue-100 text-blue-800 border-blue-500',
-            'warning': 'bg-yellow-100 text-yellow-800 border-yellow-500',
-            'success': 'bg-green-100 text-green-800 border-green-500'
+            'default': '',
+            'danger': 'text-red-800 border-red-500',
+            'info': 'text-blue-800 border-blue-500',
+            'warning': 'text-yellow-800 border-yellow-500',
+            'success': 'text-green-800 border-green-500'
         },
         'children': {
             'progress': {
@@ -39,13 +39,13 @@ module.exports = {
         }
     },
     'badge': {
-        'class': 'py-1 px-2 text-xs rounded uppercase tracking-wide font-medium border inline-block',
+        'class': 'py-1 px-2 text-xs rounded uppercase border-l-4 tracking-wide font-medium border inline-block',
         'variants': {
-            'default': 'bg-white text-gray-600',
-            'info': 'bg-blue-100 text-blue-600 border-blue-200',
-            'warning': 'bg-yellow-100 text-yellow-600 border-yellow-400',
-            'danger': 'bg-red-100 text-red-600 border-red-200',
-            'success': 'bg-green-100 text-green-600 border-green-200'
+            'default': 'border-left-white text-gray-600',
+            'info': 'border-left-blue-100 text-blue-600 border-blue-200',
+            'warning': 'border-left-yellow-100 text-yellow-600 border-yellow-400',
+            'danger': 'border-left-red-100 text-red-600 border-red-200',
+            'success': 'border-left-green-100 text-green-600 border-green-200'
         }
     },
     'code': {
@@ -130,6 +130,108 @@ module.exports = {
                 'children': {
                     'input': {
                         'class': 'border w-full p-2 rounded-md'
+                    }
+                }
+            }
+        }
+    },
+    'link': {
+        'class': 'text-gray-600 hover:text-gray-800 transition duration-200 ease-in'
+    },
+    'navbar': {
+        'class': 'bg-gray-100 h-16 border-b w-full fixed z-20',
+        'children': {
+            'wrapper': {
+                'class': 'container mx-auto px-4 lg:px-10 flex flex-wrap justify-between items-center h-full',
+                'children': {
+                    'left': {
+                        'class': 'w-1/2 md:w-1/3 text-left'
+                    },
+                    'middle': {
+                        'class': 'hidden md:block w-1/3 text-center'
+                    },
+                    'right': {
+                        'class': 'w-1/2 md:w-1/3 text-right hidden md:block'
+                    },
+                    'menu': {
+                        'class': 'w-1/3 text-right md:hidden cursor-pointer select-none text-3xl leading-none -mt-1'
+                    }
+                }
+            }
+        }
+    },
+    'panel': {
+        'class': 'text-xl font-medium tracking-wider',
+        'children': {
+            'header': {
+                'class': 'p-4 rounded shadow bg-white'
+            }
+        }
+    },
+    'sidebar': {},
+    'tab': {},
+    'tabbedCodeDemo': {
+        'children': {
+            'tabs': {
+                'class': 'w-full',
+                'children': {
+                    'tabs': {
+                        'class': 'flex md:ml-4 text-sm md:text-base flex-wrap',
+                        'children': {
+                            'tab': {
+                                'class': 'mb-2 md:mb-0 py-1 px-4 w-1/3 md:w-auto cursor-pointer text-center rounded md:rounded-b-none hover:bg-gray-200 text-gray-500',
+                                'variants': {
+                                    'active': 'bg-gray-300 rounded-t text-gray-700',
+                                    'inactive': 'border-gray-200'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    'table': {
+        'class': 'bg-white rounded-md border',
+        'children': {
+            'controls': {
+                'class': 'py-1 bg-gray-200 rounded-t-md w-full'
+            },
+            'wrapper': {
+                'class': 'overflow-x-scroll',
+                'children': {
+                    'table': {
+                        'class': 'table-auto w-full overflow-scroll',
+                        'children': {
+                            'thead': {
+                                'class': 'border-b border-b-2 bg-gray-200 uppercase text-xs text-gray-600'
+                            },
+                            'tbody': {}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    'tableColumn': {
+        'class': 'p-2 first:border-t-0 border-t'
+    },
+    'tableHeading': {
+        'class': 'pt-2 pb-3 px-3 font-medium tracking-widest'
+    },
+    'tableRow': {},
+    'tabs': {
+        'class': 'w-full',
+        'children': {
+            'tabs': {
+                'class': 'flex border-b',
+                'children': {
+                    'tab': {
+                        'class': 'w-full px-4 py-2 cursor-pointer text-center hover:bg-gray-200 text-gray-500',
+                        'variants': {
+                            'active': 'bg-gray-300 rounded-t text-gray-700',
+                            'inactive': 'border-gray-200'
+                        }
                     }
                 }
             }

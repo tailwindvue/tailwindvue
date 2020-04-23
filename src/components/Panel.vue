@@ -1,6 +1,6 @@
 <template>
-    <div :class="theme.panel">
-        <header :class="theme.header">
+    <div :class="theme.panel.class">
+        <header :class="theme.panel.children.header.class">
             <slot name="header" />
         </header>
 
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Panel',
@@ -17,7 +17,7 @@
         props: {
             theme: {
                 type: Object,
-                default: () => theme.panel
+                default: () => theme
             }
         },
     };

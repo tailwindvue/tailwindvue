@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container mx-auto px-4">
         <tw-alert>
             An alert with <strong>other</strong> tags inside
         </tw-alert>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container mx-auto px-4">
         <tw-input name="input"
                   label="Input"
                   value="An input field" />

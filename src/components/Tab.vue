@@ -1,11 +1,12 @@
 <template>
-    <div v-show="active">
+    <div v-show="active"
+         :class="theme.tab.class">
         <slot />
     </div>
 </template>
 
 <script>
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
 
     export default {
         name: 'Tab',
@@ -18,7 +19,7 @@
 
             theme: {
                 type: Object,
-                default: () => theme.tab
+                default: () => theme
             }
         },
 

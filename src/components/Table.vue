@@ -1,14 +1,14 @@
 <template>
-    <div :class="theme.component">
+    <div :class="theme.table.class">
 
         <div v-if="showHeader"
-             :class="theme.headerRounding" />
+             :class="theme.table.children.controls.class" />
 
-        <div :class="theme.wrapper">
+        <div :class="theme.table.children.wrapper.class">
 
-            <table :class="theme.table">
+            <table :class="theme.table.children.wrapper.children.table.class">
                 <thead v-if="showHeader"
-                       :class="theme.thead">
+                       :class="theme.table.children.wrapper.children.table.children.thead.class">
                 <tr is="TableRow"
                     v-if="headings.length">
                     <th is="TableHeading"
@@ -20,7 +20,7 @@
                 <slot name="header" />
                 </thead>
                 <tbody v-if="items.length"
-                       :class="theme.tbody">
+                       :class="theme.table.children.wrapper.children.table.children.thead.body">
                 <tr is="TableRow"
                     v-for="item in items"
                     :key="item.name">
@@ -43,7 +43,7 @@
 
 <script>
     import snakeCase from 'lodash.snakecase';
-    import theme from '../stubs/theme.bak';
+    import theme from '../stubs/theme';
     import TableRow from './TableRow';
     import TableColumn from './TableColumn';
     import TableHeading from './TableHeading';
@@ -70,7 +70,7 @@
 
             theme: {
                 type: Object,
-                default: () => theme.table
+                default: () => theme
             }
         },
 
