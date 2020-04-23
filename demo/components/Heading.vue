@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto px-4">
+    <tw-content class="container mx-auto px-4">
         <tw-heading>The default heading</tw-heading>
 
         <tw-heading>
@@ -51,22 +51,24 @@
         </tw-heading>
 
         <tw-heading variant="h6"
-                    number="5">
+                    number="6">
             A numbered h6 heading
         </tw-heading>
 
         <tw-heading id="h1">
             An anchored heading
         </tw-heading>
-    </div>
+    </tw-content>
 </template>
 
 <script>
     import Heading from '../../src/components/Heading';
+    import Content from '../../src/components/Content';
 
     export default {
         components: {
-            'tw-heading': Heading
+            'tw-heading': Heading,
+            'tw-content': Content
         },
     };
 </script>

@@ -1,5 +1,16 @@
 <!--suppress HtmlUnknownTag, HtmlDeprecatedTag, HtmlFormInputWithoutLabel, HtmlExtraClosingTag -->
 <theme>
+
+    <!-- ----------------------------------------------------------------------
+    | The Alert Component
+    |--------------------------------------------------------------------------
+    |
+    | This component renders an alert. There are five default styles for the
+    | alert component: default, danger, info, warning and success. It can
+    | also display an icon and a button to hide it when it is clicked.
+    |
+    -->
+
     <Alert class="flex items-center border-l-4 rounded p-4 min-h-32 border relative"
            :variants="{
                 default: '',
@@ -23,6 +34,19 @@
         <remaining-duration class="ml-4 italic flex-shrink-0" />
         <dismissButton class="ml-4 flex-shrink-0 font-bold text-xl leading-none cursor-pointer select-none z-10" />
     </Alert>
+
+    <App class="text-gray-700 flex flex-col min-h-screen">
+        <header class="text-center" />
+        <wrapper class="flex flex-col flex-auto mt-16">
+            <banner class="text-center" />
+            <container class="flex flex-col md:flex-row container mx-auto w-full px-4 lg:px-10 pt-4">
+                <left class="w-full md:w-1/4 lg:w-1/4 xl:w-1/6" />
+                <main class="w-full md:w-3/4 lg:w-2/4 xl:w-2/3" />
+                <right class="hidden lg:w-1/4 lg:block xl:w-1/6 flex justify-end text-right" />
+            </container>
+        </wrapper>
+        <footer class="text-center" />
+    </App>
 
     <Badge class="py-1 px-2 text-xs rounded uppercase border-l-4 tracking-wide font-medium border inline-block"
            :variants="{
@@ -55,7 +79,7 @@
         <caption class="mt-2 text-xs uppercase text-gray-500 ml-4" />
     </CodeDemo>
 
-    <Content class="direct-children:mb-4" />
+    <Content class="space-y-6" />
 
     <Heading class="flex items-center"
              :variants="{
@@ -87,8 +111,8 @@
         </wrapper>
     </Navbar>
 
-    <Panel class="text-xl font-medium tracking-wider">
-        <header class="p-4 rounded shadow bg-white" />
+    <Panel class="p-4 rounded shadow bg-white">
+        <header class="text-xl font-medium tracking-wider" />
     </Panel>
 
     <Sidebar />

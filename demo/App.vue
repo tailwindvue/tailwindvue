@@ -23,12 +23,10 @@
                 </div>
             </div>
 
-            <hr class="border-1 border-dotted my-8">
+            <hr class="border-1 border-dotted mt-8 mb-4">
         </div>
 
-        <div id="content">
-            <div :is="component" />
-        </div>
+        <div :is="component" />
     </div>
 </template>
 
@@ -36,6 +34,7 @@
     export default {
         components: {
             Alert: () => import('./components/Alert'),
+            App: () => import('./components/App'),
             Badge: () => import('./components/Badge'),
             Code: () => import('./components/Code'),
             CodeDemo: () => import('./components/CodeDemo'),
@@ -60,6 +59,7 @@
                 component: 'Alert',
                 options: [
                     'Alert',
+                    'App',
                     'Badge',
                     'Code',
                     'CodeDemo',
@@ -117,10 +117,6 @@
 </script>
 
 <style>
-    #content > * > * {
-        margin-bottom: 20px;
-    }
-
     select:-moz-focusring {
         color: transparent;
         text-shadow: 0 0 0 #000;

@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto px-4">
+    <tw-content class="container mx-auto px-4">
         <tw-alert>
             An alert with <strong>other</strong> tags inside
         </tw-alert>
@@ -122,15 +122,17 @@
                   :duration="10">
             An un-rendered alert with a render duration
         </tw-alert>
-    </div>
+    </tw-content>
 </template>
 
 <script>
     import Alert from '../../src/components/Alert';
+    import Content from '../../src/components/Content';
 
     export default {
         components: {
-            'tw-alert': Alert
+            'tw-alert': Alert,
+            'tw-content': Content
         },
 
         data() {

@@ -13,7 +13,7 @@
         </div>
 
         <div class="p-10 bg-green-500">
-            will have margin applied to the bottom
+            will have margin between each item
         </div>
     </tw-content>
 </template>

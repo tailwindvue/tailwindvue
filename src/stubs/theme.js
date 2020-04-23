@@ -38,6 +38,39 @@ module.exports = {
             }
         }
     },
+    'app': {
+        'class': 'text-gray-700 flex flex-col min-h-screen',
+        'children': {
+            'header': {
+                'class': 'text-center'
+            },
+            'wrapper': {
+                'class': 'flex flex-col flex-auto mt-16',
+                'children': {
+                    'banner': {
+                        'class': 'text-center'
+                    },
+                    'container': {
+                        'class': 'flex flex-col md:flex-row container mx-auto w-full px-4 lg:px-10 pt-4',
+                        'children': {
+                            'left': {
+                                'class': 'w-full md:w-1/4 lg:w-1/4 xl:w-1/6'
+                            },
+                            'main': {
+                                'class': 'w-full md:w-3/4 lg:w-2/4 xl:w-2/3'
+                            },
+                            'right': {
+                                'class': 'hidden lg:w-1/4 lg:block xl:w-1/6 flex justify-end text-right'
+                            }
+                        }
+                    }
+                }
+            },
+            'footer': {
+                'class': 'text-center'
+            }
+        }
+    },
     'badge': {
         'class': 'py-1 px-2 text-xs rounded uppercase border-l-4 tracking-wide font-medium border inline-block',
         'variants': {
@@ -102,7 +135,7 @@ module.exports = {
         }
     },
     'content': {
-        'class': 'direct-children:mb-4'
+        'class': 'space-y-6'
     },
     'heading': {
         'class': 'flex items-center',
@@ -161,10 +194,10 @@ module.exports = {
         }
     },
     'panel': {
-        'class': 'text-xl font-medium tracking-wider',
+        'class': 'p-4 rounded shadow bg-white',
         'children': {
             'header': {
-                'class': 'p-4 rounded shadow bg-white'
+                'class': 'text-xl font-medium tracking-wider'
             }
         }
     },

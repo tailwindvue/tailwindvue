@@ -6,7 +6,7 @@ import install from './utilities/install';
 
 // Import Components
 import Alert from 'Components/Alert';
-import App from 'Components/layout/App';
+import App from 'Components/App';
 import Badge from './components/Badge';
 import Code from 'Components/Code';
 import CodeDemo from './components/CodeDemo';
