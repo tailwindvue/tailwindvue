@@ -1,7 +1,6 @@
 import defaultOptions from '../stubs/options';
-import defaultTheme from '../stubs/theme';
+import theme from '../stubs/theme';
 import kebabCase from 'lodash.kebabcase';
-import lowerFirst from 'lodash.lowerfirst';
 import deepmerge from 'deepmerge';
 
 /**
@@ -49,7 +48,7 @@ function props(component) {
     const { props } = component;
 
     props['theme'] = {
-        default: () => defaultTheme[lowerFirst(component.name)]
+        default: () => theme
     };
 
     return props;

@@ -7,23 +7,23 @@ import install from './utilities/install';
 // Import Components
 import Alert from 'Components/Alert';
 import App from 'Components/App';
-import Badge from './components/Badge';
+import Badge from 'Components/Badge';
 import Code from 'Components/Code';
-import CodeDemo from './components/CodeDemo';
-import Content from './components/Content';
+import CodeDemo from 'Components/CodeDemo';
+import Content from 'Components/Content';
 import Heading from 'Components/Heading';
 import Input from 'Components/Input';
 import Link from 'Components/Link';
 import Navbar from 'Components/Navbar';
 import Panel from 'Components/Panel';
 import Sidebar from 'Components/Sidebar';
-import Tab from './components/Tab';
-import TabbedCodeDemo from './components/TabbedCodeDemo';
-import Table from './components/Table';
-import TableColumn from './components/TableColumn';
-import TableHeading from './components/TableHeading';
-import TableRow from './components/TableRow';
-import Tabs from './components/Tabs';
+import Tab from 'Components/Tab';
+import TabbedCodeDemo from 'Components/TabbedCodeDemo';
+import Table from 'Components/Table';
+import TableColumn from 'Components/TableColumn';
+import TableHeading from 'Components/TableHeading';
+import TableRow from 'Components/TableRow';
+import Tabs from 'Components/Tabs';
 
 export const TailwindVueEventBus = new Vue();
 

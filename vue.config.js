@@ -11,6 +11,11 @@ module.exports = {
     },
 
     chainWebpack: config => {
+
+        if (process.env.VUE_CLI_BUILD_TARGET) {
+            return;
+        }
+
         config
             .plugin('html')
             .tap(args => {
