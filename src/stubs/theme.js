@@ -103,7 +103,7 @@ module.exports = {
     'codeDemo': {
         'children': {
             'wrapper': {
-                'class': 'border rounded-lg',
+                'class': 'border rounded',
                 'children': {
                     'demo': {
                         'class': 'm-4'

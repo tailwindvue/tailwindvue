@@ -17,7 +17,7 @@
                 danger: 'text-red-800 border-red-500',
                 info: 'text-blue-800 border-blue-500',
                 warning: 'text-yellow-800 border-yellow-500',
-                success: 'text-green-800 border-green-500',
+                success: 'text-green-800 border-green-500'
             }">
         <progress class="absolute top-0 left-0 h-full w-full">
             <progress-bar class="h-full w-full transition-all duration-1000 ease-linear opacity-50 text-xs"
@@ -74,7 +74,7 @@
                info: 'border-left-blue-100 text-blue-600 border-blue-200',
                warning: 'border-left-yellow-100 text-yellow-600 border-yellow-400',
                danger: 'border-left-red-100 text-red-600 border-red-200',
-               success: 'border-left-green-100 text-green-600 border-green-200',
+               success: 'border-left-green-100 text-green-600 border-green-200'
            }" />
 
     <!-- ----------------------------------------------------------------------
@@ -106,7 +106,7 @@
     -->
 
     <CodeDemo>
-        <wrapper class="border rounded-lg">
+        <wrapper class="border rounded">
             <demo class="m-4" />
             <Code class="relative">
                 <pre class="rounded rounded-t-none">
